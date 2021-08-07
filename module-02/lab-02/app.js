@@ -35,7 +35,7 @@ document.getElementById('img-hotel').src = hotels[selectedHotel].img
 
 let rating = prompt('Cúantas estrellas le das a este hotel: una, dos, tres, cuatro o cinco');
 
-let stars = {
+const stars = {
     una:
     "<span>&#9733;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>",
     dos:
