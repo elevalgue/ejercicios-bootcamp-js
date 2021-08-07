@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.container {
+  background-color: #dbd8d8;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 3px;
+}
+
+.col-50 {
+  flex: 50%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.image {
+  height: 200px;
+  width: 400px;
+}
