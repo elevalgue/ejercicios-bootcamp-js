@@ -64,7 +64,6 @@ console.log(`${getVat(textBook)} euris`);
 
 // 3. CALCULATE NET SALARY ON PAYROLL
 
-
 const employee = {
     grossSalary: 14500,
     children: 2,
@@ -74,11 +73,10 @@ const employee = {
 const salaryRange = {
     firstRange: 12000,
     secondRange: 24000,
-    thirdRage: 34000,
+    thirdRange: 34000,
 };
 
 const childrenDeduction = 2;
-
 
 function getNetYear(employee) {
     let withholding;
@@ -89,16 +87,19 @@ function getNetYear(employee) {
       } else if (employee.grossSalary < salaryRange.secondRange) {
         withholding = 8;
           
-      } else if (employee.grossSalary < salaryRange.thirdRage) {
+      } else if (employee.grossSalary < salaryRange.thirdRange) {
         withholding = 16;
           
       } else {
         withholding = 30; 
   
-      } if (employee.children > 0 && withholding -  childrenDeduction > 0) {
+      } 
+      if (employee.children > 0 && withholding - childrenDeduction > 0) {
         withholding = withholding - childrenDeduction
       }
     
-      console.log(withholding, 'maricarmen');
+      console.log('retención ' + withholding + ' third task');
     return employee.grossSalary - (employee.grossSalary * withholding) / 100;
 }
+
+console.log(`Después de impuestos el sueldo se te queda en ${getNetYear(employee)} euris anuales`);
