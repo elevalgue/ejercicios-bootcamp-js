@@ -62,7 +62,27 @@ console.log(`${getVat(apples)} euris`);
 console.log(`${getVat(textBook)} euris`);
 
 
-// 3. CALCULATE NET ANNUAL SALARY ON PAYROLL
+// 3. CALCULATE TOTAL VAT
+
+function getTotalVat(product) {
+    return product.count > 0 ? product.count * getVat(textBook) : 0;
+  }
+
+  console.log(`El IVA total es de ${getTotalVat(textBook)} euris`);
+
+function printProductPrice(product) {
+    const subtotal = getTotal(product);
+    const vat = getTotalVat(product);
+    const total = subtotal + vat;
+  
+    console.log("Subtotal:", subtotal + "€");
+    console.log("IVA:", vat + "€");
+    console.log("Total:", total + "€");
+}
+
+printProductPrice(textBook);
+
+// 4. CALCULATE NET ANNUAL SALARY ON PAYROLL
 
 const employee = {
     grossSalary: 14500,
@@ -104,9 +124,3 @@ function getNetYear(employee) {
 
 console.log(`Después de impuestos el sueldo se te queda en ${getNetYear(employee)} euris anuales`);
 
-
-// 4. CALCULATE NET MONTHLY SALARY ON PAYROLL
-
-function getNetYear(employee) {
-    
-}
