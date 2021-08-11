@@ -123,4 +123,3 @@ function getNetYear(employee) {
 }
 
 console.log(`Después de impuestos el sueldo se te queda en ${getNetYear(employee)} euris anuales`);
-
