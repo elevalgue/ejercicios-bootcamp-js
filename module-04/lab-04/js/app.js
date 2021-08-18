@@ -1,75 +1,31 @@
-'use strict';
-
-console.log('Are you ready for a good time? :)');
-
-// // set value
-// const inputElement1 = document.querySelector('·js-number1');
-// const inputElement2 = document.querySelector('·js-number2');
-
-// const resultElement = document.querySelector('·js-result');
-// const button = document.querySelector('·js-button'); 
-
-
-// button.addEventListener('click', add);
-// button.addEventListener('click', add);
-
-// // get value
-// const add = function () {
-//     event.preventDefault; 
-//     let number1Value = inputElement1.value;
-
-//     number1Value = parseInt(inputElement1);
-    
-
-//     let number2Value = inputElement2.value;
-
-//     number2Value = parseInt(inputElement2);
-
-
-//     const resultValue = number1Value + number2Value;
-
-//     console.log(resultValue, 'holi');
-
-    // if (isNaN(resultValue)) {
-    //     resultElement.classList.add('error-text')
-    //     resultElement.innerHTML = 'Corrige los datos'; 
-    // } else {
-    //     resultElement.classList.remove('error-text')
-    //     resultElement.innerHTML = resultValue; 
-    // }
-
-}
-
-
-// const add = function () {
-//     let number1Value = inputElement1.value;
-//     console.log('maricarmen', number1Value);
-//     number1Value = parseInt(inputElement1); 
-
-//     let number2Value = inputElement2.value;
-//     console.log('pepino', number2Value);
-//     number2Value = parseInt(inputElement2);
-
-//     const resultValue = number1Value + number2Value
-//     console.log(resultValue, 'holi');
-
-//     // if (isNaN(resultValue)) {
-//     //     resultElement.classList.add('error-text')
-//     //     resultElement.innerHTML = 'Corrige los datos'; 
-//     // } else {
-//     //     resultElement.classList.remove('error-text')
-//     //     resultElement.innerHTML = resultValue; 
-//     // }
-// }
-
-
+'use strict'; 
 
 console.log('A picar como locas!');
 
-const inputNumberA =  () => {
+// SELECTORS
+
+const buttonEl = document.querySelector('#js-btn');
+const resultEl = document.querySelector('#js-result'); 
+
+// 1. Get input value
+const getInputValueA = () => {
     parseInt(document.querySelector('#js-inputNumberA').value)
 }; 
 
-const inputNumberB =  () => {
+const getInputValueB = () => {
     parseInt(document.querySelector('#js-inputNumberB').value)
 }; 
+
+
+// 2. Math operations
+const add = () => { 
+    getInputValueA() + getInputValueB()
+}
+
+
+// 3. Display result
+const RenderAdd = () => resultEl.innerHTML = add();
+
+
+// LISTENERS
+buttonEl.addEventListener('click', RenderAdd); 
