@@ -2,33 +2,33 @@
 
 console.log('Are you ready for a good time? :)');
 
-// set value
-const inputElement1 = document.querySelector('·js-number1');
-const inputElement2 = document.querySelector('·js-number2');
+// // set value
+// const inputElement1 = document.querySelector('·js-number1');
+// const inputElement2 = document.querySelector('·js-number2');
 
-const resultElement = document.querySelector('·js-result');
-const button = document.querySelector('·js-button'); 
+// const resultElement = document.querySelector('·js-result');
+// const button = document.querySelector('·js-button'); 
 
 
-button.addEventListener('click', add);
-button.addEventListener('click', add);
+// button.addEventListener('click', add);
+// button.addEventListener('click', add);
 
-// get value
-const add = function () {
-    event.preventDefault; 
-    let number1Value = inputElement1.value;
+// // get value
+// const add = function () {
+//     event.preventDefault; 
+//     let number1Value = inputElement1.value;
 
-    number1Value = parseInt(inputElement1);
+//     number1Value = parseInt(inputElement1);
     
 
-    let number2Value = inputElement2.value;
+//     let number2Value = inputElement2.value;
 
-    number2Value = parseInt(inputElement2);
+//     number2Value = parseInt(inputElement2);
 
 
-    const resultValue = number1Value + number2Value;
+//     const resultValue = number1Value + number2Value;
 
-    console.log(resultValue, 'holi');
+//     console.log(resultValue, 'holi');
 
     // if (isNaN(resultValue)) {
     //     resultElement.classList.add('error-text')
@@ -63,3 +63,13 @@ const add = function () {
 // }
 
 
+
+console.log('A picar como locas!');
+
+const inputNumberA =  () => {
+    parseInt(document.querySelector('#js-inputNumberA').value)
+}; 
+
+const inputNumberB =  () => {
+    parseInt(document.querySelector('#js-inputNumberB').value)
+}; 
