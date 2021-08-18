@@ -4,8 +4,8 @@ console.log('A picar como locas!');
 
 // SELECTORS
 
-const buttonEl = document.querySelector('#js-btn');
-const resultEl = document.querySelector('#js-result'); 
+const resultEl = document.querySelector('p'); 
+const buttonEl = document.querySelector('#js-prueba');
 
 // 1. Get input value
 const getInputValueA = () => {
@@ -16,7 +16,6 @@ const getInputValueB = () => {
     parseInt(document.querySelector('#js-inputNumberB').value)
 }; 
 
-
 // 2. Math operations
 const add = () => { 
     getInputValueA() + getInputValueB()
@@ -24,7 +23,10 @@ const add = () => {
 
 
 // 3. Display result
-const RenderAdd = () => resultEl.innerHTML = add();
+const RenderAdd = function () {
+    console.log(resultEl.innerHTML = add());
+    resultEl.innerHTML = add();
+} 
 
 
 // LISTENERS
