@@ -5,7 +5,10 @@ console.log('A picar como locas!');
 // SELECTORS
 
 const resultEl = document.querySelector('p'); 
-const buttonEl = document.querySelector('#js-prueba');
+const buttonAdd = document.querySelector('#js-add');
+const buttonAdd = document.querySelector('#js-substract');
+const buttonAdd = document.querySelector('#js-multiply');
+const buttonAdd = document.querySelector('#js-divide');
 
 const inputValueA = document.querySelector('#js-inputNumberA').value; 
 const inputValueB = document.querySelector('#js-inputNumberB').value; 
