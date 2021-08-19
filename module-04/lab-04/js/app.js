@@ -3,9 +3,7 @@
 console.log('A picar como locas!');
 
 // SELECTORS
-
 const resultEl = document.querySelector('p');
-
 const buttonAdd = document.querySelector('#js-add');
 const buttonSubst = document.querySelector('#js-substract');
 const buttonMult = document.querySelector('#js-multiply');
@@ -53,11 +51,29 @@ const RenderAdd = function () {
 
 
 // 4. Display Errors
+// function renderError() {
+//     if (inputValueA === '' || inputValueB === '') {
+//         console.log('maricarmen');
+//         resultEl.innerHTML = 'Los campos no pueden quedar vacíos';
+//     } else {
+//         RenderAdd();
+//         console.log('pepino');
+        
+//     }
+// }
+
 function renderError() {
-    if (inputValueA === '' && inputValueB === '') {
-        resultEl.innerHTML = 'Los campos no pueden quedar vacíos'; 
+    if ( isNaN(getInputValueB()) || isNaN(getInputValueB())) {
+        console.log('maricarmen');
+        resultEl.innerHTML = 'Los campos no pueden quedar vacíos';
+    } else {
+        RenderAdd();
+        console.log('pepino');
+        
     }
 }
+
+
 
 // LISTENERS
 buttonAdd.addEventListener('click', RenderAdd);
