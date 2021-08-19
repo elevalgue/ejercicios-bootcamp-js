@@ -51,16 +51,6 @@ const RenderAdd = function () {
 
 
 // 4. Display Errors
-// function renderError() {
-//     if (inputValueA === '' || inputValueB === '') {
-//         console.log('maricarmen');
-//         resultEl.innerHTML = 'Los campos no pueden quedar vacíos';
-//     } else {
-//         RenderAdd();
-//         console.log('pepino');
-        
-//     }
-// }
 
 function renderError() {
     if ( isNaN(getInputValueB()) || isNaN(getInputValueB())) {
