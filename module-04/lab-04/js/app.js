@@ -40,7 +40,7 @@ const add = () => {
 // Divide
 
 // 3. Display results
-const RenderAdd = function () {
+const RenderAdd = () => {
     console.log(resultEl.innerHTML = add());
     resultEl.innerHTML = add();
 }
@@ -52,18 +52,15 @@ const RenderAdd = function () {
 
 // 4. Display Errors
 
-function renderError() {
+const renderError = () => {
     if ( isNaN(getInputValueB()) || isNaN(getInputValueB())) {
         console.log('maricarmen');
         resultEl.innerHTML = 'Los campos no pueden quedar vacíos';
     } else {
         RenderAdd();
         console.log('pepino');
-        
     }
 }
-
-
 
 // LISTENERS
 buttonAdd.addEventListener('click', RenderAdd);
