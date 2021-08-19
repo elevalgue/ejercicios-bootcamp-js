@@ -37,11 +37,20 @@ const add = () => {
     getInputValueA() + getInputValueB()
 }
 
-// 3. Display result
+// Substract
+// Multiply
+// Divide
+
+// 3. Display results
 const RenderAdd = function () {
     console.log(resultEl.innerHTML = add());
     resultEl.innerHTML = add();
 }
+
+// Substract
+// Multiply
+// Divide
+
 
 // 4. Display Errors
 function renderError() {
