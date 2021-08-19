@@ -7,13 +7,25 @@ console.log('A picar como locas!');
 const resultEl = document.querySelector('p'); 
 const buttonEl = document.querySelector('#js-prueba');
 
+const inputValueA = document.querySelector('#js-inputNumberA').value; 
+const inputValueB = document.querySelector('#js-inputNumberB').value; 
+
 // 1. Get input value
+// const getInputValueA = () => {
+//     parseInt(document.querySelector('#js-inputNumberA').value)
+// };
+
 const getInputValueA = () => {
-    parseInt(document.querySelector('#js-inputNumberA').value)
+    parseInt(inputValueA); 
 }; 
 
+
+// const getInputValueB = () => {
+//     parseInt(document.querySelector('#js-inputNumberB').value)
+// };
+
 const getInputValueB = () => {
-    parseInt(document.querySelector('#js-inputNumberB').value)
+    parseInt(inputValueB )
 }; 
 
 // 2. Math operations
@@ -21,13 +33,20 @@ const add = () => {
     getInputValueA() + getInputValueB()
 }
 
-
 // 3. Display result
 const RenderAdd = function () {
     console.log(resultEl.innerHTML = add());
     resultEl.innerHTML = add();
-} 
+}
 
+// 4. Display Errors
+
+function renderError() {
+    if (inputValueA === '' && inputValueB === '') {
+        resultEl.innerHTML = 'Los campos no pueden quedar vacíos'; 
+    }
+}
 
 // LISTENERS
-buttonEl.addEventListener('click', RenderAdd); 
+buttonEl.addEventListener('click', RenderAdd);
+buttonEl.addEventListener('click', renderError);
