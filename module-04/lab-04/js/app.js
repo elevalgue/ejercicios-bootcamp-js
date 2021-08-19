@@ -40,7 +40,7 @@ const add = () => {
 // Divide
 
 // 3. Display results
-const RenderAdd = () => {
+const renderAdd = () => {
     console.log(resultEl.innerHTML = add());
     resultEl.innerHTML = add();
 }
@@ -57,11 +57,11 @@ const renderError = () => {
         console.log('maricarmen');
         resultEl.innerHTML = 'Los campos no pueden quedar vacíos';
     } else {
-        RenderAdd();
+        renderAdd();
         console.log('pepino');
     }
 }
 
 // LISTENERS
-buttonAdd.addEventListener('click', RenderAdd);
+buttonAdd.addEventListener('click', renderAdd);
 buttonAdd.addEventListener('click', renderError);
