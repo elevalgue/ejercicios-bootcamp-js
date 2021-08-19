@@ -4,32 +4,33 @@ console.log('A picar como locas!');
 
 // SELECTORS
 
-const resultEl = document.querySelector('p'); 
-const buttonAdd = document.querySelector('#js-add');
-const buttonAdd = document.querySelector('#js-substract');
-const buttonAdd = document.querySelector('#js-multiply');
-const buttonAdd = document.querySelector('#js-divide');
+const resultEl = document.querySelector('p');
 
-const inputValueA = document.querySelector('#js-inputNumberA').value; 
-const inputValueB = document.querySelector('#js-inputNumberB').value; 
+const buttonAdd = document.querySelector('#js-add');
+const buttonSubst = document.querySelector('#js-substract');
+const buttonMult = document.querySelector('#js-multiply');
+const buttonDiv = document.querySelector('#js-divide');
+
+// const inputValueA = document.querySelector('#js-inputNumberA').value; 
+// const inputValueB = document.querySelector('#js-inputNumberB').value; 
 
 // 1. Get input value
-// const getInputValueA = () => {
-//     parseInt(document.querySelector('#js-inputNumberA').value)
-// };
-
 const getInputValueA = () => {
-    parseInt(inputValueA); 
-}; 
+    parseInt(document.querySelector('#js-inputNumberA').value)
+};
 
+// const getInputValueA = () => {
+//     parseInt(inputValueA); 
+// }; 
 
-// const getInputValueB = () => {
-//     parseInt(document.querySelector('#js-inputNumberB').value)
-// };
 
 const getInputValueB = () => {
-    parseInt(inputValueB )
-}; 
+    parseInt(document.querySelector('#js-inputNumberB').value)
+};
+
+// const getInputValueB = () => {
+//     parseInt(inputValueB )
+// }; 
 
 // 2. Math operations
 const add = () => { 
@@ -43,7 +44,6 @@ const RenderAdd = function () {
 }
 
 // 4. Display Errors
-
 function renderError() {
     if (inputValueA === '' && inputValueB === '') {
         resultEl.innerHTML = 'Los campos no pueden quedar vacíos'; 
@@ -51,5 +51,5 @@ function renderError() {
 }
 
 // LISTENERS
-buttonEl.addEventListener('click', RenderAdd);
-buttonEl.addEventListener('click', renderError);
+buttonAdd.addEventListener('click', RenderAdd);
+buttonAdd.addEventListener('click', renderError);
