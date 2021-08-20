@@ -9,59 +9,42 @@ const buttonSubst = document.querySelector('#js-substract');
 const buttonMult = document.querySelector('#js-multiply');
 const buttonDiv = document.querySelector('#js-divide');
 
-// const inputValueA = document.querySelector('#js-inputNumberA').value; 
-// const inputValueB = document.querySelector('#js-inputNumberB').value; 
-
 // 1. Get input value
-const getInputValueA = () => {
-    parseInt(document.querySelector('#js-inputNumberA').value)
-};
-
-// const getInputValueA = () => {
-//     parseInt(inputValueA); 
-// }; 
-
-
-const getInputValueB = () => {
-    parseInt(document.querySelector('#js-inputNumberB').value)
-};
-
-// const getInputValueB = () => {
-//     parseInt(inputValueB )
-// }; 
+const getInputValueA = () => parseInt(document.querySelector('#js-inputNumberA').value);
+const getInputValueB = () => parseInt(document.querySelector('#js-inputNumberB').value)
 
 // 2. Math operations
-const add = () => { 
-    getInputValueA() + getInputValueB()
-}
-
-// Substract
-// Multiply
-// Divide
+const add = () => getInputValueA() + getInputValueB();
+const substract = () => getInputValueA() - getInputValueB();
+const multiply = () => getInputValueA() * getInputValueB();
+const divide = () => getInputValueA() / getInputValueB();
 
 // 3. Display results
-const renderAdd = () => {
-    console.log(resultEl.innerHTML = add());
-    resultEl.innerHTML = add();
-}
-
-// Substract
-// Multiply
-// Divide
-
+const renderAdd = () => resultEl.innerHTML = add();
+const renderSubst = () => resultEl.innerHTML = substract();
+const renderMult = () => resultEl.innerHTML = multiply();
+const renderDiv = () => resultEl.innerHTML = divide();
 
 // 4. Display Errors
-
 const renderError = () => {
     if ( isNaN(getInputValueB()) || isNaN(getInputValueB())) {
         console.log('maricarmen');
-        resultEl.innerHTML = 'Los campos no pueden quedar vacíos';
+        resultEl.innerHTML = 'Introduzca un número válido en cada campo';
     } else {
         renderAdd();
-        console.log('pepino');
+        renderSubst();
+        renderMult();
+        renderDiv();
     }
 }
 
 // LISTENERS
 buttonAdd.addEventListener('click', renderAdd);
+buttonSubst.addEventListener('click', renderSubst);
+buttonMult.addEventListener('click', renderMult);
+buttonDiv.addEventListener('click', renderDiv);
+
 buttonAdd.addEventListener('click', renderError);
+buttonSubst.addEventListener('click', renderError);
+buttonMult.addEventListener('click', renderError);
+buttonDiv.addEventListener('click', renderError);
