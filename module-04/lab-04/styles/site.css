@@ -1,41 +1,35 @@
-html {
-  box-sizing: border-box;
+:root {
+  --color-main: #3d348b;
+  --color-secondary: #ee4266;
 }
 
-:root {
-  --color-main: #335c67;
-  --color-secondary: #fff3b0;
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
+  min-height: 600px;
   font-family: 'Roboto', sans-serif;
-  background-color: #17bebb;
+  background-color: var(--color-main);
   margin: 0;
   width: 100%;
-  /* margin: auto; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 }
-
-/* .wrapper {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   text-transform: capitalize;
   font-weight: 400;
-  color: #e4572e;
-  border: 1px solid #e4572e;
+  color: var(--color-secondary);
+  border: 1px double var(--color-secondary);
   padding: 15px;
+  font-size: 16px;
 }
 
 .container {
@@ -55,10 +49,10 @@ h1 {
 
 input {
   width: 300px;
-  border: 1px solid #e4572e;
-  background-color: #17bebb;
+  border: 1px double var(--color-secondary);
+  background-color: var(--color-main);
   height: 25px;
-  /* width: 250px; */
+  width: 350px;
 }
 
 .input1 {
@@ -67,7 +61,8 @@ input {
 
 label {
   margin-bottom: 5px;
-  color: #e4572e;
+  color: var(--color-secondary);
+  font-size: 16px;
 }
 
 .container-operations {
@@ -80,20 +75,21 @@ label {
 
 button {
   border-radius: 3px;
-  border: 1px solid #e4572e;
+  border: 1px double var(--color-secondary);
   cursor: pointer;
-  color: #e4572e;
-  background-color: #17bebb;
+  color: var(--color-secondary);
+  background-color: var(--color-main);
 }
 
 h2 {
-  color: #e4572e;
-  border: 1px solid #e4572e;
+  color: var(--color-secondary);
+  border: 1px double var(--color-secondary);
   padding: 15px;
+  font-size: 16px;
 }
 
 .result {
-  color: #e4572e;
+  color: var(--color-secondary);
 }
 
 .container-result {
