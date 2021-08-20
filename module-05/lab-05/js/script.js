@@ -47,4 +47,16 @@ function displayCart(product) {
     console.log('Precio:  ' + product.price);
     console.log('Cantidad:  ' + product.count);
     console.log('Es premium:  ' + product.premium);
-} 
+}
+
+// 3. Eliminar el producto con id 54657 del carrito de la compra
+let index = 0; 
+
+for (let index = 0; index < cart.length; index++) {
+    let cartId = cart[index].id;
+    if (cartId === 54657) {
+        cart.splice(index, 1);
+    }
+}
+
+console.log(cart, 'tras splice');
