@@ -11,6 +11,11 @@ body {
   background-color: #17bebb;
   margin: 0;
   width: 100%;
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .wrapper {
@@ -29,7 +34,7 @@ h1 {
   font-weight: 400;
   color: #e4572e;
   border: 1px solid #e4572e;
-
+  padding: 15px;
 }
 
 .container {
@@ -58,6 +63,7 @@ input {
 .input1 {
   margin-bottom: 15px;
 }
+
 label {
   margin-bottom: 5px;
   color: #e4572e;
@@ -81,8 +87,17 @@ button {
 
 h2 {
   color: #e4572e;
+  border: 1px solid #e4572e;
+  padding: 15px;
 }
 
 .result {
   color: #e4572e;
+}
+
+.container-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
