@@ -66,23 +66,8 @@ console.log(cart, 'tras splice');
 let finalPrice = 0; 
 
 for (const product of cart) {
-    // const productPrice = product.price * product.count;
-    finalPrice += product.price * product.count; 
+    const productPrice = product.price * product.count;
+    finalPrice += productPrice; 
 }
 
 console.log('El precio total del carrito de la compra asciende a ' + finalPrice + ' euris');
-console.log('El precio total del carrito de la compra asciende a ' + finalPrice + ' euris');
-console.log(Math.round(finalPrice), 'se ha redondeado el número?');
-// let total = 0;
-// for (reserva of bookings) {
-//     total += reserva.price * reserva.count; 
-// }
-
-// console.log('Total: ' + total + ' euris');
-
-// function imprimir(booking) {
-//     console.log('---------------');
-//     for ( attr in booking) {
-//         console.log(attr.toUpperCase() + ': ' + booking[attr])
-//     }
-// }
