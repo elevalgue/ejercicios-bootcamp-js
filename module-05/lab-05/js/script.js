@@ -61,8 +61,7 @@ for (let index = 0; index < cart.length; index++) {
 
 console.log(cart, 'tras splice');
 
-// Calcular el total del carrito de la compra (el coste de una línea es precio * cantidad)
-
+// 4. Calcular el total del carrito de la compra (el coste de una línea es precio * cantidad)
 let finalPrice = 0; 
 
 for (const product of cart) {
@@ -71,3 +70,12 @@ for (const product of cart) {
 }
 
 console.log('El precio total del carrito de la compra asciende a ' + finalPrice + ' euris');
+
+// 5. Filtrar por los productos que sean prime
+
+// let premium = true; 
+for (const product of cart) {
+    product.premium
+    console.log('---------------------');
+    console.log(' Estos son los productos premium: ' + product.name);
+}
