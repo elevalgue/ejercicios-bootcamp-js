@@ -3,7 +3,7 @@
 console.log('A picar como locas!');
 
 // SELECTORS
-const resultEl = document.querySelector('p');
+const resultEl = document.querySelector('span');
 const buttonAdd = document.querySelector('#js-add');
 const buttonSubst = document.querySelector('#js-substract');
 const buttonMult = document.querySelector('#js-multiply');
