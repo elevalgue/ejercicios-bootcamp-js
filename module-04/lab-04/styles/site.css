@@ -1,5 +1,5 @@
 :root {
-  --color-main: #3d348b;
+  --color-main: #36eee0;
   --color-secondary: #f55074;
 }
 
@@ -9,10 +9,13 @@ html {
 }
 
 body {
+  width: auto%;
+}
+/* 
+body {
   min-height: 600px;
   font-family: 'Roboto', sans-serif;
   background-color: var(--color-main);
-  /* background: linear-gradient(to bottom right, rgb(99, 3, 163), white); */
   margin: 0;
   width: 100%;
   display: flex;
@@ -22,21 +25,12 @@ body {
   font-size: 16px;
 }
 
-/* .super-container {
-  width: 425px;
-  height: 653px;
-  background-color: turquoise;
-  border-radius: 6px;
-  margin-top: 30px;
-} */
-
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   text-transform: capitalize;
   font-weight: 400;
   color: var(--color-secondary);
-  /* border: 1px double var(--color-secondary); */
   padding: 15px;
   font-size: 20px;
   margin-top: 50px;
@@ -97,7 +91,6 @@ button {
 
 h2 {
   color: var(--color-secondary);
-  /* border: 1px double var(--color-secondary); */
   padding: 15px;
   font-size: 16px;
 }
@@ -115,4 +108,61 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+} */
+
+.container-main {
+  width: 75%;
+  border: 1px solid var(--color-secondary);
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-result {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  width: 80%;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result {
+  padding: 15px;
+  background-color: var(--color-main);
+  text-align: center;
+  width: auto;
+  border: 1px solid red;
+}
+
+.container-button {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  /* text-align: center; */
+}
+
+.button {
+  border: 1px solid red;
+  margin: auto;
+  width: 20%;
 }
