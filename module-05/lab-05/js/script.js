@@ -132,14 +132,14 @@ function displayPremiumOrNot() {
 // 8. Aplicar un descuento del 5% si la compra es mayor de 100 €.
 let total = 0;
 
-// function applyDiscount() {
-for (const product of cart)
-{
+function applyDiscount(cart) {
+for (const product of cart) {
         total += total.count * total.price
         if (total > 100) {
             let discount = total * 0.05;
             total = total - discount;
         }
-    }
+}
+    
     console.log('El total a pagar asciende a ' + total + ' euris');
-// }
+}
