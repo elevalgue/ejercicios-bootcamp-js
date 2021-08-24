@@ -104,14 +104,69 @@ function displayPremiumOrNot() {
 
 
 // 7. Mostrar el carrito en un listado de html básico
-function displayCartList() {
-    bodyEl = document.querySelector('body');
-    for (const product of cart) {
+// let bodyEl = document.querySelector('body');
 
-        bodyEl.innerHTML = `
-        <ul>
-            <li>Producto: ${product.name}</li>
-        </ul>`
-        
+// const displayCartList = () => {
+    let codeHTML = ''; 
+    for ( const product of cart) {
+
+        codeHTML += `<div>`;
+        codeHTML += `<ul>`;
+        codeHTML += `<li>Nombre: ${product.name}</li>`;
+        codeHTML += `<p>Id: ${product.id}</p>`;
+        codeHTML += `<span>----------------</span>`;
+        codeHTML += `<p>Precio: ${product.price}</p>`;
+        codeHTML += `<span>----------------</span>`;
+        codeHTML += `<p>Cantidad: ${product.count}</p>`;
+        codeHTML += `<span>----------------</span>`;
+        codeHTML += `<p>Premium: ${product.premium}</p>`;
+        codeHTML += `<span>.........................................</span>`;
+        codeHTML += `</ul>`;
+        codeHTML += `</div>`;
     }
-}
+
+    let bodyEl = document.querySelector('body');
+    bodyEl.innerHTML = codeHTML;
+// }
+
+// const paintProducts = () => {
+//     let codeHTML = '';
+//     for (let index = 0; index < products.length; index += 1) {
+//       codeHTML += `<article class="card">`;
+//       codeHTML += `<img src="${products[index].imageUrl}" class="card__img" alt="Camiseta de ${products[index].name}" />`;
+//       codeHTML += `<h3 class="card__title">${products[index].name}</h3>`;
+//       codeHTML += `<p class="card__description">${products[index].price} €</p>`;
+//       codeHTML += `<button class="card__btn js-product-inc"
+//         id="${products[index].id}"
+//         data-index="${index}"
+//         data-id="${products[index].id}"
+//       >Añadir a la cesta</button>`;
+//       codeHTML += `</article>`;
+//     }
+//     const cardsElement = document.querySelector('.js-cards');
+//     cardsElement.innerHTML = codeHTML;
+//     listenProductsClicks();
+//   };
+  
+//   // cart
+  
+//   const paintCart = () => {
+//     let codeHTML = '';
+//     console.log(cart);
+//     for (let index = 0; index < cart.length; index += 1) {
+//       codeHTML += `<tr>`;
+//       codeHTML += `<td>${cart[index].name}</td>`;
+//       codeHTML += `<td>${cart[index].price}</td>`;
+//       codeHTML += `<td>`;
+//       codeHTML += `<button class="card__btn js-cart-decrement" id="${cart[index].id}">-</button>`;
+//       codeHTML += ` ${cart[index].quantity} `;
+//       codeHTML += `<button class="card__btn js-cart-increment" id="${cart[index].id}">+</button>`;
+//       codeHTML += `</td>`;
+//       codeHTML += `<td class="text-align-right">${cart[index].price * cart[index].quantity}€</td>`;
+//       codeHTML += `</tr>`;
+//     }
+//     codeHTML += getCartTotalHtmlCode();
+//     const cartsElement = document.querySelector('.js-cart');
+//     cartsElement.innerHTML = codeHTML;
+//     listenCartClicks();
+//   };
