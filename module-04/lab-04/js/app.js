@@ -24,6 +24,7 @@ const renderAdd = () => resultEl.innerHTML = add();
 const renderSubst = () => resultEl.innerHTML = substract();
 const renderMult = () => resultEl.innerHTML = multiply();
 const renderDiv = () => resultEl.innerHTML = divide();
+const renderClear = () => resultEl.innerHTML = clear();
 
 // 4. Display Errors
 const renderError = () => {
@@ -37,11 +38,19 @@ const renderError = () => {
         renderDiv();
     }
 }
+// 5. Clear
+const clear = () => {
+    document.querySelector('#js-inputNumberA').value = ''; 
+    document.querySelector('#js-inputNumberB').value = '';
+    renderClear(); 
+}
 
 // LISTENERS
 buttonAdd.addEventListener('click', renderAdd);
 buttonSubst.addEventListener('click', renderSubst);
 buttonMult.addEventListener('click', renderMult);
+buttonDiv.addEventListener('click', renderDiv);
+
 buttonDiv.addEventListener('click', renderDiv);
 
 buttonAdd.addEventListener('click', renderError);
