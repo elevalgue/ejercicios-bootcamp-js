@@ -257,11 +257,6 @@ console.log('/------------------------------------------------------------------
 
 // Ejercicio 9
 
-// const adults = people.filter((person) => {
-//     if (person.age >= 18) {
-//         return person;
-//     }
-// });
 
 const hotelArray = [
     {
@@ -296,54 +291,3 @@ const hotelArray = [
     },
 ]
 
-// for (let i = 0; i < arrayHotel.length; i++) {
-//     if (arrayHotel.availableRooms < 10) {
-//         arrayHotel.price = arrayHotel.price + extra
-//     }
-//     console.log(arrayHotel.availableRooms, 'pinto las habitaciones disponibles');
-// }
-
-// console.log(arrayHotel, '¿He incrementado el precio en 10 euros?');
-
-for (const hotel of hotelArray) {
-    if (hotel.availableRooms < 10) {
-        hotel.price = hotel.price + 10
-        
-    }
-    
-    console.log(hotel.availableRooms, 'pinto las habitaciones disponibles');
-    displayHotelArray(hotelArray[i]);
-}
-
-function displayHotelArray(hotel) {
-    console.log('---------------');
-    for (attr in hotel) {
-       
-        console.log('Hotel id: ' + hotel.hoteId);
-        console.log('Hotel name: ' + hotel.hotelName);
-        console.log('Available rooms: ' + hotel.availableRooms);
-    }
-    console.log('Price: ' + hotel.price);
-    
-}
-
-// let total = 0;
-// let descuento = 0.9
-// for (reserva of bookings) {
-//     reserva.price = reserva.price * descuento
-//     imprimir(reserva);
-// }
-
-
-// reserva = hotel
-// bookiings = arrayHotel
-
-
-// function imprimir(booking) {
-//     console.log('---------------');
-//     for ( attr in booking) {
-//         console.log(attr.toUpperCase() + ': ' + booking[attr])
-//     }
-// }
-
-// booking = hotel

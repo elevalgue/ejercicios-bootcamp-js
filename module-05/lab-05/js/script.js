@@ -87,3 +87,18 @@ for (const product of cart) {
  */
 
 // 6.Si todos los productos son prime mostrar un mensaje "Pedido sin gastos de envío", si no "Este pedidoiene gastos de envío".
+
+function displayPremiumOrNot() {
+    let premium = true;
+    for (const product of cart) {
+        premium = premium && product.premium;
+    }
+    return !premium;
+}
+
+    if (displayPremiumOrNot()) {
+        console.log('Pedido sin gastos de envío');
+    } else {
+        console.log('Este pedidoiene gastos de envío');
+
+    }
