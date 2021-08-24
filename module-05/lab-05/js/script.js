@@ -79,7 +79,7 @@ console.log('El precio total del carrito de la compra asciende a ' + finalPrice 
 for (const product of cart) {
     if (product.premium) {
         console.log('---------------------');
-        console.log(' Estos son los productos premium: ' + product.name);
+        console.log('Estos son los productos premium: ' + product.name);
     } 
 }
 
@@ -96,77 +96,50 @@ function displayPremiumOrNot() {
     return !premium;
 }
 
-    if (displayPremiumOrNot()) {
-        console.log('Pedido sin gastos de envío');
-    } else {
-        console.log('Este pedidoiene gastos de envío');
-    }
+    // if (displayPremiumOrNot()) {
+    //     console.log('Pedido sin gastos de envío');
+    // } else {
+    //     console.log('Este pedidoiene gastos de envío');
+    // }
 
+ displayPremiumOrNot() ?  console.log('Pedido sin gastos de envío') : console.log('Este pedidoiene gastos de envío');
 
 // 7. Mostrar el carrito en un listado de html básico
-// let bodyEl = document.querySelector('body');
-
 // const displayCartList = () => {
+    let bodyEl = document.querySelector('body');
     let codeHTML = ''; 
+    
     for ( const product of cart) {
-
+        
         codeHTML += `<div>`;
         codeHTML += `<ul>`;
         codeHTML += `<li>Nombre: ${product.name}</li>`;
         codeHTML += `<p>Id: ${product.id}</p>`;
-        codeHTML += `<span>----------------</span>`;
+        codeHTML += `<span>--------------------</span>`;
         codeHTML += `<p>Precio: ${product.price}</p>`;
-        codeHTML += `<span>----------------</span>`;
+        codeHTML += `<span>--------------------</span>`;
         codeHTML += `<p>Cantidad: ${product.count}</p>`;
-        codeHTML += `<span>----------------</span>`;
+        codeHTML += `<span>--------------------</span>`;
         codeHTML += `<p>Premium: ${product.premium}</p>`;
-        codeHTML += `<span>.........................................</span>`;
+        codeHTML += `<span>==============================</span>`;
         codeHTML += `</ul>`;
         codeHTML += `</div>`;
     }
-
-    let bodyEl = document.querySelector('body');
+    
     bodyEl.innerHTML = codeHTML;
 // }
 
-// const paintProducts = () => {
-//     let codeHTML = '';
-//     for (let index = 0; index < products.length; index += 1) {
-//       codeHTML += `<article class="card">`;
-//       codeHTML += `<img src="${products[index].imageUrl}" class="card__img" alt="Camiseta de ${products[index].name}" />`;
-//       codeHTML += `<h3 class="card__title">${products[index].name}</h3>`;
-//       codeHTML += `<p class="card__description">${products[index].price} €</p>`;
-//       codeHTML += `<button class="card__btn js-product-inc"
-//         id="${products[index].id}"
-//         data-index="${index}"
-//         data-id="${products[index].id}"
-//       >Añadir a la cesta</button>`;
-//       codeHTML += `</article>`;
-//     }
-//     const cardsElement = document.querySelector('.js-cards');
-//     cardsElement.innerHTML = codeHTML;
-//     listenProductsClicks();
-//   };
-  
-//   // cart
-  
-//   const paintCart = () => {
-//     let codeHTML = '';
-//     console.log(cart);
-//     for (let index = 0; index < cart.length; index += 1) {
-//       codeHTML += `<tr>`;
-//       codeHTML += `<td>${cart[index].name}</td>`;
-//       codeHTML += `<td>${cart[index].price}</td>`;
-//       codeHTML += `<td>`;
-//       codeHTML += `<button class="card__btn js-cart-decrement" id="${cart[index].id}">-</button>`;
-//       codeHTML += ` ${cart[index].quantity} `;
-//       codeHTML += `<button class="card__btn js-cart-increment" id="${cart[index].id}">+</button>`;
-//       codeHTML += `</td>`;
-//       codeHTML += `<td class="text-align-right">${cart[index].price * cart[index].quantity}€</td>`;
-//       codeHTML += `</tr>`;
-//     }
-//     codeHTML += getCartTotalHtmlCode();
-//     const cartsElement = document.querySelector('.js-cart');
-//     cartsElement.innerHTML = codeHTML;
-//     listenCartClicks();
-//   };
+// 8. Aplicar un descuento del 5% si la compra es mayor de 100 €.
+let total = 0;
+
+// function applyDiscount() {
+for (const product of cart)
+{
+        total += total.count * total.price
+        if (total > 100) {
+            let discount = total * 0.05;
+            total = total - discount;
+        }
+    }
+    console.log('El total a pagar asciende a ' + total + ' euris');
+// }
