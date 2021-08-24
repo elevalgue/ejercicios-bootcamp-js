@@ -77,17 +77,17 @@ console.log('El precio total del carrito de la compra asciende a ' + finalPrice 
 
 // 5. Filtrar por los productos que sean prime
 for (const product of cart) {
-    product.premium
-    console.log('---------------------');
-    console.log(' Estos son los productos premium: ' + product.name);
+    if (product.premium) {
+        console.log('---------------------');
+        console.log(' Estos son los productos premium: ' + product.name);
+    } 
 }
 
 /**
  * O P T I O N A L 
  */
 
-// 6.Si todos los productos son prime mostrar un mensaje "Pedido sin gastos de envío", si no "Este pedidoiene gastos de envío".
-
+// 6. Si todos los productos son prime mostrar un mensaje "Pedido sin gastos de envío", si no "Este pedidoiene gastos de envío".
 function displayPremiumOrNot() {
     let premium = true;
     for (const product of cart) {
@@ -100,5 +100,18 @@ function displayPremiumOrNot() {
         console.log('Pedido sin gastos de envío');
     } else {
         console.log('Este pedidoiene gastos de envío');
-
     }
+
+
+// 7. Mostrar el carrito en un listado de html básico
+function displayCartList() {
+    bodyEl = document.querySelector('body');
+    for (const product of cart) {
+
+        bodyEl.innerHTML = `
+        <ul>
+            <li>Producto: ${product.name}</li>
+        </ul>`
+        
+    }
+}
