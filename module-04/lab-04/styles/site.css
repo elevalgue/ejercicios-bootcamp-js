@@ -160,7 +160,7 @@ input {
   border: none;
   background-color: var(--color-main);
   color: var(--color-secondary);
-  height: 2%;
+  padding: 10px 0;
 }
 
 ::placeholder {
