@@ -30,9 +30,6 @@ const substract = () => {
 }
 
 const multiply = () => {
-    console.log(document.querySelector('#js-inputNumberA').value);
-    console.log(document.querySelector('#js-inputNumberB').value);
-
     if (Boolean(getInputValueA()) && Boolean(getInputValueB())) {
         return getInputValueA() * getInputValueB() ;  
     } else {
@@ -41,9 +38,6 @@ const multiply = () => {
 }
 
 const divide = () => {
-    console.log(document.querySelector('#js-inputNumberA').value);
-    console.log(document.querySelector('#js-inputNumberB').value);
-
     if (Boolean(getInputValueA()) && Boolean(getInputValueB())) {
         return getInputValueA() / getInputValueB() ;  
     } else {
@@ -58,7 +52,7 @@ const renderMult = () => resultEl.innerHTML = multiply();
 const renderDiv = () => resultEl.innerHTML = divide();
 const renderClear = () => resultEl.innerHTML = clear();
 
-// 5. Clear
+// 4. Clear
 const clear = () => {
     document.querySelector('#js-inputNumberA').value = ''; 
     document.querySelector('#js-inputNumberB').value = '';
