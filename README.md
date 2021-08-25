@@ -1,9 +1,9 @@
 __Ejercicios Bootcamp JS__
 
 ## Content
-**Lab 00:** Prior
-**Lab 01:** Intro
-**Lab 02:** Variables & Data Type
-**Lab 03:** Operators & Flow Control
-**Lab 04:** Functions & Events
-**Lab 05:** Arrays & Loops
+- **Lab 00:** Prior
+- **Lab 01:** Intro
+- **Lab 02:** Variables & Data Type
+- **Lab 03:** Operators & Flow Control
+- **Lab 04:** Functions & Events
+- **Lab 05:** Arrays & Loops
