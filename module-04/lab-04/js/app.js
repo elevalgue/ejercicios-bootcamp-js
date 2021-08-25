@@ -3,11 +3,12 @@
 console.log('A picar como locas!');
 
 // SELECTORS
-const resultEl = document.querySelector('span');
+const resultEl = document.querySelector('#js-result');
 const buttonAdd = document.querySelector('#js-add');
 const buttonSubst = document.querySelector('#js-substract');
 const buttonMult = document.querySelector('#js-multiply');
 const buttonDiv = document.querySelector('#js-divide');
+const buttonClear = document.querySelector('#js-clear');
 
 // 1. Get input value
 const getInputValueA = () => parseInt(document.querySelector('#js-inputNumberA').value);
@@ -51,7 +52,7 @@ buttonSubst.addEventListener('click', renderSubst);
 buttonMult.addEventListener('click', renderMult);
 buttonDiv.addEventListener('click', renderDiv);
 
-buttonDiv.addEventListener('click', renderDiv);
+buttonClear.addEventListener('click', renderClear);
 
 buttonAdd.addEventListener('click', renderError);
 buttonSubst.addEventListener('click', renderError);
