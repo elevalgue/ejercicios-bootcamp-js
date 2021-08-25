@@ -38,12 +38,9 @@ const cart = [
  */
 
 // 1. Mostrar el carrito de la ocompra
-console.log('T A S K  01');
 console.log(cart);
 
 // 2. Listar productos
-console.log('T A S K  02');
-
 for (let index = 0; index < cart.length; index++) {
     displayCart(cart[index]);
 }
@@ -57,7 +54,6 @@ function displayCart(product) {
 }
 
 // 3. Eliminar el producto con id 54657 del carrito de la compra
-console.log('T A S K  03');
 
 /**
  * Esta tarea está comentada para que en la siguiente aparezcan todos los productos originales del carrito de la compra
@@ -116,17 +112,12 @@ function displayPremiumOrNot(cart) {
 console.log(displayPremiumOrNot(cart));
 
 // 7. Mostrar el carrito en un listado de html básico
-console.log('T A S K  07');
-
-
-
 function displayCartList(cart) {
    
     let bodyEl = document.querySelector('body');
     let codeHTML = ''; 
     
     for ( const product of cart) {
-        // displayCartList(cart); 
         codeHTML += `<div>`;
         codeHTML += `<ul>`;
         codeHTML += `<li>Nombre: ${product.name}</li>`;
@@ -144,13 +135,10 @@ function displayCartList(cart) {
     
     bodyEl.innerHTML = codeHTML;
 }
+
 displayCartList(cart); 
 
 // 8. Aplicar un descuento del 5% si la compra es mayor de 100 €.
-console.log('T A S K  08');
-
-
-
 function applyDiscount() {
 
     let subTotal = 0;
@@ -167,4 +155,4 @@ function applyDiscount() {
     }
 }
 
-  console.log(applyDiscount());
+console.log(applyDiscount());
