@@ -1,7 +1,5 @@
 'use strict'; 
 
-console.log('A picar como locas!');
-
 // SELECTORS
 const resultEl = document.querySelector('#js-result');
 const buttonAdd = document.querySelector('#js-add');
