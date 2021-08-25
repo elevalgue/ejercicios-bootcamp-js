@@ -1,4 +1,4 @@
-__Bootcamp JS Exercises__
+__Bootcamp JS Exercises__ 🍋
 
 ## Content
 - **Lab 00:** Prior
