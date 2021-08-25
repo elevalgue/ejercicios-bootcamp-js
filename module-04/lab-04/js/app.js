@@ -9,23 +9,21 @@ const buttonDiv = document.querySelector('#js-divide');
 const buttonClear = document.querySelector('#js-clear');
 
 // 1. Get input value
-const getInputValueA = () => document.querySelector('#js-inputNumberA').value;
-const getInputValueB = () => document.querySelector('#js-inputNumberB').value;
+const getInputValueA = () => parseInt(document.querySelector('#js-inputNumberA').value);
+const getInputValueB = () => parseInt(document.querySelector('#js-inputNumberB').value);
 
 // 2. Math operations
 const add = () => {
-    console.log(document.querySelector('#js-inputNumberA').value);
-    if (getInputValueA() !== '' && getInputValueB() !== '') {
-        return parseInt(getInputValueA()) + parseInt(getInputValueB()) ;  
+    if (Boolean(getInputValueA()) && Boolean(getInputValueB())) {
+        return getInputValueA() + getInputValueB() ;  
     } else {
         return "Error"; 
     }
 }
 
 const substract = () => {
-    console.log(document.querySelector('#js-inputNumberA').value);
-    if (getInputValueA() !== '' && getInputValueB() !== '') {
-        return parseInt(getInputValueA()) - parseInt(getInputValueB()) ;  
+    if (Boolean(getInputValueA()) && Boolean(getInputValueB())) {
+        return getInputValueA() - getInputValueB() ;  
     } else {
         return "Error"; 
     }
@@ -33,8 +31,10 @@ const substract = () => {
 
 const multiply = () => {
     console.log(document.querySelector('#js-inputNumberA').value);
-    if (getInputValueA() !== '' && getInputValueB() !== '') {
-        return parseInt(getInputValueA()) * parseInt(getInputValueB()) ;  
+    console.log(document.querySelector('#js-inputNumberB').value);
+
+    if (Boolean(getInputValueA()) && Boolean(getInputValueB())) {
+        return getInputValueA() * getInputValueB() ;  
     } else {
         return "Error"; 
     }
@@ -42,8 +42,10 @@ const multiply = () => {
 
 const divide = () => {
     console.log(document.querySelector('#js-inputNumberA').value);
-    if (getInputValueA() !== '' && getInputValueB() !== '') {
-        return parseInt(getInputValueA()) / parseInt(getInputValueB()) ;  
+    console.log(document.querySelector('#js-inputNumberB').value);
+
+    if (Boolean(getInputValueA()) && Boolean(getInputValueB())) {
+        return getInputValueA() / getInputValueB() ;  
     } else {
         return "Error"; 
     }

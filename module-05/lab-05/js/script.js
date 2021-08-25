@@ -8,28 +8,28 @@ const cart = [
     name: "Tinta DJ27 Color",
     price: 52.95,
     count: 3,
-    premium: true
+    premium: false,
     },
     {
     id: 75621,
     name: "Impresora ticketera PRO-201",
     price: 32.75,
     count: 2,
-    premium: true
+    premium: true,
     },
     {
     id: 54657,
     name: "Caja de rollos de papel para ticketera",
     price: 5.95,
     count: 3,
-    premium: false
+    premium: true,
     },
     {
     id: 3143,
     name: "Caja de folios DIN-A4 80gr",
     price: 9.95,
     count: 2,
-    premium: false
+    premium: true,
     }
 ]
 
@@ -103,36 +103,30 @@ for (const product of cart) {
 // 6. Si todos los productos son prime mostrar un mensaje "Pedido sin gastos de envío", si no "Este pedido tiene gastos de envío".
 console.log('T A S K  06');
 
-function displayPremiumOrNot() {
+function displayPremiumOrNot(cart) {
     let premium = true;
     for (const product of cart) {
-        if (premium = premium && product.premium) {
-            console.log('Pedido sin gastos de envío');
-            return !premium;
-        } else {
-        console.log('Este pedido tiene gastos de envío');
-        }
+        if (product.premium === false) {
+            return 'Este pedido tiene gastos de envío. 💰';
+        } 
     }  
+    return 'Pedido sin gastos de envío 🚀';
 }
 
-
-    // if (displayPremiumOrNot()) {
-    //     console.log('Pedido sin gastos de envío');
-    // } else {
-    //     console.log('Este pedidoiene gastos de envío');
-    // }
-
- displayPremiumOrNot() ?  console.log('Pedido sin gastos de envío') : console.log('Este pedidoiene gastos de envío');
+console.log(displayPremiumOrNot(cart));
 
 // 7. Mostrar el carrito en un listado de html básico
 console.log('T A S K  07');
 
-// const displayCartList = () => {
+
+
+function displayCartList(cart) {
+   
     let bodyEl = document.querySelector('body');
     let codeHTML = ''; 
     
     for ( const product of cart) {
-        
+        // displayCartList(cart); 
         codeHTML += `<div>`;
         codeHTML += `<ul>`;
         codeHTML += `<li>Nombre: ${product.name}</li>`;
@@ -149,24 +143,28 @@ console.log('T A S K  07');
     }
     
     bodyEl.innerHTML = codeHTML;
-// }
+}
+displayCartList(cart); 
 
 // 8. Aplicar un descuento del 5% si la compra es mayor de 100 €.
 console.log('T A S K  08');
 
-let total = 0;
-for (const product of cart) {
-    if (product.count * product.price > 100) {
-        applyDiscount(cart)
-    }
 
-}
-function applyDiscount(cart) {
-        total += total.count * total.price
-        if (total > 100) {
-            let discount = total * 0.05;
-            total = total - discount;
-        }
-}
+
+function applyDiscount() {
+
+    let subTotal = 0;
     
-    console.log('El total a pagar asciende a ' + total + ' euris');
+    for (const product of cart) {
+        subTotal += product.count * product.price;
+        console.log('ID: ' + product.id + ' - ' + 'PRECIO: '+ product.price + ' - ' + 'CANTIDAD:' + product.count + ' - ' + 'TOTAL: ' + subTotal);
+    }
+    console.log(subTotal, 'hellow');
+    let discount = subTotal * 0.05;
+    if (subTotal > 100) {
+       let total = subTotal - discount; 
+       return total; 
+    }
+}
+
+  console.log(applyDiscount());
