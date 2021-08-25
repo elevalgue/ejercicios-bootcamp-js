@@ -11,11 +11,19 @@ const buttonDiv = document.querySelector('#js-divide');
 const buttonClear = document.querySelector('#js-clear');
 
 // 1. Get input value
-const getInputValueA = () => parseInt(document.querySelector('#js-inputNumberA').value);
-const getInputValueB = () => parseInt(document.querySelector('#js-inputNumberB').value)
+const getInputValueA = () => document.querySelector('#js-inputNumberA').value;
+const getInputValueB = () => document.querySelector('#js-inputNumberB').value;
 
 // 2. Math operations
-const add = () => getInputValueA() + getInputValueB();
+const add = () => {
+    console.log(document.querySelector('#js-inputNumberA').value);
+    if (getInputValueA() !== '' && getInputValueB() !== '') {
+        return parseInt(getInputValueA()) + parseInt(getInputValueB()) ;  
+    } else {
+        return "Error"; 
+    }
+}
+
 const substract = () => getInputValueA() - getInputValueB();
 const multiply = () => getInputValueA() * getInputValueB();
 const divide = () => getInputValueA() / getInputValueB();
@@ -27,23 +35,11 @@ const renderMult = () => resultEl.innerHTML = multiply();
 const renderDiv = () => resultEl.innerHTML = divide();
 const renderClear = () => resultEl.innerHTML = clear();
 
-// 4. Display Errors
-const renderError = () => {
-    if ( isNaN(getInputValueB()) || isNaN(getInputValueB())) {
-        console.log('maricarmen');
-        resultEl.innerHTML = 'Introduzca un número válido en cada campo';
-    } else {
-        renderAdd();
-        renderSubst();
-        renderMult();
-        renderDiv();
-    }
-}
 // 5. Clear
 const clear = () => {
     document.querySelector('#js-inputNumberA').value = ''; 
     document.querySelector('#js-inputNumberB').value = '';
-    renderClear(); 
+    document.querySelector('#js-result').innerHTML= '';
 }
 
 // LISTENERS
@@ -52,9 +48,5 @@ buttonSubst.addEventListener('click', renderSubst);
 buttonMult.addEventListener('click', renderMult);
 buttonDiv.addEventListener('click', renderDiv);
 
-buttonClear.addEventListener('click', renderClear);
+buttonClear.addEventListener('click', clear);
 
-buttonAdd.addEventListener('click', renderError);
-buttonSubst.addEventListener('click', renderError);
-buttonMult.addEventListener('click', renderError);
-buttonDiv.addEventListener('click', renderError);
