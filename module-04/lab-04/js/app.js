@@ -24,9 +24,32 @@ const add = () => {
     }
 }
 
-const substract = () => getInputValueA() - getInputValueB();
-const multiply = () => getInputValueA() * getInputValueB();
-const divide = () => getInputValueA() / getInputValueB();
+const substract = () => {
+    console.log(document.querySelector('#js-inputNumberA').value);
+    if (getInputValueA() !== '' && getInputValueB() !== '') {
+        return parseInt(getInputValueA()) - parseInt(getInputValueB()) ;  
+    } else {
+        return "Error"; 
+    }
+}
+
+const multiply = () => {
+    console.log(document.querySelector('#js-inputNumberA').value);
+    if (getInputValueA() !== '' && getInputValueB() !== '') {
+        return parseInt(getInputValueA()) * parseInt(getInputValueB()) ;  
+    } else {
+        return "Error"; 
+    }
+}
+
+const divide = () => {
+    console.log(document.querySelector('#js-inputNumberA').value);
+    if (getInputValueA() !== '' && getInputValueB() !== '') {
+        return parseInt(getInputValueA()) / parseInt(getInputValueB()) ;  
+    } else {
+        return "Error"; 
+    }
+}
 
 // 3. Display results
 const renderAdd = () => resultEl.innerHTML = add();
@@ -47,6 +70,5 @@ buttonAdd.addEventListener('click', renderAdd);
 buttonSubst.addEventListener('click', renderSubst);
 buttonMult.addEventListener('click', renderMult);
 buttonDiv.addEventListener('click', renderDiv);
-
 buttonClear.addEventListener('click', clear);
 
