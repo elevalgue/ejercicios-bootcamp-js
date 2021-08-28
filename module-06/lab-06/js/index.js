@@ -67,7 +67,7 @@ const products = [
     },
 ];
 
-const cartContainer = document.querySelector('#js-cart-container'); 
+const cartContainer = document.querySelector('#js-product-list-container'); 
 const spanSubtotal = document.querySelector('.js-subtotal');
 const spanTaxes = document.querySelector('.js-taxes'); 
 const spanTotal = document.querySelector('.js-total'); 
@@ -79,17 +79,17 @@ const btnEl = document.querySelector('.js-btn-calculate');
 // let's print the product with its property first
 
 const printProduct = product => {
-
+    
 }
 
 
-const printCart = () => {
+const printCart = productList => {
     // reset
     cartContainer.innerHTML = '';
     // recorro el objeto
-    for (let index = 0; index < products.length; index++) {
-        // const element = array[index];
-        console.log(products[index].description);
+    for (const product of productList) {
+        
+    
         
         
         // 1. creo el elemento con createElement y lo almaceno en una constante
@@ -106,17 +106,17 @@ const printCart = () => {
 
         cartContainer.appendChild(newOlElement);
         
-        const newLiElement = document.createElement('li');
-        const liContent = document.createTextNode(products[index].description);
-        newLiElement.appendChild(liContent);
-        console.log(newLiElement, 'pepino');
+        const description = document.createElement('h5');
+        const liContent = document.createTextNode(product.description);
+        description.appendChild(liContent);
+        console.log(description, 'pepino');
         // newLiElement.setAttribute('id', products.description);
-        newOlElement.appendChild(newLiElement); 
+        newOlElement.appendChild(description); 
         
         const spanElement = document.createElement('span');
         const spanContent = document.createTextNode('   - soy el span! :)')
         spanElement.appendChild(spanContent);
-        newLiElement.appendChild(spanContent); 
+        description.appendChild(spanContent); 
     }
 }
 printCart();
