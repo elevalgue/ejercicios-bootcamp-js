@@ -96,6 +96,10 @@ const createProduct = product => {
     const input = document.createElement('input');
     input.setAttribute('type', 'number');
     input.setAttribute('id', 'input');
+    input.setAttribute('required', 'required');
+    input.setAttribute('value', 'product.units');
+    input.setAttribute('min', 0);
+    input.setAttribute('max', 'product.stock');
     description.appendChild(input); 
 
 
