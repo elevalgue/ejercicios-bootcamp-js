@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Lab 06: Carrito de la compra</title>
   </head>
 
@@ -12,7 +13,7 @@
       <h1>Carrito de la Compra</h1>
     </header>
     <main>
-      <div class="js-cart-container">
+      <div class="container js-cart-container">
         <ol>
           <li>
             Goma de borrar
@@ -56,18 +57,20 @@
           </li>
         </ol>
       </div>
-      <button class="js-btn-calculate">Calcular</button>
-      <div>
-        Subtotal
-        <span class="js-subtotal">30€</span>
-      </div>
-      <div>
-        Taxes
-        <span class="js-taxes">3€</span>
-      </div>
-      <div>
-        Total
-        <span class="js-total">33€</span>
+      <div class="details-container">
+        <button class="btn js-btn-calculate">Calcular</button>
+        <div>
+          Subtotal
+          <span class="js-subtotal">30€</span>
+        </div>
+        <div>
+          Taxes
+          <span class="js-taxes">3€</span>
+        </div>
+        <div>
+          Total
+          <span class="js-total">33€</span>
+        </div>
       </div>
     </main>
 
