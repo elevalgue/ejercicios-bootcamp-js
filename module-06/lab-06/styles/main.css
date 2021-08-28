@@ -21,6 +21,10 @@ h1 {
   width: auto; */
 }
 
+.product-list {
+  color: green;
+}
+
 .cart-resume {
   display: flex;
   flex-direction: column;

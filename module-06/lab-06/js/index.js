@@ -99,7 +99,7 @@ const printCart = () => {
         // 5. Añado clases o atributos
         
         const newOlElement = document.createElement('ol');
-        newOlElement
+        newOlElement.setAttribute('class', 'product-list'); 
         // const olContent = document.createTextNode(index);
         // newOlElem.appendChild(olContent);
 
@@ -109,7 +109,8 @@ const printCart = () => {
         const newLiElement = document.createElement('li');
         const liContent = document.createTextNode(products[index].description);
         newLiElement.appendChild(liContent);
-        newLiElement.setAttribute('id', products.description);
+        console.log(newLiElement, 'pepino');
+        // newLiElement.setAttribute('id', products.description);
         newOlElement.appendChild(newLiElement); 
         
         const spanElement = document.createElement('span');
