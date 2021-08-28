@@ -100,9 +100,9 @@ const createProduct = product => {
     input.setAttribute('value', 'product.units');
     input.setAttribute('min', 0);
     input.setAttribute('max', 'product.stock');
+    console.log(product.stock, 'stock');
+    console.log(product.units, 'cantidad');
     description.appendChild(input); 
-
-
 }
 
 const printCart = productList => {
@@ -111,13 +111,6 @@ const printCart = productList => {
 
     for (const product of productList) {
         createProduct(product); 
-        // printDescription(product);
-        // printPrice(product); 
-        
-        // const spanElement = document.createElement('span');
-        // const spanContent = document.createTextNode('   - soy el span! :)')
-        // spanElement.appendChild(spanContent);
-        // description.appendChild(spanContent); 
     }
 }
 
