@@ -76,11 +76,6 @@ const btnEl = document.querySelector('.js-btn-calculate');
 // const total = price * units;
 
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
-// let's print the product with its property first
-
-
-
-
 
 const createProduct = product => {
     // add description
@@ -93,14 +88,17 @@ const createProduct = product => {
 
     // add price
     const price = document.createElement('span');
-    console.log(price ,'es span?');
-    const priceContent = document.createTextNode(product.price);
-    console.log('priceContent', priceContent );
+    const priceContent = document.createTextNode(`${product.price} €/ud`);
     price.appendChild(priceContent);
     description.appendChild(price);
 
-    // price.innerHTML = product.price;
-    console.log( price.innerHTML, 'price');
+    // add input
+    const input = document.createElement('input');
+    input.setAttribute('type', 'number');
+    input.setAttribute('id', 'input');
+    description.appendChild(input); 
+
+
 }
 
 const printCart = productList => {
