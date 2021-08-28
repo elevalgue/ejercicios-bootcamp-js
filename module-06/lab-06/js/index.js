@@ -97,14 +97,20 @@ const printCart = () => {
         // 3. Añado el contenido al elemento que he registrado arriba appendChild(content);
         // 4. Añado ese elemento al elemento padre
         // 5. Añado clases o atributos
-        const newOlElem = document.createElement('ol');
-        cartContainer.appendChild(newOlElem);
+        
+        const newOlElement = document.createElement('ol');
+        newOlElement
+        // const olContent = document.createTextNode(index);
+        // newOlElem.appendChild(olContent);
+
+
+        cartContainer.appendChild(newOlElement);
         
         const newLiElement = document.createElement('li');
         const liContent = document.createTextNode(products[index].description);
         newLiElement.appendChild(liContent);
         newLiElement.setAttribute('id', products.description);
-        newOlElem.appendChild(newLiElement); 
+        newOlElement.appendChild(newLiElement); 
         
         const spanElement = document.createElement('span');
         const spanContent = document.createTextNode('   - soy el span! :)')
