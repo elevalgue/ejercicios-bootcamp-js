@@ -67,7 +67,7 @@ const products = [
     },
 ];
 
-const cartContainer = document.querySelector('.js-carts-container'); 
+const cartContainer = document.querySelector('#js-cart-container'); 
 const spanSubtotal = document.querySelector('.js-subtotal');
 const spanTaxes = document.querySelector('.js-taxes'); 
 const spanTotal = document.querySelector('.js-total'); 
@@ -82,5 +82,13 @@ const btnEl = document.querySelector('.js-btn-calculate');
 // - Calcular IVA: precio total producto * IVA / 100
 
 const printCart = () => {
-
+    const title = document.createElement('h1');
+    console.log(title);
+    const titleText = document.createTextNode('Derby Motoretas Burrito Cachimba')
+    console.log(titleText, 'debe salir el texto que quiero en el H1');
+    title.appendChild(titleText);
+    
+    cartContainer.appendChild(title);
+    console.log(cartContainer, 'Maricarmen');
 }
+printCart(); 
