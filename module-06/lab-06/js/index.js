@@ -82,14 +82,12 @@ const btnEl = document.querySelector('.js-btn-calculate');
 
 
 const printCart = productList => {
+
     cartContainer.innerHTML = '';
     for (const product of productList) {
-      
         const description = document.createElement('h5');
         const descriptionContent = document.createTextNode(product.description);
         description.appendChild(descriptionContent);
-        console.log(description, 'pepino');
-        // newLiElement.setAttribute('id', products.description);
         cartContainer.appendChild(description); 
         
         const spanElement = document.createElement('span');
@@ -98,7 +96,7 @@ const printCart = productList => {
         description.appendChild(spanContent); 
     }
 }
-printCart();
+printCart(products);
 
 /*----- 2. CALCULATE BILL -----*/
 
