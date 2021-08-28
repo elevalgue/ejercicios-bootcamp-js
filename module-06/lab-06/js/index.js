@@ -86,7 +86,10 @@ const printCart = () => {
     // reset
     cartContainer.innerHTML = '';
     // recorro el objeto
-    for (const item of products) {
+    for (let index = 0; index < products.length; index++) {
+        // const element = array[index];
+        console.log(products[index].description);
+    
     
     // 1. creo el elemento con createElement y lo almaceno en una constante
     // 2. si tiene elemento tiene contenido, lo creo con createTextNode
