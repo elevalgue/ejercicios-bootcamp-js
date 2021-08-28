@@ -66,3 +66,9 @@ const products = [
         units: 0,
     },
 ];
+
+const cartContainer = document.querySelector('.js-carts-container'); 
+const subtotal = document.querySelector('.js-subtotal');
+const taxes = document.querySelector('.js-taxes'); 
+const total = document.querySelector('.js-total'); 
+const btnEl = document.querySelector('.js-btn-calculate'); 
