@@ -82,13 +82,21 @@ const btnEl = document.querySelector('.js-btn-calculate');
 // - Calcular IVA: precio total producto * IVA / 100
 
 const printCart = () => {
-    const title = document.createElement('h1');
-    console.log(title);
-    const titleText = document.createTextNode('Derby Motoretas Burrito Cachimba')
-    console.log(titleText, 'debe salir el texto que quiero en el H1');
-    title.appendChild(titleText);
+    // 1. creo el elemento con createElement y lo almaceno en una constante
+    // 2. si tiene elemento tiene contenido, lo creo con createTextNode
+    // 3. Añado el contenido al elemento que he registrado arriba appendChild(content);
+    // 4. Añado ese elemento al elemento padre
+    const olElement = document.createElement('ol');
+    cartContainer.appendChild(olElement);
+
+    const liElement = document.createElement('li');
+    const liContent = document.createTextNode('soy un item en una lista');
+    liElement.appendChild(liContent);
+    olElement.appendChild(liElement); 
     
-    cartContainer.appendChild(title);
-    console.log(cartContainer, 'Maricarmen');
+    const spanElement = document.createElement('span');
+    const spanContent = document.createTextNode('   hello! :)')
+    spanElement.appendChild(spanContent);
+    liElement.appendChild(spanContent); 
 }
 printCart(); 
