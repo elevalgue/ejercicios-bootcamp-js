@@ -68,12 +68,12 @@ const products = [
 ];
 
 const cartContainer = document.querySelector('.js-carts-container'); 
-const subtotal = document.querySelector('.js-subtotal');
-const taxes = document.querySelector('.js-taxes'); 
-const total = document.querySelector('.js-total'); 
+const spanSubtotal = document.querySelector('.js-subtotal');
+const spanTaxes = document.querySelector('.js-taxes'); 
+const spanTotal = document.querySelector('.js-total'); 
 const btnEl = document.querySelector('.js-btn-calculate');
 
-const total = price * units;
+// const total = price * units;
 
 // 1. Pintar elementos en el dom
 
@@ -81,6 +81,6 @@ const total = price * units;
 // - Multiplicar precio unitario por número de unidades
 // - Calcular IVA: precio total producto * IVA / 100
 
-function renderCart() {
-    const newLi = document.createElement('ol'); 
+const printCart = () => {
+
 }
