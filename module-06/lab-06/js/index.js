@@ -78,40 +78,19 @@ const btnEl = document.querySelector('.js-btn-calculate');
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 // let's print the product with its property first
 
-const printProduct = product => {
-    
-}
+
 
 
 const printCart = productList => {
-    // reset
     cartContainer.innerHTML = '';
-    // recorro el objeto
     for (const product of productList) {
-        
-    
-        
-        
-        // 1. creo el elemento con createElement y lo almaceno en una constante
-        // 2. si tiene elemento tiene contenido, lo creo con createTextNode
-        // 3. Añado el contenido al elemento que he registrado arriba appendChild(content);
-        // 4. Añado ese elemento al elemento padre
-        // 5. Añado clases o atributos
-        
-        const newOlElement = document.createElement('ol');
-        newOlElement.setAttribute('class', 'product-list'); 
-        // const olContent = document.createTextNode(index);
-        // newOlElem.appendChild(olContent);
-
-
-        cartContainer.appendChild(newOlElement);
-        
+      
         const description = document.createElement('h5');
-        const liContent = document.createTextNode(product.description);
-        description.appendChild(liContent);
+        const descriptionContent = document.createTextNode(product.description);
+        description.appendChild(descriptionContent);
         console.log(description, 'pepino');
         // newLiElement.setAttribute('id', products.description);
-        newOlElement.appendChild(description); 
+        cartContainer.appendChild(description); 
         
         const spanElement = document.createElement('span');
         const spanContent = document.createTextNode('   - soy el span! :)')
