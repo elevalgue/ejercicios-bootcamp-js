@@ -75,28 +75,37 @@ const btnEl = document.querySelector('.js-btn-calculate');
 
 // const total = price * units;
 
-// 1. Pintar elementos en el dom
+/*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 
-// 2. Calcular factura
+/*----- 2. CALCULATE BILL -----*/
+
 // - Multiplicar precio unitario por número de unidades
 // - Calcular IVA: precio total producto * IVA / 100
 
 const printCart = () => {
+    // reset
+    cartContainer.innerHTML = '';
+    // recorro el objeto
+    for (const item of products) {
+    
     // 1. creo el elemento con createElement y lo almaceno en una constante
     // 2. si tiene elemento tiene contenido, lo creo con createTextNode
     // 3. Añado el contenido al elemento que he registrado arriba appendChild(content);
     // 4. Añado ese elemento al elemento padre
-    const olElement = document.createElement('ol');
-    cartContainer.appendChild(olElement);
-
-    const liElement = document.createElement('li');
+    // 5. Añado clases o atributos
+    const newOlElem = document.createElement('ol');
+    cartContainer.appendChild(newOlElem);
+    
+    const newLiElement = document.createElement('li');
     const liContent = document.createTextNode('soy un item en una lista');
-    liElement.appendChild(liContent);
-    olElement.appendChild(liElement); 
+    newLiElement.appendChild(liContent);
+    newLiElement.setAttribute('id', products.description);
+    newOlElem.appendChild(newLiElement); 
     
     const spanElement = document.createElement('span');
     const spanContent = document.createTextNode('   hello! :)')
     spanElement.appendChild(spanContent);
-    liElement.appendChild(spanContent); 
+    newLiElement.appendChild(spanContent); 
+    }
 }
 printCart(); 
