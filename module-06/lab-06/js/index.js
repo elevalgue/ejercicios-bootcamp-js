@@ -78,23 +78,66 @@ const btnEl = document.querySelector('.js-btn-calculate');
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 // let's print the product with its property first
 
-const printDescription = product => {
-    // add description
+
+
+// const printIndex = product => {
+//     // add description
+//     const index = document.createElement('h5');
+//     const indexContent = document.createTextNode(product.index);
+//     index.appendChild(indexContent);
+//     cartContainer.appendChild(index);
+//     // set css class
+//     index.setAttribute('class', 'product-list')
+// }
+
+// const printDescription = product => {
+//     // add description
+//     const description = document.createElement('h5');
+//     const descriptionContent = document.createTextNode(product.description);
+//     description.appendChild(descriptionContent);
+//     cartContainer.appendChild(description);
+//     // set css class
+//     description.setAttribute('class', 'product-list')
+// }
+
+// const printPrice = product => {
+// // lo voy a pintar en un span
+//     const price = document.createElement('span');
+//     console.log(price ,'es span?');
+//     const priceContent = document.createTextNode(product.price);
+//     console.log('priceContent', priceContent );
+//     price.appendChild(priceContent);
+//     price.innerHTML = product.price;
+//     console.log( price.innerHTML, 'price');
+// }
+
+const createProduct = product => {
     const description = document.createElement('h5');
     const descriptionContent = document.createTextNode(product.description);
     description.appendChild(descriptionContent);
     cartContainer.appendChild(description);
     // set css class
     description.setAttribute('class', 'product-list')
-}
 
+    const price = document.createElement('span');
+    console.log(price ,'es span?');
+    const priceContent = document.createTextNode(product.price);
+    console.log('priceContent', priceContent );
+    price.appendChild(priceContent);
+    description.appendChild(price);
+
+    // price.innerHTML = product.price;
+    console.log( price.innerHTML, 'price');
+}
 
 const printCart = productList => {
     // reset
     cartContainer.innerHTML = '';
 
     for (const product of productList) {
-        printDescription(product); 
+        createProduct(product); 
+        // printDescription(product);
+        // printPrice(product); 
         
         // const spanElement = document.createElement('span');
         // const spanContent = document.createTextNode('   - soy el span! :)')
