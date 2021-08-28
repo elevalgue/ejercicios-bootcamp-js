@@ -78,24 +78,31 @@ const btnEl = document.querySelector('.js-btn-calculate');
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 // let's print the product with its property first
 
-
+const printDescription = product => {
+    // add description
+    const description = document.createElement('h5');
+    const descriptionContent = document.createTextNode(product.description);
+    description.appendChild(descriptionContent);
+    cartContainer.appendChild(description);
+    // set css class
+    description.setAttribute('class', 'product-list')
+}
 
 
 const printCart = productList => {
-
+    // reset
     cartContainer.innerHTML = '';
+
     for (const product of productList) {
-        const description = document.createElement('h5');
-        const descriptionContent = document.createTextNode(product.description);
-        description.appendChild(descriptionContent);
-        cartContainer.appendChild(description); 
+        printDescription(product); 
         
-        const spanElement = document.createElement('span');
-        const spanContent = document.createTextNode('   - soy el span! :)')
-        spanElement.appendChild(spanContent);
-        description.appendChild(spanContent); 
+        // const spanElement = document.createElement('span');
+        // const spanContent = document.createTextNode('   - soy el span! :)')
+        // spanElement.appendChild(spanContent);
+        // description.appendChild(spanContent); 
     }
 }
+
 printCart(products);
 
 /*----- 2. CALCULATE BILL -----*/

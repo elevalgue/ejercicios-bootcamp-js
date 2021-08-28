@@ -11,7 +11,7 @@ h1 {
   margin-top: 35px;
 }
 
-.container {
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +23,9 @@ h1 {
 
 .product-list {
   color: green;
+  justify-content: flex-start;
 }
-
+/* 
 .cart-resume {
   display: flex;
   flex-direction: column;
@@ -45,4 +46,4 @@ h1 {
   border: none;
   margin: auto;
   width: 30%;
-}
+} */
