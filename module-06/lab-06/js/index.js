@@ -85,13 +85,12 @@ const createProduct = product => {
     cartContainer.appendChild(description);
     // set css class
     description.setAttribute('class', 'product-list')
-
     // add price
     const price = document.createElement('span');
     const priceContent = document.createTextNode(`${product.price} €/ud`);
     price.appendChild(priceContent);
+    // se appendChild a description?
     description.appendChild(price);
-
     // add input
     const input = document.createElement('input');
     input.setAttribute('type', 'number');
@@ -100,19 +99,21 @@ const createProduct = product => {
     input.setAttribute('value', 'product.units');
     input.setAttribute('min', 0);
     input.setAttribute('max', 'product.stock');
-    console.log(product.stock, 'stock');
-    console.log(product.units, 'cantidad');
-    description.appendChild(input); 
+    // se appendChild a description?
+    description.appendChild(input);
+    input.addEventListener('change', event => {
+        product.units = Number(event.target.value);
+        console.log(product.units, 'hello');
+    }); 
 }
+    const printCart = productList => {
+        // reset
+        cartContainer.innerHTML = '';
 
-const printCart = productList => {
-    // reset
-    cartContainer.innerHTML = '';
-
-    for (const product of productList) {
-        createProduct(product); 
+        for (const product of productList) {
+            createProduct(product);
+        }
     }
-}
 
 printCart(products);
 
@@ -120,3 +121,5 @@ printCart(products);
 
 // - Multiplicar precio unitario por número de unidades
 // - Calcular IVA: precio total producto * IVA / 100
+
+    btnEl.addEventListener('click', () => console.log(products)); 
