@@ -106,6 +106,10 @@ const createProduct = product => {
         console.log(product.units, 'hello');
     }); 
 }
+
+// function disableButton() {
+//     (product.unit > 0 ? btnEl.disabled = false )
+// }
     const printCart = productList => {
         // reset
         cartContainer.innerHTML = '';

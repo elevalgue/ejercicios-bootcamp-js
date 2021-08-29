@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/site.css" />
+    <title>Lab 04: Calculator Secuencial</title>
+  </head>
+
+  <body>
+    <main class="container-main">
+      <h1 class="title">calculadora</h1>
+      <div class="container-result">
+        <p id="js-result" class="result"></p>
+      </div>
+      <div class="form">
+        <div class="container-input inputA">
+          <input type="number" id="js-inputNumberA" class="input" placeholder="* Introduce un número *"min="0" />
+        </div>
+        <div class="container-input inputB">
+          <input type="number" id="js-inputNumberB" class="input" placeholder="* Introduce un número *"min="0" />
+        </div>
+    </div>
+        <div class="container-button">
+          <button id="js-add" class="button">+</button>
+          <button id="js-substract" class="button">-</button>
+          <button id="js-multiply" class="button">x</button>
+          <button id="js-divide" class="button">/</button>
+          <button id="js-clear" class="button">Clear</button>
+        </div>
+      </div>
+    </main>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

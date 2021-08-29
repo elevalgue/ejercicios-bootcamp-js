@@ -1,0 +1,111 @@
+:root {
+  --color-main: #36eee0;
+  --color-secondary: #f55074;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  width: auto;
+  text-align: center;
+  background-color: #4c5270;
+  margin-top: 100px;
+}
+
+h1 {
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container-main {
+  margin: auto;
+  width: 20%;
+  border-radius: 30px;
+  border: 1px solid var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.container-result {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  width: 90%;
+}
+
+.form {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-input {
+  margin: auto;
+  margin-top: -10px;
+  width: 90%;
+  height: 20%;
+}
+
+input {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-main);
+  color: var(--color-secondary);
+  padding: 10px 0;
+}
+
+.inputA {
+  margin-right: 10px;
+}
+
+input::placeholder {
+  color: var(--color-secondary);
+  font-size: smaller;
+  text-align: center;
+}
+
+.result {
+  padding: 15px;
+  padding-top: 24px;
+  background-color: var(--color-main);
+  color: var(--color-secondary);
+  text-align: center;
+  width: auto;
+  border: none;
+  border-radius: 5px;
+}
+
+.container-button {
+  width: 90%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  width: 18%;
+  margin-left: auto;
+  margin-bottom: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: var(--color-main);
+  color: var(--color-secondary);
+}
