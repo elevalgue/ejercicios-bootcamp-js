@@ -115,18 +115,18 @@ const createProduct = product => {
 printCart(products);
 
 /*----- 2. CALCULATE BILL -----*/
-const calculateTotalPrice = product => {
+const calculateProductTotalPrice = product => {
     const productPrice = product.price * product.units;
     return productPrice; 
 }
 
 const calculateTaxes = product => {
-    taxType += calculateTotalPrice(product) * (product.tax) / 100;
+    taxType += calculateProductTotalPrice(product) * (product.tax) / 100;
     return taxType
 }
 
 const calculateSubtotal = product => {
-    subtotal = + calculateTotalPrice(product);
+    subtotal += calculateProductTotalPrice(product);
     return subtotal; 
 }
 
@@ -135,7 +135,6 @@ const calculateFinalPrice = () => {
     return finalPrice; 
 }
 
-// const calculateBill = productList => {
 const calculateBill = productList => {
     for (const product of productList) {
         calculateSubtotal(product);
@@ -144,7 +143,7 @@ const calculateBill = productList => {
     }
 
     const spanSubtotal = document.querySelector('.js-subtotal');
-    spanSubtotal.innerHTML = subtotal.toFixed(2) + ' euris';
+    spanSubtotal.innerHTML = subtotal.toFixed(2) + ' eurisssssssss';
 
     const spanTaxes = document.querySelector('.js-taxes');
     spanTaxes.innerHTML = taxType.toFixed(2) + ' euris';
