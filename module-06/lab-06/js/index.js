@@ -74,7 +74,6 @@ let finalPrice = 0;
 const cartContainer = document.querySelector('#js-product-list-container'); 
 const btnEl = document.querySelector('.js-btn-calculate');
 
-
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 const createProduct = product => {
     // add description
@@ -152,6 +151,12 @@ const calculateBill = productList => {
     spanTotal.innerHTML = finalPrice.toFixed(2) + ' euris'
 }
 
+const disableButton = (value) => {
+    if (product.units.value) {
+        btnEl.disable = false;
+    }
+}
 
 btnEl.addEventListener('click', () => console.log(products));
-btnEl.addEventListener('click', () => calculateBill(products)); 
+btnEl.addEventListener('click', () => calculateBill(products));
+// input.addEventListener('change', disableButton);
