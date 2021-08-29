@@ -75,6 +75,15 @@ const btnEl = document.querySelector('.js-btn-calculate');
 
 // const total = price * units;
 
+// function checkUnits() {
+//     let units = 0;
+//     for (const product of productList) {
+//         units += product.units;
+//     }
+//     (product.unit) > 0 ? btnEl.disabled = false : btnEl.disabled = true; 
+
+// }
+
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 
 const createProduct = product => {
@@ -107,9 +116,7 @@ const createProduct = product => {
     }); 
 }
 
-// function disableButton() {
-//     (product.unit > 0 ? btnEl.disabled = false )
-// }
+
     const printCart = productList => {
         // reset
         cartContainer.innerHTML = '';
