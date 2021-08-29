@@ -67,22 +67,13 @@ const products = [
     },
 ];
 
+let subtotal = 0; 
+
 const cartContainer = document.querySelector('#js-product-list-container'); 
-const spanSubtotal = document.querySelector('.js-subtotal');
 const spanTaxes = document.querySelector('.js-taxes'); 
 const spanTotal = document.querySelector('.js-total'); 
 const btnEl = document.querySelector('.js-btn-calculate');
 
-// const total = price * units;
-
-// function checkUnits() {
-//     let units = 0;
-//     for (const product of productList) {
-//         units += product.units;
-//     }
-//     (product.unit) > 0 ? btnEl.disabled = false : btnEl.disabled = true; 
-
-// }
 
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
 
@@ -92,7 +83,6 @@ const createProduct = product => {
     const descriptionContent = document.createTextNode(product.description);
     description.appendChild(descriptionContent);
     cartContainer.appendChild(description);
-    // set css class
     description.setAttribute('class', 'product-list')
     // add price
     const price = document.createElement('span');
@@ -129,8 +119,36 @@ const createProduct = product => {
 printCart(products);
 
 /*----- 2. CALCULATE BILL -----*/
+const calculateTotalPrice = product => {
+    productPrice = product.price * product.units;
+    console.log(productPrice, 'wanna dance?');
+    return productPrice; 
+}
 
-// - Multiplicar precio unitario por número de unidades
-// - Calcular IVA: precio total producto * IVA / 100
+const calculateTaxes = product => {
+    taxType += calculateTotalPrice(product) * (product.tax) / 100;
+    console.log(product.taxType, 'La cigarra ya cantó');
+    return taxType
+}
 
-    btnEl.addEventListener('click', () => console.log(products)); 
+const calculateSubtotal = product => {
+    console.log(product, 'producto');
+    subtotal = + calculateTotalPrice(product);
+    console.log(calculateTotalPrice(), 'funcion');
+    console.log(subtotal, 'subtotal');
+    return subtotal; 
+}
+
+const printResults = () => {
+    for (const product of productList) {
+        calculateSubtotal(product);
+        calculateTaxes(product);
+    }
+
+    const spanSubtotal = document.querySelector('.js-subtotal');
+    spanSubtotal.innerHTML = subtotal.toFixed(2) + ' euris';
+}
+
+
+btnEl.addEventListener('click', () => console.log(products));
+btnEl.addEventListener('click', printResults()); 
