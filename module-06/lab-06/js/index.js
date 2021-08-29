@@ -72,12 +72,10 @@ let taxType = 0;
 let finalPrice = 0; 
 
 const cartContainer = document.querySelector('#js-product-list-container'); 
-
 const btnEl = document.querySelector('.js-btn-calculate');
 
 
 /*----- 1. RENDER DINAMIC HTML IN DOM -----*/
-
 const createProduct = product => {
     // add description
     const description = document.createElement('h5');
@@ -132,11 +130,12 @@ const calculateSubtotal = product => {
     return subtotal; 
 }
 
-const calculateFinalPrice = product => {
+const calculateFinalPrice = () => {
     finalPrice = subtotal + taxType; 
     return finalPrice; 
 }
 
+// const calculateBill = productList => {
 const calculateBill = productList => {
     for (const product of productList) {
         calculateSubtotal(product);
@@ -156,4 +155,4 @@ const calculateBill = productList => {
 
 
 btnEl.addEventListener('click', () => console.log(products));
-btnEl.addEventListener('click', calculateBill(products)); 
+btnEl.addEventListener('click', () => calculateBill(products)); 
