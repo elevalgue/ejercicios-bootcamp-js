@@ -159,4 +159,3 @@ const disableButton = (value) => {
 
 btnEl.addEventListener('click', () => console.log(products));
 btnEl.addEventListener('click', () => calculateBill(products));
-// input.addEventListener('change', disableButton);
