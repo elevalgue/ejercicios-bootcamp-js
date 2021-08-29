@@ -67,11 +67,12 @@ const products = [
     },
 ];
 
-let subtotal = 0; 
+let subtotal = 0;
+let taxType = 0;
+let finalPrice = 0; 
 
 const cartContainer = document.querySelector('#js-product-list-container'); 
-const spanTaxes = document.querySelector('.js-taxes'); 
-const spanTotal = document.querySelector('.js-total'); 
+
 const btnEl = document.querySelector('.js-btn-calculate');
 
 
@@ -106,11 +107,8 @@ const createProduct = product => {
     }); 
 }
 
-
     const printCart = productList => {
-        // reset
         cartContainer.innerHTML = '';
-
         for (const product of productList) {
             createProduct(product);
         }
@@ -120,35 +118,42 @@ printCart(products);
 
 /*----- 2. CALCULATE BILL -----*/
 const calculateTotalPrice = product => {
-    productPrice = product.price * product.units;
-    console.log(productPrice, 'wanna dance?');
+    const productPrice = product.price * product.units;
     return productPrice; 
 }
 
 const calculateTaxes = product => {
     taxType += calculateTotalPrice(product) * (product.tax) / 100;
-    console.log(product.taxType, 'La cigarra ya cantó');
     return taxType
 }
 
 const calculateSubtotal = product => {
-    console.log(product, 'producto');
     subtotal = + calculateTotalPrice(product);
-    console.log(calculateTotalPrice(), 'funcion');
-    console.log(subtotal, 'subtotal');
     return subtotal; 
 }
 
-const printResults = () => {
+const calculateFinalPrice = product => {
+    finalPrice = subtotal + taxType; 
+    return finalPrice; 
+}
+
+const calculateBill = productList => {
     for (const product of productList) {
         calculateSubtotal(product);
         calculateTaxes(product);
+        calculateFinalPrice(product); 
     }
 
     const spanSubtotal = document.querySelector('.js-subtotal');
     spanSubtotal.innerHTML = subtotal.toFixed(2) + ' euris';
+
+    const spanTaxes = document.querySelector('.js-taxes');
+    spanTaxes.innerHTML = taxType.toFixed(2) + ' euris';
+    
+    const spanTotal = document.querySelector('.js-total');
+    spanTotal.innerHTML = finalPrice.toFixed(2) + ' euris'
 }
 
 
 btnEl.addEventListener('click', () => console.log(products));
-btnEl.addEventListener('click', printResults()); 
+btnEl.addEventListener('click', calculateBill(products)); 
