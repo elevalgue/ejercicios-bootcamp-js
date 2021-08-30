@@ -24,7 +24,41 @@ console.log('Descifrando a enigma');
 
 // entrada
 
-var plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
-console.log(plainAlphabet,'-----------',  'alfabeto normal');
-var encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
-console.log(encryptedAlphabet, '-----------', 'alfabeto encriptado');
+const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
+// console.log(plainAlphabet,'-----------',  'alfabeto normal');
+const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
+// console.log(encryptedAlphabet, '-----------', 'alfabeto encriptado');
+
+const decryptedText = document.querySelector('#decrypted');
+const encryptedText = document.querySelector('#encrypted');
+
+const btnDecrypted = document.querySelector('#btn-decrypt');
+const btnEncrypted = document.querySelector('#btn-encrypt');
+
+function searchIndex(alphabet, character) {
+    for (let index = 0; index < alphabet.length; index++) {
+        if (alphabet[index] === character) {
+            return index
+        }
+        console.log('itero', alphabet);
+        return -1
+    }
+}
+
+function transformText(text) {
+    let result = '';
+    text = decryptedText.value;
+    console.log('text', text);
+    for (let index = 0; index < text.length; index++) {
+        const position = searchIndex(plainAlphabet, text[index]);
+        if (position > -1) {
+            result = result + encryptedAlphabet[position];
+        } else {
+            result = result + text[index];
+        }
+    }
+    decryptedText.value = result;
+    return result;
+}
+
+btnDecrypted.addEventListener('click', transformText);
