@@ -4,8 +4,6 @@ console.log('Maricarmen');
 
 /* REFACTOR EXERCISE WITH IndexOf */
 
-// const text = 'hello its me'; 
-
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
@@ -22,3 +20,4 @@ function transformCharacter(sourceAlphabet, resultAlphabet, character) {
     return resultAlphabet[characterIndex]; 
 }
 
+/* COPY TRASNSFORM MESSAGE & RENDER MESSAGE */
