@@ -3,7 +3,7 @@
 console.log('Maricarmen');
 console.log('Descifrando a enigma');
 
-const text = 'hello its me'; 
+// const text = 'hello its me'; 
 
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
@@ -32,11 +32,31 @@ function transformCharacter(sourceAlphabet, resultAlphabet, character) {
     return resultAlphabet[characterIndex]; 
 }
 
+// var textoMayusculas="ALFABETO"
+// document.write(textoMayusculas.toLowerCase())
+
+
+
 function transformMessage(message, sourceAlphabet, resultAlphabet) {
     let result = '';
-    const messageLowerCase = message.toLowerCase();
+    messageLowerCase = message.toLowerCase();
     for (const character of messageLowerCase) {
         result = result + transformCharacter(sourceAlphabet, resultAlphabet, character)
     }
+    console.log(result);
     return result; 
 }
+console.log(transformMessage(), 'hellos');
+
+
+function renderMessage(ev) {
+    const triggerId = ev.currenTarget.id
+   if (triggerId === 'encrypted') {
+    encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
+   } else if (triggerId === 'decrypted') {
+    decryptedText.value = transformMessage(decryptedText.value, plainAlphabet, plainAlphabet); 
+   } 
+}
+
+btnDecrypted.addEventListener('click', renderMessage);
+btnEncrypted.addEventListener('click', renderMessage);
