@@ -37,9 +37,6 @@ function transformMessage(message, sourceAlphabet, resultAlphabet) {
     }
     return result; 
 }
-console.log(transformMessage('hola', plainAlphabet, encryptedAlphabet));
-console.log(transformMessage(`y:'q`, encryptedAlphabet, plainAlphabet));
-// y:'q
 
 function renderMessage(ev) {
     console.log(ev.target, 'hello');

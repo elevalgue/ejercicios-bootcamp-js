@@ -3,7 +3,6 @@
 console.log('Maricarmen');
 
 /* REFACTOR EXERCISE WITH IndexOf */
-
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
@@ -31,15 +30,13 @@ function transformMessage(message, sourceAlphabet, resultAlphabet) {
     return result; 
 }
 
-
 function renderMessage(ev) {
-    console.log(ev.target, 'hello');
     const triggerId = ev.target.id; 
-   if (triggerId === 'btn-decrypt') {
-    encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
-   } else if (triggerId === 'btn-encrypt') {
-    decryptedText.value = transformMessage(encryptedText.value, plainAlphabet, encryptedAlphabet); 
-   } 
+    if (triggerId === 'btn-decrypt') {
+        encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
+    } else if (triggerId === 'btn-encrypt') {
+        decryptedText.value = transformMessage(encryptedText.value, plainAlphabet, encryptedAlphabet); 
+    } 
 }
 
 btnDecrypted.addEventListener('click', renderMessage);
