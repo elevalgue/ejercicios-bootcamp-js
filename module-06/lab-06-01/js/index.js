@@ -139,13 +139,13 @@ const createProduct = product => {
         }
         
         const spanSubtotal = document.querySelector('.js-subtotal');
-        spanSubtotal.innerHTML = subtotal.toFixed(2) + ' eurisssssssss';
+        spanSubtotal.innerHTML = `${subtotal.toFixed(2)} €`;
         
         const spanTaxes = document.querySelector('.js-taxes');
-        spanTaxes.innerHTML = taxType.toFixed(2) + ' euris';
+        spanTaxes.innerHTML = `${taxType.toFixed(2)} €`;
         
         const spanTotal = document.querySelector('.js-total');
-        spanTotal.innerHTML = finalPrice.toFixed(2) + ' euris'
+        spanTotal.innerHTML = `${finalPrice.toFixed(2)} €`;
     }
     
     const disableButton = () => {
