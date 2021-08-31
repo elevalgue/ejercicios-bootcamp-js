@@ -18,9 +18,8 @@ function searchIndex(alphabet, character) {
         if (alphabet[index] === character) {
             return index
         }
-        console.log('itero', alphabet);
-        return -1
     }
+    return -1; 
 }
 
 function transformCharacter(sourceAlphabet, resultAlphabet, character) {
@@ -32,33 +31,28 @@ function transformCharacter(sourceAlphabet, resultAlphabet, character) {
     return resultAlphabet[characterIndex]; 
 }
 
-// var textoMayusculas="ALFABETO"
-// document.write(textoMayusculas.toLowerCase())
-
-
-
 function transformMessage(message, sourceAlphabet, resultAlphabet) {
     const messageLowerCase = message.toLowerCase();
     let result = '';
-    console.log(typeof messageLowerCase);
-    console.log(typeof message);
+
     for (const character of messageLowerCase) {
         result = result + transformCharacter(sourceAlphabet, resultAlphabet, character)
     }
-    console.log(result);
     return result; 
 }
-console.log(transformMessage(), 'hellos');
+console.log(transformMessage('hola', plainAlphabet, encryptedAlphabet));
+console.log(transformMessage(`y:'q`, encryptedAlphabet, plainAlphabet));
+// y:'q
 
+function renderMessage(ev) {
+    console.log(ev.target, 'hello');
+    const triggerId = ev.target.id; 
+   if (triggerId === 'btn-decrypt') {
+    encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
+   } else if (triggerId === 'btn-encrypt') {
+    decryptedText.value = transformMessage(encryptedText.value, plainAlphabet, encryptedAlphabet); 
+   } 
+}
 
-// function renderMessage(ev) {
-//     const triggerId = ev.currenTarget.id
-//    if (triggerId === 'encrypted') {
-//     encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
-//    } else if (triggerId === 'decrypted') {
-//     decryptedText.value = transformMessage(decryptedText.value, plainAlphabet, plainAlphabet); 
-//    } 
-// }
-
-// btnDecrypted.addEventListener('click', renderMessage);
-// btnEncrypted.addEventListener('click', renderMessage);
+btnDecrypted.addEventListener('click', renderMessage);
+btnEncrypted.addEventListener('click', renderMessage);

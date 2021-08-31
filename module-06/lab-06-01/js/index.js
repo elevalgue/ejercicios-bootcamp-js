@@ -101,6 +101,7 @@ const createProduct = product => {
     input.addEventListener('change', event => {
         product.units = Number(event.target.value);
         console.log(product.units, 'hello');
+        btnEl.disabled = disableButton(); 
     }); 
 }
 
@@ -111,51 +112,57 @@ const createProduct = product => {
         }
     }
 
-printCart(products);
-
-/*----- 2. CALCULATE BILL -----*/
-const calculateProductTotalPrice = product => {
-    const productPrice = product.price * product.units;
-    return productPrice; 
-}
-
-const calculateTaxes = product => {
-    taxType += calculateProductTotalPrice(product) * (product.tax) / 100;
-    return taxType
-}
-
-const calculateSubtotal = product => {
-    subtotal += calculateProductTotalPrice(product);
-    return subtotal; 
-}
-
-const calculateFinalPrice = () => {
-    finalPrice = subtotal + taxType; 
-    return finalPrice; 
-}
-
-const calculateBill = productList => {
-    for (const product of productList) {
-        calculateSubtotal(product);
-        calculateTaxes(product);
-        calculateFinalPrice(product); 
-    }
-
-    const spanSubtotal = document.querySelector('.js-subtotal');
-    spanSubtotal.innerHTML = subtotal.toFixed(2) + ' eurisssssssss';
-
-    const spanTaxes = document.querySelector('.js-taxes');
-    spanTaxes.innerHTML = taxType.toFixed(2) + ' euris';
     
-    const spanTotal = document.querySelector('.js-total');
-    spanTotal.innerHTML = finalPrice.toFixed(2) + ' euris'
-}
-
-const disableButton = (value) => {
-    if (product.units.value) {
-        btnEl.disable = false;
+    /*----- 2. CALCULATE BILL -----*/
+    const calculateProductTotalPrice = product => {
+        const productPrice = product.price * product.units;
+        return productPrice; 
     }
-}
-
-btnEl.addEventListener('click', () => console.log(products));
-btnEl.addEventListener('click', () => calculateBill(products));
+    
+    const calculateTaxes = product => {
+        taxType += calculateProductTotalPrice(product) * (product.tax) / 100;
+        return taxType
+    }
+    
+    const calculateSubtotal = product => {
+        subtotal += calculateProductTotalPrice(product);
+        return subtotal; 
+    }
+    
+    const calculateFinalPrice = () => {
+        finalPrice = subtotal + taxType; 
+        return finalPrice; 
+    }
+    
+    const calculateBill = productList => {
+        for (const product of productList) {
+            calculateSubtotal(product);
+            calculateTaxes(product);
+            calculateFinalPrice(product); 
+        }
+        
+        const spanSubtotal = document.querySelector('.js-subtotal');
+        spanSubtotal.innerHTML = subtotal.toFixed(2) + ' eurisssssssss';
+        
+        const spanTaxes = document.querySelector('.js-taxes');
+        spanTaxes.innerHTML = taxType.toFixed(2) + ' euris';
+        
+        const spanTotal = document.querySelector('.js-total');
+        spanTotal.innerHTML = finalPrice.toFixed(2) + ' euris'
+    }
+    
+    const disableButton = () => {
+        
+        for (let index = 0; index < products.length; index++) {
+            if (products[index].units > 0) {
+                return false; 
+            }
+        }
+        return true; 
+    }
+    
+    printCart(products);
+    btnEl.disabled = disableButton(); 
+    
+    btnEl.addEventListener('click', () => console.log(products));
+    btnEl.addEventListener('click', () => calculateBill(products));
