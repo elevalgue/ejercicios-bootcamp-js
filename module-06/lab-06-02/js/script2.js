@@ -38,8 +38,10 @@ function transformCharacter(sourceAlphabet, resultAlphabet, character) {
 
 
 function transformMessage(message, sourceAlphabet, resultAlphabet) {
+    const messageLowerCase = message.toLowerCase();
     let result = '';
-    messageLowerCase = message.toLowerCase();
+    console.log(typeof messageLowerCase);
+    console.log(typeof message);
     for (const character of messageLowerCase) {
         result = result + transformCharacter(sourceAlphabet, resultAlphabet, character)
     }
