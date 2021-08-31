@@ -2,6 +2,8 @@
 
 console.log('Maricarmen');
 
+/* REFACTOR EXERCISE WITH IndexOf */
+
 // const text = 'hello its me'; 
 
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
@@ -11,3 +13,12 @@ const decryptedText = document.querySelector('#decrypted');
 const encryptedText = document.querySelector('#encrypted');
 const btnDecrypted = document.querySelector('#btn-decrypt');
 const btnEncrypted = document.querySelector('#btn-encrypt');
+
+function transformCharacter(sourceAlphabet, resultAlphabet, character) {
+    const characterIndex = sourceAlphabet.indexOf(character);
+    if (characterIndex === -1) {
+        return character; 
+    }
+    return resultAlphabet[characterIndex]; 
+}
+
