@@ -25,13 +25,10 @@ console.log('Descifrando a enigma');
 // entrada
 
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
-// console.log(plainAlphabet,'-----------',  'alfabeto normal');
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
-// console.log(encryptedAlphabet, '-----------', 'alfabeto encriptado');
 
 const decryptedText = document.querySelector('#decrypted');
 const encryptedText = document.querySelector('#encrypted');
-
 const btnDecrypted = document.querySelector('#btn-decrypt');
 const btnEncrypted = document.querySelector('#btn-encrypt');
 
