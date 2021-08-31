@@ -2,7 +2,6 @@
 
 console.log('Maricarmen :)');
 
-
 let numbers = [];
 
 const randomPick = (n, min, max) => {
@@ -22,5 +21,4 @@ const randomPick = (n, min, max) => {
     return numbers
 }
 
-randomPick(10, 1, 100);
-console.log(randomPick());
+console.log(randomPick(10, 1, 100));

@@ -31,12 +31,13 @@ function transformMessage(message, sourceAlphabet, resultAlphabet) {
 }
 
 function renderMessage(ev) {
-    const triggerId = ev.target.id; 
-    if (triggerId === 'btn-decrypt') {
-        encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
-    } else if (triggerId === 'btn-encrypt') {
-        decryptedText.value = transformMessage(encryptedText.value, plainAlphabet, encryptedAlphabet); 
-    } 
+    const triggerId = ev.target.id;
+    
+   if (triggerId === 'btn-decrypt') {
+    encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
+   } else if (triggerId === 'btn-encrypt') {
+    decryptedText.value = transformMessage(encryptedText.value, plainAlphabet, encryptedAlphabet); 
+   } 
 }
 
 btnDecrypted.addEventListener('click', renderMessage);
