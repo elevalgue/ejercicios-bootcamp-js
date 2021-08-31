@@ -66,6 +66,15 @@ main {
   cursor: pointer;
 }
 
+.btn:hover {
+  background-color: rgb(40, 161, 40);
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+}
+
 .bill-container span {
   margin-left: 10px;
   font-size: smaller;
