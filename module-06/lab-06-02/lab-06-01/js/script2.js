@@ -51,14 +51,14 @@ function transformMessage(message, sourceAlphabet, resultAlphabet) {
 console.log(transformMessage(), 'hellos');
 
 
-function renderMessage(ev) {
-    const triggerId = ev.currenTarget.id
-   if (triggerId === 'encrypted') {
-    encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
-   } else if (triggerId === 'decrypted') {
-    decryptedText.value = transformMessage(decryptedText.value, plainAlphabet, plainAlphabet); 
-   } 
-}
+// function renderMessage(ev) {
+//     const triggerId = ev.currenTarget.id
+//    if (triggerId === 'encrypted') {
+//     encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
+//    } else if (triggerId === 'decrypted') {
+//     decryptedText.value = transformMessage(decryptedText.value, plainAlphabet, plainAlphabet); 
+//    } 
+// }
 
-btnDecrypted.addEventListener('click', renderMessage);
-btnEncrypted.addEventListener('click', renderMessage);
+// btnDecrypted.addEventListener('click', renderMessage);
+// btnEncrypted.addEventListener('click', renderMessage);
