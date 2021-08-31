@@ -1,9 +1,6 @@
 'use strict';
 
-console.log('Maricarmen');
 console.log('Descifrando a enigma');
-
-// const text = 'hello its me'; 
 
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
