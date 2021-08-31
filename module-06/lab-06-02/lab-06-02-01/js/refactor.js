@@ -14,10 +14,33 @@ const btnEncrypted = document.querySelector('#btn-encrypt');
 
 function transformCharacter(sourceAlphabet, resultAlphabet, character) {
     const characterIndex = sourceAlphabet.indexOf(character);
+
     if (characterIndex === -1) {
         return character; 
     }
     return resultAlphabet[characterIndex]; 
 }
 
-/* COPY TRASNSFORM MESSAGE & RENDER MESSAGE */
+function transformMessage(message, sourceAlphabet, resultAlphabet) {
+    const messageLowerCase = message.toLowerCase();
+    let result = '';
+
+    for (const character of messageLowerCase) {
+        result = result + transformCharacter(sourceAlphabet, resultAlphabet, character)
+    }
+    return result; 
+}
+
+
+function renderMessage(ev) {
+    console.log(ev.target, 'hello');
+    const triggerId = ev.target.id; 
+   if (triggerId === 'btn-decrypt') {
+    encryptedText.value = transformMessage(decryptedText.value, encryptedAlphabet, plainAlphabet);
+   } else if (triggerId === 'btn-encrypt') {
+    decryptedText.value = transformMessage(encryptedText.value, plainAlphabet, encryptedAlphabet); 
+   } 
+}
+
+btnDecrypted.addEventListener('click', renderMessage);
+btnEncrypted.addEventListener('click', renderMessage);
