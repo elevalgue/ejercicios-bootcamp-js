@@ -10,6 +10,12 @@ h1 {
   margin-top: 35px;
 }
 
+.fa,
+.fas {
+  font-size: smaller;
+  margin-left: 9px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -19,32 +25,49 @@ main {
   width: auto; */
 }
 
-.product-list {
-  color: green;
+.container {
+  justify-content: center;
+  text-align: right;
 }
 
-span {
-  border: 1px solid red;
+.product-list {
+  color: green;
+  font-size: 14px;
 }
-/* 
-.cart-resume {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.product-price {
+  padding-left: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.product-input {
+  margin-left: 20px;
+  width: 35px;
 }
 
 .details-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   text-align: center;
+  width: 100%;
 }
 
 .btn {
   background-color: green;
   color: white;
   border: none;
+  border-radius: 10px;
   margin: auto;
   width: 30%;
-} */
+  height: 4vh;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.bill-container span {
+  margin-left: 10px;
+  font-size: smaller;
+  line-height: 30px;
+}

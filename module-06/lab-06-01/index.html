@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/3cedc0b3ed.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./styles/main.css" />
     <title>Lab 06: Carrito de la compra</title>
   </head>
 
   <body>
     <header>
-      <h1>Carrito de la Compra</h1>
+      <h1>
+        Carrito de la Compra<i
+          class="fa fa-shopping-cart"
+          aria-hidden="true"
+        ></i>
+      </h1>
     </header>
     <main>
       <div class="container" id="js-product-list-container">
@@ -18,9 +27,11 @@
       </div>
       <div class="details-container">
         <button class="btn js-btn-calculate">Calcular</button>
-        <div>Subtotal:<span class="js-subtotal"></span></div>
-        <div>Taxes:<span class="js-taxes"></span></div>
-        <div>Total:<span class="js-total"> </span></div>
+        <div class="bill-container">
+          <div class="">Subtotal:<span class="js-subtotal"></span></div>
+          <div>Taxes:<span class="js-taxes taxes"></span></div>
+          <div>Total:<span class="js-total total"> </span></div>
+        </div>
       </div>
     </main>
 

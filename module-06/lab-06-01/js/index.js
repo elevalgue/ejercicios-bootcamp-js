@@ -1,13 +1,9 @@
 'use strict';
 
-console.log('Are you ready for a good time :))');
-
-// Constantes.
 const REGULAR_TYPE = 21;
 const LOWER_TYPE = 4;
 const EXEMPT_TYPE = 0;
 
-// Entrada.
 const products = [
     {
         description: "Goma de borrar",
@@ -87,6 +83,7 @@ const createProduct = product => {
     price.appendChild(priceContent);
     // se appendChild a description?
     description.appendChild(price);
+    price.setAttribute('class', 'product-price')
 
     const input = document.createElement('input');
     input.setAttribute('type', 'number');
@@ -95,6 +92,8 @@ const createProduct = product => {
     input.setAttribute('value', 'product.units');
     input.setAttribute('min', 0);
     input.setAttribute('max', 'product.stock');
+    input.setAttribute('class', 'product-input')
+
     // se appendChild a description?
     description.appendChild(input);
     input.addEventListener('change', event => {
