@@ -10,8 +10,8 @@ const buttonEquals = document.querySelector('#js-equals');
 const buttonClear = document.querySelector('#js-clear');
 
 // 1. Get input value
-const getInputValueA = () => parseInt(document.querySelector('#js-inputNumberA').value);
-const getInputValueB = () => parseInt(document.querySelector('#js-inputNumberB').value);
+const getInputValue = () => parseInt(document.querySelector('#js-inputNumber').value);
+// const getInputValueB = () => parseInt(document.querySelector('#js-inputNumberB').value);
 
 // 2. Math operations
 const add = () => {
