@@ -65,8 +65,6 @@ function getNights() {
 
 getNights(); 
 
-
-
 /*----- 4. ADD PARKING FEE -----*/
 function getParkingPrice(nights, price) {
     const parkingNights = inputParking.value;
@@ -91,11 +89,13 @@ getParkingPrice(5, 10);
 //     }
 // }
 
+// let finalPrice = 0
 /*----- 5. CALCULATE TOTAL PRICE -----*/
 // function calculateTotal() {
 //     const priceRoomType = getRoomPrice();
 //     const priceoccupationType = getOccupationPrice();
-//     const priceParking = getParkingPrice() 
+//     const priceParking = getParkingPrice();
+//     const totalNights = getNights(); 
 // }
 
 // Listeners
