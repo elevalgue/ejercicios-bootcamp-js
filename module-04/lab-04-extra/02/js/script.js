@@ -60,8 +60,7 @@ getOccupationPrice();
 /*----- 3. GET NIGHTS NUMBER -----*/
 function getNights() {
     const totalNights = inputNights.value;
-    console.log(totalNights);
-    return totalNights; 
+    return totalNights * parkingPrice; 
 }
 
 getNights(); 
@@ -69,24 +68,25 @@ getNights();
 
 
 /*----- 4. ADD PARKING FEE -----*/
-// function getParkingPrice() {
-//     const parkingNights = inputParking.value;
-//     console.log(parkingNights, 'hola');
-//      return 10 * parkingNights; 
+function getParkingPrice(nights, price) {
+    const parkingNights = inputParking.value;
 
-// }
+    console.log(parkingNights * 10, 'hola');
+     return 10 * parkingNights; 
+}
 
-// getParkingPrice(); 
+getParkingPrice(5, 10); 
 
 /*----- 5. VALIDATE INPUTS -----*/
 
 // function validateInputs() {
-//     if (roomType[selectRoomType] === undefined || roomSize[selectRoomSize] === undefined ) {
+//     if (roomType[selectRoomType] === undefined || roomSize[selectRoomSize] === undefined) {
+    
 //         return "Error";
         
-//     } else if ( === 0) {
+//     // } else if ( === 0) {
         
-//     } else {
+//     // } else {
         
 //     }
 // }
