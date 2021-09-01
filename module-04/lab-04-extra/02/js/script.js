@@ -57,24 +57,50 @@ function getOccupationPrice(price) {
 
 getOccupationPrice();
 
-/*----- 3. ADD PARKING FEE -----*/
-// function addParkingPrice() {
+/*----- 3. GET NIGHTS NUMBER -----*/
+function getNights() {
+    const totalNights = inputNights.value;
+    console.log(totalNights);
+    return totalNights; 
+}
+
+getNights(); 
+
+
+
+/*----- 4. ADD PARKING FEE -----*/
+// function getParkingPrice() {
 //     const parkingNights = inputParking.value;
 //     console.log(parkingNights, 'hola');
 //      return 10 * parkingNights; 
 
 // }
 
-// addParkingPrice(); 
+// getParkingPrice(); 
 
-/*----- 4. RENDER TOTAL -----*/
-// function renderTotal() {
-//     const PriceRoomType = getRoomPrice();
-//     const PriceccupationType = getOccupationPrice();
+/*----- 5. VALIDATE INPUTS -----*/
+
+// function validateInputs() {
+//     if (roomType[selectRoomType] === undefined || roomSize[selectRoomSize] === undefined ) {
+//         return "Error";
+        
+//     } else if ( === 0) {
+        
+//     } else {
+        
+//     }
+// }
+
+/*----- 5. CALCULATE TOTAL PRICE -----*/
+// function calculateTotal() {
+//     const priceRoomType = getRoomPrice();
+//     const priceoccupationType = getOccupationPrice();
+//     const priceParking = getParkingPrice() 
 // }
 
 // Listeners
 selectRoomType.addEventListener('change', getRoomPrice);
+inputNights.addEventListener('keyup', getNights);
 selectRoomSize.addEventListener('change', getOccupationPrice);
-// inputParking.addEventListener('change', addParkingPrice);
-// btnCalculate.addEventListener('change', renderTotal);
+// inputParking.addEventListener('change', getParkingPrice);
+// btnCalculate.addEventListener('change', calculateTotal);
