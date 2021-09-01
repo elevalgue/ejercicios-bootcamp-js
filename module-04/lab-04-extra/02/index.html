@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="./styles/app.css" />
     <title></title>
   </head>
-  <body>
+  <body class="body">
     <h1>Reserva tu habitación</h1>
     <form action="">
       <div class="select">
         <label for=""
-          >Seleccionaeel tipo de habitación
+          >Seleccione el tipo de habitación
           <select name="roomType" id="js-room-type">
             <option value="">Elige una opción</option>
             <option value="standard">Standard</option>
@@ -21,17 +21,15 @@
           </select>
         </label>
       </div>
-      <h3></h3>
-      <div>
+      <div class="">
         <label for="spaoption"
           >¿Quiere servicio de SPA?:
-          <input id="js-checkbox-spa" type="checkbox" name="spa" />
-          Incluir SPA
+          <input class="spa" id="js-checkbox-spa" type="checkbox" name="spa" />
         </label>
       </div>
       <div class="select">
         <label for=""
-          >Selecciona la ocupación de la habitación
+          >Seleccione la ocupación de la habitación
           <select name="roomSize" id="js-room-size">
             <option value="">Elige una opción</option>
             <option value="single">Individual</option>
@@ -40,13 +38,13 @@
           </select>
         </label>
       </div>
-      <div>
+      <div class="input-number">
         <label for="nights">
           Indique el número de noches
           <input type="number" id="js-input-nights" min="1" />
         </label>
       </div>
-      <div>
+      <div class="input-number">
         <label for="nights">
           Indique el número de noches de parking
           <input type="number" id="js-input-parking" min="0" />
