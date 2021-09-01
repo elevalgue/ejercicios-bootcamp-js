@@ -40,26 +40,19 @@ const fee = {
 
 function calculateRoomPrice() {
     const roomType = selectRoomType.value;
-    console.log(roomType, 'maricarmen');
     let price = 0;
 
     if (roomType === 'standard') {
         price = 100;
-        console.log(roomType, 'derby');
     } else if (roomType === 'junior') {
         price = 120;
-        console.log(roomType, 'motoretas');
     } else {
         price = 150;
-        console.log(roomType, 'burrito');
     }
-    console.log(price);
+
     price = (inputSpa.checked) ? price + 20 : price;
-    console.log(price, 'price con spa?');
     return price; 
-
 }
-
 
 calculateRoomPrice();
 
