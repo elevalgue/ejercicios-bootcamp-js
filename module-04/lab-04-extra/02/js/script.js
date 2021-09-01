@@ -14,4 +14,14 @@ const stardard = 100,
     suite = 150;
     
 const spa = 20;
-const parking = 10; 
+const parking = 10;
+
+//1. Calcular el coste total de la estancia
+//  - Cosas a tener en cuenta:
+//      a. el SPA aumenta la tarifa en 20€
+//      b. la ocupación INDIVIDUAL reduce la tarifa el 25%
+//      c. el DOBLE la deja igual
+//      d. la TRIPLE incrementa un 25%
+//      e. la noche de parking suma 10€
+
+// 2. Como no tengo ningún objeto que recorrer, el precio final tendré que calcularlo acorde a lo que introduzca el usuario en el input

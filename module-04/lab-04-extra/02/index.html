@@ -12,35 +12,25 @@
     <form action="">
       <div class="select">
         <label for=""
-          >Selecciona el tipo de habitación
+          >Seleccionaeel tipo de habitación
           <select name="roomType" id="js-room-type">
             <option value="">Elige una opción</option>
             <option value="standard">Standard</option>
-            <option value="junior-suite">Junior Suite</option>
+            <option value="junior">Junior Suite</option>
             <option value="suite">Suite</option>
           </select>
         </label>
       </div>
-      <h3>¿Quieres servicio de SPA?:</h3>
+      <h3>¿Quiere servicio de SPA?:</h3>
       <div>
         <label for="spaoption1">
-          <input
-            id="spaoption1"
-            type="checkbox"
-            value="chooseseat"
-            name="flightoptions"
-          />
+          <input id="spaoption1" type="checkbox" value="" name="spaoptions" />
           Incluir SPA
         </label>
       </div>
       <div>
         <label for="spaoption2">
-          <input
-            id="flightoption2"
-            type="checkbox"
-            value="assurance"
-            name="flightoptions"
-          />
+          <input id="spaoption2" type="checkbox" value="" name="spaoptions" />
           No incluir SPA
         </label>
       </div>
@@ -49,25 +39,29 @@
           >Selecciona la ocupación de la habitación
           <select name="roomSize" id="js-room-size">
             <option value="">Elige una opción</option>
-            <option value="double-room">Doble</option>
-            <option value="double-room">Triple</option>
+            <option value="single">Individual</option>
+            <option value="double">Doble</option>
+            <option value="triple">Triple</option>
           </select>
         </label>
       </div>
       <div>
         <label for="nights">
-          Indica el número de noches
-          <input type="number" id="js-input-nights" />
+          Indique el número de noches
+          <input type="number" id="js-input-nights" min="1" />
         </label>
       </div>
       <div>
         <label for="nights">
-          Indica el número de noches de parking
-          <input type="number" id="js-input-parking" />
+          Indique el número de noches de parking
+          <input type="number" id="js-input-parking" min="0" />
         </label>
       </div>
       <button id="js-btn">Calcular</button>
     </form>
+    <div class="">
+      <span id="js-final-price"></span>
+    </div>
     <script src="./js/script.js"></script>
   </body>
 </html>
