@@ -8,5 +8,5 @@
 - **Module 03:** Operators & Flow Control
 - **Module 04:** Functions & Events
 - **Module 05:** Arrays & Loops
-- **Module 06:** Algorithms I
+- **Module 06:** Algorithms
 
