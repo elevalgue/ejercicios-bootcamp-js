@@ -20,11 +20,11 @@ const spanFinalPrice = document.querySelector('#js-final-price');
 const spaPrice = 20;
 const parkingPrice = 10;
 
-const fee = {
-    single: 0.75,
-    double: 1,
-    single: 1.25,
-}
+// const fee = {
+//     single: 0.75,
+//     double: 1,
+//     triple: 1.25,
+// }
 
 //1. Calcular el coste total de la estancia
 //  - Cosas a tener en cuenta:
@@ -38,12 +38,13 @@ const fee = {
 
 /*----- 1. CALCULATE ROOM PRICE -----*/
 
-function calculateRoomPrice() {
+function getRoomPrice() {
     const roomType = selectRoomType.value;
     let price = 0;
 
     if (roomType === 'standard') {
         price = 100;
+        console.log(roomType, price, 'mari');
     } else if (roomType === 'junior') {
         price = 120;
     } else {
@@ -54,7 +55,26 @@ function calculateRoomPrice() {
     return price; 
 }
 
-calculateRoomPrice();
+getRoomPrice();
 
+
+/*----- 2. RE-CALCULATE PRICE DEPENDING ON OCCUPATION KIND -----*/
+function getOccupationPrice(price) {
+    const roomSize = selectRoomSize.value;
+
+    if (roomSize === 'single') {
+        console.log(roomSize, price, 'hola');
+        return price * 0.75;
+        
+    } else if (roomSize ==='triple') {
+        return price * 1.25;
+        
+    } else {
+        return price; 
+    }
+}
+
+getOccupationPrice(); 
 // Listeners
-selectRoomType.addEventListener('change', calculateRoomPrice)
+selectRoomType.addEventListener('change', getRoomPrice);
+selectRoomSize.addEventListener('change', getOccupationPrice);
