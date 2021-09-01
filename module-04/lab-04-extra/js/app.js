@@ -6,6 +6,7 @@ const buttonAdd = document.querySelector('#js-add');
 const buttonSubst = document.querySelector('#js-substract');
 const buttonMult = document.querySelector('#js-multiply');
 const buttonDiv = document.querySelector('#js-divide');
+const buttonEquals = document.querySelector('#js-equals');
 const buttonClear = document.querySelector('#js-clear');
 
 // 1. Get input value
