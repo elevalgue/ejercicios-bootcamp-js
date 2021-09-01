@@ -4,9 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles/app.css" />
+    <title></title>
   </head>
   <body>
+    <h1>Reserva tu habitación</h1>
+    <form action="">
+      <div class="select">
+        <label for="">Selecciona el tipo de habitación</label>
+        <select name="roomType" id="room-type">
+          <option value="">Elige una opción</option>
+          <option value="standard">Standard</option>
+          <option value="junior-suite">Junior Suite</option>
+          <option value="suite">Suite</option>
+        </select>
+      </div>
+      <h3>¿Quieres servicio de SPA?:</h3>
+      <div>
+        <label for="spaoption1">
+          <input
+            id="spaoption1"
+            type="checkbox"
+            value="chooseseat"
+            name="flightoptions"
+          />
+          Incluir SPA
+        </label>
+      </div>
+      <div>
+        <label for="spaoption2">
+          <input
+            id="flightoption2"
+            type="checkbox"
+            value="assurance"
+            name="flightoptions"
+          />
+          No incluir SPA
+        </label>
+      </div>
+    </form>
     <script src="./js/script.js"></script>
   </body>
 </html>
