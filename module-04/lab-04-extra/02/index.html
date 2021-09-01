@@ -21,7 +21,7 @@
           </select>
         </label>
       </div>
-      <div class="">
+      <div class="input-number">
         <label for="spaoption"
           >¿Quiere servicio de SPA?:
           <input class="spa" id="js-checkbox-spa" type="checkbox" name="spa" />
@@ -41,13 +41,23 @@
       <div class="input-number">
         <label for="nights">
           Indique el número de noches
-          <input type="number" id="js-input-nights" min="1" />
+          <input
+            type="number"
+            class="input-nights"
+            id="js-input-nights"
+            min="1"
+          />
         </label>
       </div>
       <div class="input-number">
         <label for="nights">
           Indique el número de noches de parking
-          <input type="number" id="js-input-parking" min="0" />
+          <input
+            type="number"
+            class="input-parking"
+            id="js-input-parking"
+            min="0"
+          />
         </label>
       </div>
       <button id="js-btn">Calcular</button>

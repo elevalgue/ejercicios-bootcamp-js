@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 }
 
 .roomType {
@@ -19,20 +18,28 @@
   justify-content: center;
   align-items: flex-start;
 }
+
 select,
 input,
-.input-nigths,
 .input-parking {
   width: 100%;
   margin: auto;
   cursor: pointer;
 }
 
-/* .spa {
-  margin-right: 20px;
+.input-nights {
   width: 100%;
-} */
+  margin-right: 67px;
+}
 
 div {
+  margin-top: 20px;
+}
+
+.spa {
+  width: auto;
+}
+
+button {
   margin-top: 20px;
 }
