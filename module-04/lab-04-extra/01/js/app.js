@@ -17,21 +17,12 @@ let result = 0;
 const add = () => {
     if (!result) {
         result = parseInt(getInputValue());
-        console.log(result, 'resultado2');
-        console.log('paso por el if');
         clear();
     } else {
-        console.log(getInputValue(), 'prueba');
         result = parseInt(result + getInputValue());
-        console.log(result, 'hola');
-        console.log('paso por el else');
         return parseInt(result); 
     }
-    console.log('Estoy fuera del condicional');
 }
-
-console.log('Estoy fuera de la función', result);
-
 
 // 3. Display results
 const renderAdd = () => resultEl.innerHTML = add();
