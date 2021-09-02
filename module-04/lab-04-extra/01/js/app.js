@@ -9,11 +9,11 @@ const buttonDiv = document.querySelector('#js-divide');
 const buttonEquals = document.querySelector('#js-equals');
 const buttonClear = document.querySelector('#js-clear');
 
-// 1. Get input value
+/*----- 1. GET INPUT VALUE -----*/
 const getInputValue = () => parseInt(document.querySelector('#js-inputNumber').value);
 let result = 0; 
 
-// 2. Math operations
+/*----- 2. MATH OPERATIONS -----*/
 const add = () => {
     if (!result) {
         result = parseInt(getInputValue());
@@ -24,16 +24,31 @@ const add = () => {
     }
 }
 
-// 3. Display results
-const renderAdd = () => resultEl.innerHTML = add();
+const substract = () => {
+    if (!result) {
+        result = parseInt(getInputValue());
+        clear();
+    } else {
+        result = parseInt(result - getInputValue());
+        return parseInt(result); 
+    }   
+}
 
-// 4. Clear
+/*----- 3. DISPLAY RESULTS -----*/
+const renderAdd = () => resultEl.innerHTML = add();
+const renderSubst = () => resultEl.innerHTML = substract();
+const renderClear = () => resultEl.innerHTML = clear();
+
+/*----- 4. CLEAR -----*/
 const clear = () => {
     document.querySelector('#js-inputNumber').value = '';
-    document.querySelector('#js-result').innerHTML= '';
+    document.querySelector('#js-result').innerHTML = '';
 }
 
 // LISTENERS
 buttonClear.addEventListener('click', clear);
 buttonAdd.addEventListener('click', add);
 buttonEquals.addEventListener('click', renderAdd);
+
+buttonSubst.addEventListener('click', substract);
+buttonEquals.addEventListener('click', renderSubst);
