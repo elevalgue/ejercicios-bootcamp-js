@@ -15,28 +15,40 @@ let result = 0;
 
 /*----- 2. MATH OPERATIONS -----*/
 const add = () => {
-    if (!result) {
-        result = parseInt(getInputValue());
+    if (Boolean(!result)) {
+        result = getInputValue();
         clear();
     } else {
-        result = parseInt(result + getInputValue());
-        return parseInt(result); 
+        result = result + getInputValue();
+        return result; 
     }
 }
 
-const substract = () => {
-    if (!result) {
-        result = parseInt(getInputValue());
-        clear();
-    } else {
-        result = parseInt(result - getInputValue());
-        return parseInt(result); 
-    }   
-}
+// const add = () => {
+//     if (!result) {
+//         result = parseInt(getInputValue());
+//         clear();
+//     } else {
+//         result = parseInt(result + getInputValue());
+//         return parseInt(result); 
+//     }   
+// }
+
+
+
+// const substract = () => {
+//     if (!result) {
+//         result = parseInt(getInputValue());
+//         clear();
+//     } else {
+//         result = parseInt(result - getInputValue());
+//         return parseInt(result); 
+//     }   
+// }
 
 /*----- 3. DISPLAY RESULTS -----*/
 const renderAdd = () => resultEl.innerHTML = add();
-const renderSubst = () => resultEl.innerHTML = substract();
+// const renderSubst = () => resultEl.innerHTML = substract();
 const renderClear = () => resultEl.innerHTML = clear();
 
 /*----- 4. CLEAR -----*/
@@ -50,5 +62,5 @@ buttonClear.addEventListener('click', clear);
 buttonAdd.addEventListener('click', add);
 buttonEquals.addEventListener('click', renderAdd);
 
-buttonSubst.addEventListener('click', substract);
-buttonEquals.addEventListener('click', renderSubst);
+// buttonSubst.addEventListener('click', substract);
+// buttonEquals.addEventListener('click', renderSubst);

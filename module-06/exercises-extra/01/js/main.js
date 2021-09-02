@@ -74,7 +74,7 @@ let schedule = [];
 let i = 0;
 let j = 0;
 
-function displaySchedule() {
+function assignSchedule() {
     for (let i = 0; i < myTeam.length; i++) {
         workerName = myTeam[i].name;
         console.log(workerName);
@@ -86,4 +86,14 @@ function displaySchedule() {
     }
 }
 
-displaySchedule(); 
+assignSchedule();
+
+const range = 8 - 0 + 1;
+
+
+function assignRandomSchedule(max, min) {
+    Math.floor(Math.random() * range); // Números aleatorios enteros en el rango [0, 50]
+    
+}
+
+console.log(assignRandomSchedule(8, 1));
