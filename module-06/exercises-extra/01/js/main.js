@@ -66,9 +66,24 @@ const myTeam = [
 /*----- 1. Generación aleatoria de la disponibilidad: -----*/
 
 let workerName = [];
-let index = 0;
+let schedule = []; 
 
-for (let index = 0; index < myTeam.length; index++) {
-    workerName = myTeam[index].name;
-    console.log(workerName);
+// const range = max - min + 1;
+// Math.floor(Math.random() * range) + min; // Números aleatorios enteros en el rango [min, max]
+
+let i = 0;
+let j = 0;
+
+function displaySchedule() {
+    for (let i = 0; i < myTeam.length; i++) {
+        workerName = myTeam[i].name;
+        console.log(workerName);
+
+        for (let j = 0; j < WORK_HOURS.length; j++) {
+            schedule = WORK_HOURS[j];
+            console.log(schedule);  
+        }
+    }
 }
+
+displaySchedule(); 
