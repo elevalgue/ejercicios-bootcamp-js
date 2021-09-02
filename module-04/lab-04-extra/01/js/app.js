@@ -14,10 +14,29 @@ const getInputValue = () => parseInt(document.querySelector('#js-inputNumber').v
 let result = 0; 
 
 // 2. Math operations
-const
+const add = () => {
+    if (!result) {
+        result = parseInt(getInputValue());
+        console.log(result, 'resultado2');
+        console.log('paso por el if');
+        clear();
+    } else {
+        console.log(getInputValue(), 'prueba');
+        result = parseInt(result + getInputValue());
+        console.log(result, 'hola');
+        console.log('paso por el else');
+        return parseInt(result); 
+    }
+    console.log('Estoy fuera del condicional');
+}
 
-// 3. Clear
+console.log('Estoy fuera de la función', result);
 
+
+// 3. Display results
+const renderAdd = () => resultEl.innerHTML = add();
+
+// 4. Clear
 const clear = () => {
     document.querySelector('#js-inputNumber').value = '';
     document.querySelector('#js-result').innerHTML= '';
@@ -25,3 +44,5 @@ const clear = () => {
 
 // LISTENERS
 buttonClear.addEventListener('click', clear);
+buttonAdd.addEventListener('click', add);
+buttonEquals.addEventListener('click', renderAdd);
