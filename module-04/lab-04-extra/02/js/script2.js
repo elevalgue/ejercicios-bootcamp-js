@@ -10,25 +10,40 @@ const inputParkingNights = document.querySelector('#js-input-parking');
 const btnTotalPayment = document.querySelector('#js-btn');
 
 
+// function getRoomTypePrice() {
+//     const roomTypeValue = selectType.value;
+//     let roomTypePrice = 0
+//     console.log(roomTypeValue);
+
+//     if (roomTypeValue === 'standard') {
+//         roomTypePrice = 100;
+
+//     } else if (roomTypeValue === 'junior') {
+//         roomTypePrice = 120;
+
+//     } else if (roomTypeValue === 'suite') {
+//         roomTypePrice = 150;
+//     }
+
+//     return roomTypePrice; 
+// }
+
 function getRoomTypePrice() {
     const roomTypeValue = selectType.value;
     let roomTypePrice = 0
-    console.log(roomTypeValue);
 
-    if (roomTypeValue === 'standard') {
-        roomTypePrice = 100;
-        // console.log(roomTypeValue, roomTypePrice, 'debería ver standard y 100');
-
-    } else if (roomTypeValue === 'junior') {
-        roomTypePrice = 120;
-        // console.log(roomTypeValue, roomTypePrice, 'debería ver junior y 120');
-
-    } else if (roomTypeValue === 'suite') {
-        roomTypePrice = 150;
-        // console.log(roomTypeValue, roomTypePrice, 'debería ver suite y 150'); 
-        // console.log(roomTypePrices);
+    switch (roomTypeValue) {
+        case 'standard':
+            roomTypePrice = 100;
+            break;
+        case 'junior':
+            roomTypePrice = 120;
+            break;
+        case 'suite':
+            roomTypePrice = 150;
+            break;
     }
-
+    console.log(roomTypePrice);
     return roomTypePrice; 
 }
 
@@ -87,19 +102,19 @@ function getTotalPayment(event) {
     event.preventDefault()
     let totalPayment = 0;
     totalPayment =
-        getRoomTypePrice()
-        * getRoomOccupPrice()
+        getRoomTypePrice();
+        // * getRoomOccupPrice()
         // * getNumberNights()
         // + getParkingNights()
         // + getSpaPrice();
 
-    console.log(totalPayment, 'miedo me da');
+        console.log(totalPayment, 'miedo me da');
 }
 
 // Listeners
 selectType.addEventListener('change', getRoomTypePrice);
-selectOccup.addEventListener('change', getRoomOccupPrice);
-checkboxSpa.addEventListener('click', getSpaPrice);
-inputTotalNights.addEventListener('change', getNumberNights);
-inputParkingNights.addEventListener('change', getParkingNights);
+// selectOccup.addEventListener('change', getRoomOccupPrice);
+// checkboxSpa.addEventListener('click', getSpaPrice);
+// inputTotalNights.addEventListener('change', getNumberNights);
+// inputParkingNights.addEventListener('change', getParkingNights);
 btnTotalPayment.addEventListener('click', getTotalPayment);
