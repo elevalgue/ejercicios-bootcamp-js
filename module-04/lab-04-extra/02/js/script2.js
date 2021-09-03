@@ -80,8 +80,8 @@ function getParkingNights() {
 }
 
 /*----- 6. GET TOTAL PAYMENT -----*/
-let totalPayment = 0;
 function getTotalPayment(event) {
+    let totalPayment = 0;
     event.preventDefault()
     totalPayment =
         getRoomTypePrice()
