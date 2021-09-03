@@ -63,37 +63,11 @@ const myTeam = [
 
 // Algoritmo
 
-/*----- 1. Generación aleatoria de la disponibilidad: -----*/
 
 let workerName = [];
 let schedule = []; 
 
-// const range = max - min + 1;
-// Math.floor(Math.random() * range) + min; // Números aleatorios enteros en el rango [min, max]
 
-let i = 0;
-let j = 0;
-
-function assignSchedule() {
-    for (let i = 0; i < myTeam.length; i++) {
-        workerName = myTeam[i].name;
-        console.log(workerName);
-
-        for (let j = 0; j < WORK_HOURS.length; j++) {
-            schedule = WORK_HOURS[j];
-            console.log(schedule);  
-        }
-    }
-}
-
-assignSchedule();
-
-const range = 8 - 0 + 1;
-const random = Math.floor(Math.random() * range); // Números aleatorios enteros en el rango [0, 50]
-
-
-// function assignRandomSchedule(max, min) {
-//     Math.floor(Math.random() * range); // Números aleatorios enteros en el rango [0, 50]
-    
-// }
+/*----- 1. Generación aleatoria de la disponibilidad: -----*/
+const randomAvailability = () => Math.random() < 0.5; 
 
