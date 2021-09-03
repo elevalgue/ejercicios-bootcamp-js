@@ -10,6 +10,7 @@ const inputParking = document.querySelector('#js-input-parking');
 const btnCalculate = document.querySelector('#js-btn');
 const spanFinalPrice = document.querySelector('#js-final-price');
 
+
 const spaPrice = 20;
 const parkingPrice = 10;
 
@@ -37,11 +38,12 @@ getRoomPrice();
 
 
 /*----- 2. RE-CALCULATE PRICE DEPENDING ON OCCUPATION KIND -----*/
-function getOccupationPrice(price) {
+function getOccupationPrice() {
+    const price = getRoomPrice(); 
     const roomSize = selectRoomSize.value;
-
+    // console.log(price, 'precio');
 // He probado Boolean, pero sigue dando NaN
-    if (Boolean(roomSize === 'single')) {
+    if (roomSize === 'single') {
         console.log(parseInt(price) * parseInt(0.75));
         console.log(typeof price);
         return parseInt(price) * parseInt(0.75);
@@ -54,8 +56,6 @@ function getOccupationPrice(price) {
         return price; 
     }
 }
-
-getOccupationPrice();
 
 /*----- 3. GET NIGHTS NUMBER -----*/
 function getNights() {

@@ -89,11 +89,11 @@ function assignSchedule() {
 assignSchedule();
 
 const range = 8 - 0 + 1;
+const random = Math.floor(Math.random() * range); // Números aleatorios enteros en el rango [0, 50]
 
 
-function assignRandomSchedule(max, min) {
-    Math.floor(Math.random() * range); // Números aleatorios enteros en el rango [0, 50]
+// function assignRandomSchedule(max, min) {
+//     Math.floor(Math.random() * range); // Números aleatorios enteros en el rango [0, 50]
     
-}
+// }
 
-console.log(assignRandomSchedule(8, 1));
