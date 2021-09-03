@@ -1,7 +1,6 @@
 'use strict';
 
-console.log('hello');
-
+// Selectors
 const selectType = document.querySelector('#js-room-type');
 const selectOccup = document.querySelector('#js-room-occupation');
 const checkboxSpa = document.querySelector('#js-checkbox-spa');
@@ -10,6 +9,7 @@ const inputParkingNights = document.querySelector('#js-input-parking');
 const btnTotalPayment = document.querySelector('#js-btn');
 const showTotal = document.querySelector('#js-final-price');
 
+/*----- 1. GET ROOM TYPE COST -----*/
 function getRoomTypePrice() {
     const roomTypeValue = selectType.value;
     let roomTypePrice = 0
@@ -26,10 +26,10 @@ function getRoomTypePrice() {
             break;
     }
 
-    // return roomTypePrice;
+    return roomTypePrice;
 }
 
-
+/*----- 2. GET SPA COST -----*/
 function getSpaPrice() {
     let spaPrice = 0;
     if (checkboxSpa.checked) {
@@ -38,9 +38,10 @@ function getSpaPrice() {
         console.log(spaPrice, 'taylor');
     }
 
-    // return spaPrice; 
+    return spaPrice; 
 }
 
+/*----- 3. GET ROOM OCCUPATION COST -----*/
 function getRoomOccupPrice() {
     const roomOccupValue = selectOccup.value;
     let roomOccupPrice = 0
@@ -61,42 +62,36 @@ function getRoomOccupPrice() {
             break;
     }
     
-        // return roomOccupPrice;
+        return roomOccupPrice;
 }
-    
- 
 
+/*----- 4. GET TOTAL NIGHTS NUMBER -----*/
 function getNumberNights() {
-    const nightsValue = inputTotalNights.value;
-    console.log(nightsValue, 'noches');
-
-    // return nightsValue;
+    const nightsValue = parseInt(inputTotalNights.value);    
+    return nightsValue;
 }
 
+/*----- 5. GET PARKING COST -----*/
 function getParkingNights() {
-    const parkingNightsValue = inputParkingNights.value;
+    const parkingNightsValue = parseInt(inputParkingNights.value);
     let parkingPrice = 10;
-    parkingPrice = parseInt(parkingPrice) * parseInt(parkingNightsValue); 
-    console.log(parkingNightsValue, 'noches de parking');
-    console.log(parkingPrice, 'total precio parking');
-
-    // return parkingPrice;
+    parkingPrice = parseInt(parkingPrice) * parseInt(parkingNightsValue);
+    return parkingPrice;
 }
 
+/*----- 6. GET TOTAL PAYMENT -----*/
+let totalPayment = 0;
 function getTotalPayment(event) {
     event.preventDefault()
-    let totalPayment = 0;
-    // Si parseo tengo NaN y si no lo hago, undefined
-    totalPayment = parseInt(getRoomTypePrice())
-    // console.log(totalPayment, 'maricarmen');
+    totalPayment =
+        getRoomTypePrice()
+        * getRoomOccupPrice()
         * getNumberNights()
         + getParkingNights()
         + getSpaPrice();
-
-    console.log(totalPayment, 'que no salga NaN');
-    showTotal.innerHTML = `Factura total: ${totalPayment} euros`
     
-    // return totalPayment; 
+    showTotal.innerHTML = `Factura total: ${totalPayment} €`;
+    return totalPayment;
 }
 
 // Listeners
