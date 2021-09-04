@@ -16,7 +16,7 @@ const calculateChange = function (price, cash) {
     let amount = 0; 
 
     for (let index = 0; index < money.length; index++) {
-        amount = returnValue / money[index];
+        amount = Math.floor(returnValue / money[index]);
         console.log(amount, 'hola');
         
     }
