@@ -2,7 +2,7 @@
 
 console.log('Are you ready for a good time? :))');
 
-// Constantes
+// Constants
 const WORK_HOURS = [
     "08:00 - 09:00",
     "09:00 - 10:00",
@@ -14,7 +14,7 @@ const WORK_HOURS = [
     "16:00 - 17:00"
 ];
 
-// Datos
+// Data
 const myTeam = [
     {
         name: "María",
@@ -50,7 +50,7 @@ function getRandomSchedule() {
         }
     }
 
-    console.log(myTeam);
+    return myTeam; 
 }
 
 /*----- 3. RENDER PEOPLE AVAILABILITY RANDOMLY: -----*/
@@ -59,7 +59,7 @@ function renderSchedule() {
         console.log('-------------------------');
         console.log(`* * Disponibilidad de ${worker.name.toUpperCase()} * *`);
         for (let index = 0; index < worker.availability.length; index++) {
-           console.log(`- - - ${WORK_HOURS[index]} : ${worker.availability[index] ? 'SÍ' : 'NO'} - - -`);
+           console.log(`- - - ${WORK_HOURS[index]}: ${worker.availability[index] ? 'SÍ' : 'NO'} - - -`);
         }
     }
 }
@@ -68,22 +68,21 @@ function renderSchedule() {
  *      GET A FREE SPOT     *
  ****************************/
 
-
 function getFreeSpot() {
     for (let index = 0; index < WORK_HOURS.length; index++) {
         let freeHours = [];
         for (const worker of myTeam) {
             freeHours.push[worker.availability[index]];
-            console.log(freeHours, 'hola');
+            // console.log(freeHours, 'hola');
         }
-        if (freeHours.every( (target) => target)) {
+        if (freeHours.every((target) => target)) {
             return `Hueco encontrado en el horario ${WORK_HOURS[index]}`;  
         }
-        
     }
+
     return "Lo siento. No hay hueco disponible en el equipo.";
 }
 
-console.log(getRandomSchedule());
+getRandomSchedule(); 
 renderSchedule();
 console.log(getFreeSpot()); 
