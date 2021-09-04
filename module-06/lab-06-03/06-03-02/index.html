@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Calculadora de cambio óptimo de billetes y monedas</title>
   </head>
-  <body>
-    <input type="number" id="js-total-amount" />
-    <input type="number" id="js-total-deliver" />
-    <button id="js-btn-calculate">Calculate</button>
+
+  <body class="body">
+    <h2>Cambio óptimo</h2>
+    <form action="">
+      <div class="container">
+        <label for="">
+          Total Amount
+          <input type="number" class="input" id="js-total-amount" />
+        </label>
+      </div>
+      <div class="container">
+        <label for="">
+          Total given
+          <input type="number" class="input" id="js-total-given" />
+        </label>
+      </div>
+      <button id="js-btn-calculate">Calculate</button>
+    </form>
     <script src="./js/script.js"></script>
   </body>
 </html>
