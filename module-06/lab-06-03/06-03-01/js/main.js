@@ -2,17 +2,16 @@
 
 console.log('Are you ready for a good time? :))');
 
-
 // Constantes
 const WORK_HOURS = [
-"08:00 - 09:00",
-"09:00 - 10:00",
-"10:00 - 11:00",
-"11:00 - 12:00",
-"12:00 - 13:00",
-"13:00 - 14:00",
-"15:00 - 16:00",
-"16:00 - 17:00"
+    "08:00 - 09:00",
+    "09:00 - 10:00",
+    "10:00 - 11:00",
+    "11:00 - 12:00",
+    "12:00 - 13:00",
+    "13:00 - 14:00",
+    "15:00 - 16:00",
+    "16:00 - 17:00"
 ];
 
 // Datos
@@ -46,11 +45,11 @@ const getRandomNumber = () => Math.random() < 0.5;
 /*----- 2. GENERATE PEOPLE AVAILABILITY RANDOMLY: -----*/
 function getRandomSchedule() {
     for (const worker of myTeam) {
-      
         for (let index = 0; index < worker.availability.length; index++) {
             worker.availability[index] = getRandomNumber(); 
         }
     }
+
     console.log(myTeam);
 }
 
@@ -68,6 +67,12 @@ function renderSchedule() {
 /****************************
  *      GET A FREE SPOT     *
  ****************************/
+
+let freeHours = []; 
+
+function getFreeSpot() {
+    
+}
 
 console.log(getRandomSchedule());
 renderSchedule(); 
