@@ -73,7 +73,6 @@ let schedule = [];
 const getRandomNumber = () => Math.random() < 0.5; 
 
 /*----- 2. GENERATE PEOPLE AVAILABILITY RANDOMLY: -----*/
-
 function getRandomSchedule() {
     for (const worker of myTeam) {
       
@@ -84,14 +83,13 @@ function getRandomSchedule() {
     console.log(myTeam);
 }
 
-
+/*----- 3. RENDER PEOPLE AVAILABILITY RANDOMLY: -----*/
 function renderSchedule() {
     for (const worker of myTeam) {
         console.log('-------------------------');
         console.log(`* * Disponibilidad de ${worker.name.toUpperCase()} * *`);
         for (let index = 0; index < worker.availability.length; index++) {
            console.log(`- - - ${WORK_HOURS[index]} : ${worker.availability[index] ? 'SÍ' : 'NO'} - - -`);
-            
         }
     }
 }
