@@ -68,11 +68,22 @@ function renderSchedule() {
  *      GET A FREE SPOT     *
  ****************************/
 
-let freeHours = []; 
 
 function getFreeSpot() {
-    
+    for (let index = 0; index < WORK_HOURS.length; index++) {
+        let freeHours = [];
+        for (const worker of myTeam) {
+            freeHours.push[worker.availability[index]];
+            console.log(freeHours, 'hola');
+        }
+        if (freeHours.every( (target) => target)) {
+            return `Hueco encontrado en el horario ${WORK_HOURS[index]}`;  
+        }
+        
+    }
+    return "Lo siento. No hay hueco disponible en el equipo.";
 }
 
 console.log(getRandomSchedule());
-renderSchedule(); 
+renderSchedule();
+console.log(getFreeSpot()); 
