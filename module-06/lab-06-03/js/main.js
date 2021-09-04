@@ -69,22 +69,32 @@ let workerName = [];
 let schedule = []; 
 
 
-/*----- 1. GENERATE RANDOM AVAILABILITY: -----*/
+/*----- 1. GENERATE RANDOM NUMBER: -----*/
 const getRandomNumber = () => Math.random() < 0.5; 
 
-/*----- 2. GET PEOPLE AVAILABILITY: -----*/
+/*----- 2. GENERATE PEOPLE AVAILABILITY RANDOMLY: -----*/
 
 function getRandomSchedule() {
     for (const worker of myTeam) {
-        // console.log('--------------------');
-        // console.log(`Horarios de ${worker.name}`);
-
+      
         for (let index = 0; index < worker.availability.length; index++) {
             worker.availability[index] = getRandomNumber(); 
-            
         }
     }
     console.log(myTeam);
 }
 
+
+function renderSchedule() {
+    for (const worker of myTeam) {
+        console.log('-------------------------');
+        console.log(`* * Disponibilidad de ${worker.name.toUpperCase()} * *`);
+        for (let index = 0; index < worker.availability.length; index++) {
+           console.log(`- - - ${WORK_HOURS[index]} : ${worker.availability[index] ? 'SÍ' : 'NO'} - - -`);
+            
+        }
+    }
+}
+
 console.log(getRandomSchedule());
+renderSchedule(); 
