@@ -10,6 +10,14 @@ const btnCalculate = document.querySelector('#js-btn-calculate');
 const moneyValue = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
 const moneyType = ['dos cientos', 'cien', 'ciencuenta', 'veinte', 'diez', 'cinco', 'dos euros', 'un euro', 'cincuenta centimos', 'veinte centimos', 'diez centimos', 'cinco centimos', 'dos centimos', 'un centimo'];
 
+
+const getCashValue = function () {
+    console.log(inputTotalAmount);
+    const cashValue = parseInt(inputTotalAmount.value);
+    console.log(cashValue);
+    
+}
+
 const calculateChange = function (price, cash) {
     let returnValue = cash - price;
     const change = [];
@@ -27,6 +35,8 @@ const calculateChange = function (price, cash) {
     return change;
 }
 
-console.log(calculateChange(250, 300));
-console.log(calculateChange(270, 300));
-console.log(calculateChange(319.7, 320));
+inputTotalAmount.addEventListener('change', getCashValue); 
+
+// console.log(calculateChange(250, 300));
+// console.log(calculateChange(270, 300));
+// console.log(calculateChange(319.7, 320));
