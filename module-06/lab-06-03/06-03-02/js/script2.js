@@ -5,6 +5,7 @@ console.log('Are you ready for a good time? :))');
 const inputTotalAmount = document.querySelector('#js-total-amount'); 
 const inputTotalGiven = document.querySelector('#js-total-given');
 const btnCalculate = document.querySelector('#js-btn-calculate');
+const spanChange = document.querySelector('#js-change');
 
 const money = [
     {
@@ -68,13 +69,13 @@ const money = [
 /*----- 1. GET INPUT VALUES -----*/
 const getReturnValue = () => parseInt(inputTotalGiven.value) - parseInt(inputTotalAmount.value);
 
+const change = [];
 /*----- 2. GET CHANGE -----*/
 function getChange() {
     let returnValue = getReturnValue();
     console.log(returnValue);
     // return returnValue; 
 
-    const change = [];
     console.log(change, 'maricarmen');
 
     let amount = 0;
@@ -90,12 +91,13 @@ function getChange() {
     }
 
     console.log(change, 'hola');
-    // return change;
+    return change;
 }
+spanChange.innerHTML = `${change.name}`;
 
 /*----- 3. RENDER CHANGE -----*/
 
 
-// Listener
+// Listeners
 btnCalculate.addEventListener('click', getReturnValue);
 btnCalculate.addEventListener('click', getChange);
