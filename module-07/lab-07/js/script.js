@@ -58,7 +58,6 @@ const charactPattern = /[A-Z]{3}$/;
 
 plates.forEach(value => {
     console.log('<---------- CAS0 2 ----------->');
-    console.log(`${value} ------>  Números  ${numberPattern.exec(value)} ------>  Letras  ${charactPattern.exec(value)}`);  
+    console.log(`${value} ------>  Números  ${numberPattern.exec(value)} ------>  Letras  ${charactPattern.exec(value)}`);
     console.log('<----------------------------->');
 });
-
