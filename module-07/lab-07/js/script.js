@@ -40,11 +40,13 @@ iban3.forEach(value => {
 
 // Caso 1
 // Validar una matrícula de coche moderna. Compuesta por 4 digitos y tres letras
-const platePattern = /^d{4}3{A-Z} /
+// const platePattern = /^\d{4}\s?[A-Z]{3}$/;
+const platePattern = /^\d{4}(\s|-|_)?[A-Za-z]{3}$/;
 const plates = ['2021 GMD', '2345-GMD', '4532BDB', '0320-AAA'];
 
 plates.forEach(value => {
     console.log('<---------- CAS0 1 ----------->');
-    console.log(`Regexp matches with ${value} ------>  , ${platePattern.test(value)}`);
+    console.log(`Regexp matches with ${value} ------>  ${platePattern.test(value)}`);
 
 })
+
