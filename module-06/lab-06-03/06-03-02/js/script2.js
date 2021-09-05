@@ -71,6 +71,7 @@ const money = [
 /*----- 1. GET INPUT VALUES -----*/
 const getReturnValue = () => parseInt(inputTotalGiven.value) - parseInt(inputTotalAmount.value);
 
+/*----- 2. GET CHANGE -----*/
 function getChange() {
     let returnValue = getReturnValue();
     console.log(returnValue);
@@ -90,18 +91,12 @@ function getChange() {
             returnValue = returnValue % item.value; 
         } 
     }
-    // for (let index = 0; index < money.value.length; index++) {
-    //     amount = Math.floor(returnValue / money.value[index]);
-    
-    //     if (amount > 0) {
-    //         change[money.name[index]] = amount;
-    //         returnValue = returnValue % money.value[index]; 
-    //     }
-    // }
 
     console.log(change, 'hola');
     // return change;
 }
+
+/*----- 3. RENDER CHANGE -----*/
 
 
 // Listener

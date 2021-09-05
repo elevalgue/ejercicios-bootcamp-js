@@ -1,5 +1,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,4 +32,11 @@ label {
 
 button {
   margin-bottom: 1.5em;
+}
+
+.container-change {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
