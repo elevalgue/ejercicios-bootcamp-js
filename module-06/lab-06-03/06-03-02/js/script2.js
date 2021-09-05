@@ -14,15 +14,7 @@ const moneyType = ['dos cientos', 'cien', 'ciencuenta', 'veinte', 'diez', 'cinco
 const getReturnValue = () => parseInt(inputTotalGiven.value) - parseInt(inputTotalAmount.value);
 
 function getChange() {
-    // const totalAmount = parseInt(inputTotalAmount.value);
-    // console.log(totalAmount);
-
-    // const totalGiven = parseInt(inputTotalGiven.value);
-    // console.log(totalGiven);
-
-    // let returnValue = totalGiven - totalAmount;
     let returnValue = getReturnValue();
-
     console.log(returnValue);
     // return returnValue; 
 
@@ -43,13 +35,8 @@ function getChange() {
 
     console.log(change, 'hola');
     // return change;
-
 }
 
-// function calculateChange() {
-//     console.log(returnValue, 'hola');
-    
-// }
 
 // Listener
 btnCalculate.addEventListener('click', getReturnValue);
