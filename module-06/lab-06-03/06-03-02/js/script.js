@@ -2,11 +2,13 @@
 
 console.log('Are you ready for a good time? :))');
 
+// Selectors
 const inputTotalAmount = document.querySelector('#js-total-amount'); 
 const inputTotalGiven = document.querySelector('#js-total-given');
 const btnCalculate = document.querySelector('#js-btn-calculate');
 const spanChange = document.querySelector('#js-change');
 
+// Data
 const money = [
     {
         name: 'dos cientos',
