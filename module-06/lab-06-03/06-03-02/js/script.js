@@ -15,7 +15,12 @@ const getCashValue = function () {
     console.log(inputTotalAmount);
     const cashValue = parseInt(inputTotalAmount.value);
     console.log(cashValue);
-    
+}
+
+const getGivenMoney = function () {
+    console.log(inputTotalAmount);
+    const totalGivenValue = parseInt(inputTotalGiven.value);
+    console.log(totalGivenValue);
 }
 
 const calculateChange = function (price, cash) {
@@ -35,7 +40,8 @@ const calculateChange = function (price, cash) {
     return change;
 }
 
-inputTotalAmount.addEventListener('change', getCashValue); 
+inputTotalAmount.addEventListener('change', getCashValue);
+inputTotalGiven.addEventListener('change', getGivenMoney);
 
 // console.log(calculateChange(250, 300));
 // console.log(calculateChange(270, 300));
