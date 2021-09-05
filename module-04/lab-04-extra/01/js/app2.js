@@ -1,4 +1,6 @@
-'use strict'; 
+'use strict';
+
+console.log('Are you ready for a good time? :)');
 
 // SELECTORS
 const resultEl = document.querySelector('#js-result');

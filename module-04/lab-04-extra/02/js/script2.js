@@ -1,5 +1,7 @@
 'use strict';
 
+console.log('Are you ready for a good time? :))');
+
 // Selectors
 const selectType = document.querySelector('#js-room-type');
 const selectOccup = document.querySelector('#js-room-occupation');
