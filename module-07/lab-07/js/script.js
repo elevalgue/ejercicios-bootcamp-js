@@ -53,7 +53,6 @@ plates.forEach(value => {
 // Caso 2
 // Extraer la parte númerica
 // Extraer las letras
-
 const numberPattern = /^(\d{4})/;
 const charactPattern = /[A-Z]{3}$/;
 
@@ -63,9 +62,3 @@ plates.forEach(value => {
     console.log('<----------------------------->');
 });
 
-
-
-// carNumberPlates.forEach((carNumber) => {
-  
-//   console.log(`Car extract ${extractCarNumberPlate(carNumber, carPattern)}`);
-// });
