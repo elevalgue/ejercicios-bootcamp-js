@@ -6,8 +6,8 @@ const inputTotalAmount = document.querySelector('#js-total-amount');
 const inputTotalGiven = document.querySelector('#js-total-given');
 const btnCalculate = document.querySelector('#js-btn-calculate');
 
-const moneyValue = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
-const moneyType = ['dos cientos', 'cien', 'ciencuenta', 'veinte', 'diez', 'cinco', 'dos euros', 'un euro', 'cincuenta centimos', 'veinte centimos', 'diez centimos', 'cinco centimos', 'dos centimos', 'un centimo'];
+// const moneyValue = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+// const moneyType = ['dos cientos', 'cien', 'ciencuenta', 'veinte', 'diez', 'cinco', 'dos euros', 'un euro', 'cincuenta centimos', 'veinte centimos', 'diez centimos', 'cinco centimos', 'dos centimos', 'un centimo'];
 
 const money = [
     {
@@ -66,7 +66,6 @@ const money = [
         name: 'un centimos',
         value: 0.01,
     },
-
 ]
 
 /*----- 1. GET INPUT VALUES -----*/
@@ -83,14 +82,22 @@ function getChange() {
     let amount = 0;
     console.log(amount, 'hey');
 
-    for (let index = 0; index < moneyValue.length; index++) {
-        amount = Math.floor(returnValue / moneyValue[index]);
+    for (const item of money) {
+        amount = Math.floor(returnValue / item.value);
     
         if (amount > 0) {
-            change[moneyType[index]] = amount;
-            returnValue = returnValue % moneyValue[index]; 
-        }
+            change[item.name] = amount;
+            returnValue = returnValue % item.value; 
+        } 
     }
+    // for (let index = 0; index < money.value.length; index++) {
+    //     amount = Math.floor(returnValue / money.value[index]);
+    
+    //     if (amount > 0) {
+    //         change[money.name[index]] = amount;
+    //         returnValue = returnValue % money.value[index]; 
+    //     }
+    // }
 
     console.log(change, 'hola');
     // return change;
