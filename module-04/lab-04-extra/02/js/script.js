@@ -2,105 +2,104 @@
 
 console.log('Are you ready for a good time? :))');
 
-const selectRoomType = document.querySelector('#js-room-type');
-const selectRoomSize = document.querySelector('#js-room-size');
-const inputSpa = document.querySelector('#js-checkbox-spa');
-const inputNights = document.querySelector('#js-input-nights');
-const inputParking = document.querySelector('#js-input-parking');
-const btnCalculate = document.querySelector('#js-btn');
-const spanFinalPrice = document.querySelector('#js-final-price');
+// Selectors
+const selectType = document.querySelector('#js-room-type');
+const selectOccup = document.querySelector('#js-room-occupation');
+const checkboxSpa = document.querySelector('#js-checkbox-spa');
+const inputTotalNights = document.querySelector('#js-input-nights');
+const inputParkingNights = document.querySelector('#js-input-parking');
+const btnTotalPayment = document.querySelector('#js-btn');
+const showTotal = document.querySelector('#js-final-price');
 
+/*----- 1. GET ROOM TYPE COST -----*/
+function getRoomTypePrice() {
+    const roomTypeValue = selectType.value;
+    let roomTypePrice = 0
 
-const spaPrice = 20;
-const parkingPrice = 10;
-
-/*----- 1. CALCULATE ROOM PRICE -----*/
-function getRoomPrice() {
-    const roomType = selectRoomType.value;
-    let price = 0;
-
-    if (roomType === 'standard') {
-        price = 100;
-        console.log(roomType, price, 'mari');
-    } else if (roomType === 'junior') {
-        price = 120;
-    } else {
-        price = 150;
+    switch (roomTypeValue) {
+        case 'standard':
+            roomTypePrice = 100;
+            break;
+        case 'junior':
+            roomTypePrice = 120;
+            break;
+        case 'suite':
+            roomTypePrice = 150;
+            break;
     }
 
-    // Me está cogiendo el precio de la habitación tipo suite, esto es porque demomento estoy poniendo que el activador del evento sea el input?
-    price = (inputSpa.checked) ? parseInt(price + 20) : parseInt(price);
-    console.log(price);
-    return parseInt(price); 
+    return roomTypePrice;
 }
 
-getRoomPrice();
-
-
-/*----- 2. RE-CALCULATE PRICE DEPENDING ON OCCUPATION KIND -----*/
-function getOccupationPrice() {
-    const price = getRoomPrice(); 
-    const roomSize = selectRoomSize.value;
-    // console.log(price, 'precio');
-// He probado Boolean, pero sigue dando NaN
-    if (roomSize === 'single') {
-        console.log(parseInt(price) * parseInt(0.75));
-        console.log(typeof price);
-        return parseInt(price) * parseInt(0.75);
-    
-    } else if (roomSize === 'triple') {
-        console.log(parseInt(price) * parseInt(1.25));
-        return parseInt(price) * parseInt(1.25);
-        
-    } else {
-        return price; 
+/*----- 2. GET SPA COST -----*/
+function getSpaPrice() {
+    let spaPrice = 0;
+    if (checkboxSpa.checked) {
+        spaPrice = spaPrice + 20;
+        console.log(checkboxSpa.value, 'maricarmen');
+        console.log(spaPrice, 'taylor');
     }
+
+    return spaPrice; 
 }
 
-/*----- 3. GET NIGHTS NUMBER -----*/
-function getNights() {
-    const totalNights = inputNights.value;
-    return totalNights * parkingPrice; 
-}
+/*----- 3. GET ROOM OCCUPATION COST -----*/
+function getRoomOccupPrice() {
+    const roomOccupValue = selectOccup.value;
+    let roomOccupPrice = 0
 
-getNights(); 
+    switch (roomOccupValue) {
+        case 'single':
+            roomOccupPrice = 1 * 0.75;
+            console.log(roomOccupValue, roomOccupPrice, 'debería ver individual y 0,75');
+            break;
+        case 'triple':
+            roomOccupPrice = 1 * 1.25;
+            console.log(roomOccupValue, roomOccupPrice, 'debería ver triple y 1,25');
 
-/*----- 4. ADD PARKING FEE -----*/
-function getParkingPrice(nights, price) {
-    const parkingNights = inputParking.value;
-
-    console.log(parkingNights * 10, 'hola');
-     return 10 * parkingNights; 
-}
-
-getParkingPrice(5, 10); 
-
-/*----- 5. VALIDATE INPUTS -----*/
-
-// function validateInputs() {
-//     if (roomType[selectRoomType] === undefined || roomSize[selectRoomSize] === undefined) {
+            break;
+        case 'double':
+            roomOccupPrice = 1;
+            console.log(roomOccupValue, roomOccupPrice, 'debería ver doble y 1');
+            break;
+    }
     
-//         return "Error";
-        
-//     // } else if ( === 0) {
-        
-//     // } else {
-        
-//     }
-// }
+        return roomOccupPrice;
+}
 
-// let finalPrice = 0
-/*----- 5. CALCULATE TOTAL PRICE -----*/
-// function calculateTotal() {
-//     const priceRoomType = getRoomPrice();
-//     const priceoccupationType = getOccupationPrice();
-//     const priceParking = getParkingPrice();
-//     const totalNights = getNights(); 
-// }
+/*----- 4. GET TOTAL NIGHTS NUMBER -----*/
+function getNumberNights() {
+    const nightsValue = parseInt(inputTotalNights.value);    
+    return nightsValue;
+}
+
+/*----- 5. GET PARKING COST -----*/
+function getParkingNights() {
+    const parkingNightsValue = parseInt(inputParkingNights.value);
+    let parkingPrice = 10;
+    parkingPrice = parseInt(parkingPrice) * parseInt(parkingNightsValue);
+    return parkingPrice;
+}
+
+/*----- 6. GET TOTAL PAYMENT -----*/
+function getTotalPayment(event) {
+    let totalPayment = 0;
+    event.preventDefault()
+    totalPayment =
+        getRoomTypePrice()
+        * getRoomOccupPrice()
+        * getNumberNights()
+        + getParkingNights()
+        + getSpaPrice();
+    
+    showTotal.innerHTML = `Factura total: ${totalPayment} €`;
+    return totalPayment;
+}
 
 // Listeners
-selectRoomType.addEventListener('change', getRoomPrice);
-inputNights.addEventListener('keyup', getNights);
-selectRoomSize.addEventListener('change', getOccupationPrice);
-// inputParking.addEventListener('change', getParkingPrice);
-// btnCalculate.addEventListener('change', calculateTotal);
+selectType.addEventListener('change', getRoomTypePrice);
+selectOccup.addEventListener('change', getRoomOccupPrice);
+checkboxSpa.addEventListener('click', getSpaPrice);
+inputTotalNights.addEventListener('change', getNumberNights);
+inputParkingNights.addEventListener('change', getParkingNights);
+btnTotalPayment.addEventListener('click', getTotalPayment);
