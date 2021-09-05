@@ -1,39 +1,103 @@
 'use strict';
 
-console.log('Lets go');
+console.log('Are you ready for a good time? :))');
 
-// Selectors
 const inputTotalAmount = document.querySelector('#js-total-amount'); 
 const inputTotalGiven = document.querySelector('#js-total-given');
-const btnCalculate = document.querySelector('#js-btn-calculate'); 
+const btnCalculate = document.querySelector('#js-btn-calculate');
+const spanChange = document.querySelector('#js-change');
 
-const moneyValue = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
-// const moneyType = ['dos cientos', 'cien', 'ciencuenta', 'veinte', 'diez', 'cinco', 'dos euros', 'un euro', 'cincuenta centimos', 'veinte centimos', 'diez centimos', 'cinco centimos', 'dos centimos', 'un centimo'];
+const money = [
+    {
+        name: 'dos cientos',
+        value: 200,
+    },
+    {
+        name: 'cien',
+        value: 100,
+    },
+    {
+        name: 'ciencuenta',
+        value: 50,
+    },
+    {
+        name: 'veinte',
+        value: 20,
+    },
+    {
+        name: 'diez',
+        value: 10,
+    },
+    {
+        name: 'cinco',
+        value: 5,
+    },
+    {
+        name: 'dos euros',
+        value: 2,
+    },
+    {
+        name: 'un euro',
+        value: 1,
+    },
+    {
+        name: 'cincuenta centimos',
+        value: 0.5,
+    },
+    {
+        name: 'veinte centimos',
+        value: 0.2,
+    },
+    {
+        name: 'diez centimos',
+        value: 0.1,
+    },
+    {
+        name: 'cinco centimos',
+        value: 0.05,
+    },
+    {
+        name: 'dos centimos',
+        value: 0.02,
+    },
+    {
+        name: 'un centimos',
+        value: 0.01,
+    },
+]
 
 /*----- 1. GET INPUT VALUES -----*/
-const getReturnValue = () => parseInt(inputTotalGiven.value); - parseInt(inputTotalAmount.value);
+const getReturnValue = () => parseInt(inputTotalGiven.value) - parseInt(inputTotalAmount.value);
 
-/*----- 2. CALCULATE OPTIMAL CHANGE -----*/
-const calculateChange = function () {
+const change = [];
+/*----- 2. GET CHANGE -----*/
+function getChange() {
     let returnValue = getReturnValue();
+    console.log(returnValue);
+    // return returnValue; 
 
-    console.log(returnValue, 'vuelta');
-    const change = [];
+    console.log(change, 'maricarmen');
+
     let amount = 0;
+    console.log(amount, 'hey');
 
-    for (let index = 0; index < moneyValue.length; index++) {
-        amount = Math.floor(returnValue / moneyValue[index]);
+    for (const item of money) {
+        amount = Math.floor(returnValue / item.value);
     
         if (amount > 0) {
-            change[moneyType[index]] = amount;
-            returnValue = returnValue % moneyValue[index]; 
-        }
+            change[item.name] = amount;
+            returnValue = returnValue % item.value; 
+        } 
     }
-    
+
     console.log(change, 'hola');
-    // return change;
-    
+    return change;
 }
+spanChange.innerHTML = `${change.name}`;
 
-btnCalculate.addEventListener('click', calculateChange); 
+/*----- 3. RENDER CHANGE -----*/
 
+
+// Listeners
+btnCalculate.addEventListener('click', getReturnValue);
+btnCalculate.addEventListener('click', getChange);
