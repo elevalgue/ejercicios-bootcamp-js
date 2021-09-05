@@ -9,4 +9,5 @@
 - **Module 04:** Functions & Events
 - **Module 05:** Arrays & Loops
 - **Module 06:** Algorithms
+- **Module 07:** Regular Expressions
 
