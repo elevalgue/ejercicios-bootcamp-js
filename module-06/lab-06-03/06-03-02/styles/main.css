@@ -12,6 +12,7 @@ body {
 
 h2 {
   text-align: center;
+  text-transform: capitalize;
 }
 
 label {
@@ -24,4 +25,8 @@ label {
   width: 300px;
   margin-bottom: 20px;
   box-sizing: border-box;
+}
+
+button {
+  margin-bottom: 1.5em;
 }
