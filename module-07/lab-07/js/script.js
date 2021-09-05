@@ -47,6 +47,25 @@ const plates = ['2021 GMD', '2345-GMD', '4532BDB', '0320-AAA'];
 plates.forEach(value => {
     console.log('<---------- CAS0 1 ----------->');
     console.log(`Regexp matches with ${value} ------>  ${platePattern.test(value)}`);
-
+    console.log('<----------------------------->');
 })
 
+// Caso 2
+// Extraer la parte númerica
+// Extraer las letras
+
+const numberPattern = /^(\d{4})/;
+const charactPattern = /[A-Z]{3}$/;
+
+plates.forEach(value => {
+    console.log('<---------- CAS0 2 ----------->');
+    console.log(`${value} ------>  Números  ${numberPattern.exec(value)} ------>  Letras  ${charactPattern.exec(value)}`);  
+    console.log('<----------------------------->');
+});
+
+
+
+// carNumberPlates.forEach((carNumber) => {
+  
+//   console.log(`Car extract ${extractCarNumberPlate(carNumber, carPattern)}`);
+// });
