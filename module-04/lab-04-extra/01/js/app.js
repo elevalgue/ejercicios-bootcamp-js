@@ -38,15 +38,6 @@ const add = () => {
 
 
 
-// const substract = () => {
-//     if (!result) {
-//         result = parseInt(getInputValue());
-//         clear();
-//     } else {
-//         result = parseInt(result - getInputValue());
-//         return parseInt(result); 
-//     }   
-// }
 
 /*----- 3. DISPLAY RESULTS -----*/
 const renderAdd = () => resultEl.innerHTML = add();

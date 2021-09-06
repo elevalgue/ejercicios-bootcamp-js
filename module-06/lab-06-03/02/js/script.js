@@ -76,8 +76,6 @@ const change = [];
 function getChange() {
     let returnValue = getReturnValue();
     console.log(returnValue);
-    // return returnValue; 
-
     console.log(change, 'maricarmen');
 
     let amount = 0;
@@ -89,13 +87,13 @@ function getChange() {
         if (amount > 0) {
             change[item.name] = amount;
             returnValue = returnValue % item.value; 
-        } 
+        }
     }
-
+    
     console.log(change, 'hola');
     return change;
 }
-spanChange.innerHTML = `${change.name}`;
+
 
 /*----- 3. RENDER CHANGE -----*/
 
