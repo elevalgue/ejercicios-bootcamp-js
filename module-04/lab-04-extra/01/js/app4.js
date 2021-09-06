@@ -12,24 +12,24 @@ const resultEl = document.querySelector("#js-result");
 
 let result = 0;
 
-/*----- 1. GET INPUT VALUE -----*/
-const getInputValue = () => {
-    const inputValue = parseInt(inputNumber.value);
-    console.log(inputValue, 'input value');
-    // return inputValue; 
-}
-
-/*----- . RESET VALUE -----*/
-
-const resetInput = () => {
-    inputNumber.value = '';
-}
-
 // Handler
 function handleClick() {
     resetInput();
     renderResult();
 }
+
+/*----- 1. GET INPUT VALUE -----*/
+const getInputValue = () => {
+    const inputValue = parseInt(inputNumber.value);
+    console.log(inputValue, 'input value');
+    return inputValue;
+}
+
+/*----- . RESET VALUE -----*/
+const resetInput = () => {
+    inputNumber.value = '';
+}
+
 
 /*----- 4. MATH OPERATIONS -----*/
 let operation = '';
@@ -63,7 +63,16 @@ function getOperationType() {
             console.log(result, 'result en substract');
             break;
     
-        default:
+        case 'mutliply':
+            result *= getInputValue();
+            console.log(operation, 'operation en substract');
+            console.log(result, 'result en substract');
+            break;
+    
+        case 'divide':
+            result /= getInputValue();
+            console.log(operation, 'operation en substract');
+            console.log(result, 'result en substract');
             break;
     }
 }
@@ -73,8 +82,17 @@ function renderResult() {
     resultEl.innerHTML = result;
 }
 
+function getTotal() {
+    renderResult();
+    resetInput();
+    result = 0;
+    operation = '';
+}
+
 // Listeners
 inputNumber.addEventListener('change', getInputValue);
 inputNumber.addEventListener('change', getOperationType);
 buttonAdd.addEventListener('click', add);
 buttonAdd.addEventListener('click', substract);
+buttonEquals.addEventListener('click', renderResult);
+buttonEquals.addEventListener('click', getTotal);
