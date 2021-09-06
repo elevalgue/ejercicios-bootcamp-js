@@ -71,15 +71,12 @@ const money = [
 /*----- 1. GET INPUT VALUES -----*/
 const getReturnValue = () => parseInt(inputTotalGiven.value) - parseInt(inputTotalAmount.value);
 
-const change = [];
 /*----- 2. GET CHANGE -----*/
+const change = [];
+
 function getChange() {
     let returnValue = getReturnValue();
-    console.log(returnValue);
-    console.log(change, 'maricarmen');
-
     let amount = 0;
-    console.log(amount, 'hey');
 
     for (const item of money) {
         amount = Math.floor(returnValue / item.value);
@@ -90,13 +87,9 @@ function getChange() {
         }
     }
     
-    console.log(change, 'hola');
+    console.log(change, 'Quédate con el cambio sabandija asquersosa');
     return change;
 }
-
-
-/*----- 3. RENDER CHANGE -----*/
-
 
 // Listeners
 btnCalculate.addEventListener('click', getReturnValue);
