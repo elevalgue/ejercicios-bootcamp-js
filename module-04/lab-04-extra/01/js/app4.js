@@ -6,14 +6,13 @@ console.log('Are you ready for a good time? :))');
 
 const inputNumber = document.querySelector('#js-inputNumber');
 const buttonAdd = document.querySelector("#js-add");
+const buttonSubst = document.querySelector("#js-substract");
 const buttonEquals = document.querySelector("#js-equals");
+const resultEl = document.querySelector("#js-result");
 
-
-
-
-/*----- 1. GET INPUT VALUE -----*/
 let result = 0;
 
+/*----- 1. GET INPUT VALUE -----*/
 const getInputValue = () => {
     const inputValue = parseInt(inputNumber.value);
     console.log(inputValue, 'input value');
@@ -26,6 +25,12 @@ const resetInput = () => {
     inputNumber.value = '';
 }
 
+// Handler
+function handleClick() {
+    resetInput();
+    renderResult();
+}
+
 /*----- 4. MATH OPERATIONS -----*/
 let operation = '';
 console.log(operation, 'maricarmennnnn');
@@ -33,11 +38,15 @@ console.log(operation, 'maricarmennnnn');
 function add() {
     operation = 'add';
     console.log(operation, 'debe´ria salir add');
+    handleClick();
 }
 
-function calculate() {
-    
+function substract() {
+    operation = 'substract';
+    console.log(operation, 'debería salir substract');
+    handleClick();
 }
+
 
 /*----- 4. RUN OPERATIONS -----*/
 function getOperationType() {
@@ -46,7 +55,12 @@ function getOperationType() {
             result += getInputValue();
             console.log(operation, 'aquí qué pinta?');
             console.log(result, 'cambia result?');
-
+            break;
+    
+        case 'substract':
+            result -= getInputValue();
+            console.log(operation, 'operation en substract');
+            console.log(result, 'result en substract');
             break;
     
         default:
@@ -54,7 +68,13 @@ function getOperationType() {
     }
 }
 
+/*----- 4. RENDER RESULT -----*/
+function renderResult() {
+    resultEl.innerHTML = result;
+}
+
 // Listeners
 inputNumber.addEventListener('change', getInputValue);
 inputNumber.addEventListener('change', getOperationType);
 buttonAdd.addEventListener('click', add);
+buttonAdd.addEventListener('click', substract);
