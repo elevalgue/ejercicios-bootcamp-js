@@ -146,6 +146,7 @@ const calculateBill = productList => {
     spanTotal.innerHTML = `${finalPrice.toFixed(2)} €`;
 }
 
+/*----- 3. DISABLE BUTTON IF THERE'RE NOT ITEMS -----*/
 const disableButton = () => {
     
     for (let index = 0; index < products.length; index++) {
