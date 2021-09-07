@@ -1,10 +1,10 @@
-const user = getUsers();
+const users = getUsers();
 
 const nodes = [];
 
-for (const user of users) {
+for (let user of users) {
     const node = getUserNode(user);
-    node.push(node);
+    nodes.push(node);
 }
 
 window.onload = function () {
