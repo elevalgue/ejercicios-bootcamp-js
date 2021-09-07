@@ -6,7 +6,7 @@ function getUserNode(user) {
     const node = document.createElement('div');
 
     node.appendChild(getAvatar(user));
-    node.appendChild(`${getFullName(user)} ${user.email}`);
+    node.append(`${getFullName(user)} ${user.email}`);
 
     return node; 
 };
