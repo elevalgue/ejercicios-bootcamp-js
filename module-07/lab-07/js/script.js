@@ -11,7 +11,7 @@ const iban1 = ['ES6600190020961234567890'];
 
 const ibanValidation = ibanPattern1.test(iban1);
     console.log('<---------- CAS0 1----------->');
-    console.log(`Regexp matches with ${iban1} -------> ${ibanValidation}`);
+    console.log(`Regexp matches with ${iban1} // ${ibanValidation}`);
     console.log('<---------------------------->');
 
 // Caso 2
@@ -21,19 +21,8 @@ const iban2 = ['ES6600190020961234567890', 'ES66 0019 0020 9612 3456 7890'];
 
 iban2.forEach(value => {
     console.log('<---------- CAS0 2 ----------->');
-    console.log(`Regexp matches with  ${value} ------>  ${ibanPattern2.test(value)}`);
+    console.log(`Regexp matches with iban2 ${value} // ${ibanPattern2.test(value)}`);
     console.log('<----------------------------->');
-});
-
-
-const patron = /^\d{2}\.?\d{3}\.?\d{3}(-|\s|_)?[A-Za-z]$/;
-const valores = ['12345678Q', '123456678-Q', '12345678 Q', '12345678_Q'];
-
-valores.forEach(value => {
-    console.log('<---------- CAS0 PROFE ----------->');
-    // console.log(`Regexp matches with ${value}? ------>   ${ibanPattern3.exec(value)}`);  
-    console.log(`Regexp matches with ${value}? ->`, patron.exec(value));
-    console.log('<-------------------->')
 });
 
 
@@ -43,9 +32,11 @@ const ibanPattern3 = /^([A-Z]{2})(\d{2})(\s?\d{4}){5}$/;
 const iban3 = "ES6600190020961234567890";
 let separated = ibanPattern3.exec(iban3);
 
+console.log('<---------- CAS0 3 ----------->');
 console.log(separated);
 console.log("Código del pais: " + separated[1]);
 console.log("Dígito de control: " + separated[2]);
+console.log('<----------------------------->');
 
 
 /*----- 2. VALIDAR MATRÍCULA COCHE: -----*/
@@ -53,11 +44,12 @@ console.log("Dígito de control: " + separated[2]);
 // Caso 1
 // Validar una matrícula de coche moderna. Compuesta por 4 digitos y tres letras
 const platePattern = /^\d{4}(\s|-|_)?[A-Za-z]{3}$/;
+const skmfskmdf = /^\d{4}(-|\s)?[A-Z]{3}$/;
 const plates = ['2021 GMD', '2345-GMD', '4532BDB', '0320-AAA'];
 
 plates.forEach(value => {
     console.log('<---------- CAS0 1 ----------->');
-    console.log(`Regexp matches with ${value} ------>  ${platePattern.test(value)}`);
+    console.log(`Regexp matches with plates ${value} //  ${platePattern.test(value)}`);
     console.log('<----------------------------->');
 })
 
@@ -69,7 +61,7 @@ const charactPattern = /[A-Z]{3}$/;
 
 plates.forEach(value => {
     console.log('<---------- CAS0 2 ----------->');
-    console.log(`${value} ------>  Números  ${numberPattern.exec(value)} ------>  Letras  ${charactPattern.exec(value)}`);
+    console.log(`${value} ------>  Números  ${numberPattern.exec(value)} //  Letras  ${charactPattern.exec(value)}`);
     console.log('<----------------------------->');
 });
 
