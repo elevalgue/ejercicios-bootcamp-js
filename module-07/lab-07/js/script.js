@@ -50,7 +50,6 @@ console.log('<----------------------------->');
 const platePattern = /^\d{4}(-|\s)?[A-Z]{3}$/;
 const plates = ['2021 GMD', '2345-GMD', '4532BDB', '0320-AAA'];
 
-
 plates.forEach(value => {
     console.log('<---------- CAS0 1 ----------->');
     console.log(`Regexp matches with plates ${value} //  ${platePattern.test(value)}`);
@@ -82,5 +81,10 @@ for (index = 0; index < plates2.length; index++){
 
 // Caso 1
 // Extraer imágenes de un fichero HTML
+const imgLink = '<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"/>'
+const imgLinkPattern = /src=["|'](.*?)["|']/;
 
-const sourceContent = '<imgsrc="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"/>'
+const execImg = imgLinkPattern.test(imgLink);
+    console.log('<---------- CAS0 1----------->');
+    console.log(`Regexp to exec ${imgLink}`);
+    console.log('<---------------------------->');
