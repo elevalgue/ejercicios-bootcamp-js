@@ -25,18 +25,31 @@ iban2.forEach(value => {
     console.log('<----------------------------->');
 });
 
+
+const patron = /^\d{2}\.?\d{3}\.?\d{3}(-|\s|_)?[A-Za-z]$/;
+const valores = ['12345678Q', '123456678-Q', '12345678 Q', '12345678_Q'];
+
+valores.forEach(value => {
+    console.log('<---------- CAS0 PROFE ----------->');
+    // console.log(`Regexp matches with ${value}? ------>   ${ibanPattern3.exec(value)}`);  
+    console.log(`Regexp matches with ${value}? ->`, patron.exec(value));
+    console.log('<-------------------->')
+});
+
+
 // Caso 3
 //
 // C O R R E G I R  
 //
 // Extraer el código de páis y el dígito de control
-const ibanPattern3 = /^(ES)\d{2}/;
+// const ibanPattern3 = /^([ES]{2})\d{22})$/;
+const ibanPattern3 = /(^(([ES]{2}))(\d{22}))|(([ES]{2})(\d{2})(\s\d{4}){5}$)/;
 const iban3 = ['ES6600190020961234567890', 'ES66 0019 0020 9612 3456 7890'];
 
 iban3.forEach(value => {
     console.log('<---------- CAS0 3 ----------->');
     // console.log(`Regexp matches with ${value}? ------>   ${ibanPattern3.exec(value)}`);  
-    console.log(`${ibanPattern3.exec(value)} el canguro camina palante`);  
+    console.log(`Regexp matches with EOEOEOEOEOEOE${value}? ->`, ibanPattern3.exec(value));  
     console.log('<----------------------------->');
 });
 
