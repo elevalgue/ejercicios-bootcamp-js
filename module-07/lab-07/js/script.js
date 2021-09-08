@@ -43,12 +43,13 @@ valores.forEach(value => {
 //
 // Extraer el código de páis y el dígito de control
 // const ibanPattern3 = /^([ES]{2})\d{22})$/;
-const ibanPattern3 = /(^(([ES]{2}))(\d{22}))|(([ES]{2})(\d{2})(\s\d{4}){5}$)/;
+const ibanPattern3 = /(^([ES]{2})(\d{2})|
+// const prueba = /^([A-Z]{2})(\d{2})(\s?\d{4}){5}$/;
 const iban3 = ['ES6600190020961234567890', 'ES66 0019 0020 9612 3456 7890'];
 let separated = ibanPattern3.exec(iban3);
 
 console.log(separated, 'items por separado');
-console.log(separated[1], 'a ver qué sale');
+console.log(separated[2], 'MAYÚSCULASSSSSSSS');
 
 // iban3.forEach(value => {
 //     console.log('<---------- CAS0 3 ----------->');
