@@ -49,7 +49,6 @@ console.log('<----------------------------->');
 // Validar una matrícula de coche moderna. Compuesta por 4 digitos y tres letras
 const platePattern = /^\d{4}(-|\s)?[A-Z]{3}$/;
 const plates = ['2021 GMD', '2345-GMD', '4532BDB', '0320-AAA'];
-let separated2; 
 
 
 plates.forEach(value => {
@@ -61,15 +60,27 @@ plates.forEach(value => {
 // Caso 2
 // Extraer la parte númerica
 // Extraer las letras
-for (let index = 0; index < plates.length; index++) {
-    let separated2 = platePattern.exec(plates);
-    console.log("LETTERS: " + separated[1]);
-    console.log("NUMBERS: " + separated[2]);
+const platePattern2 = /^(\d{4})(\s|-|_)?([A-Z]{3})$/;
+const plates2 = ["2021 GMD", "2345-GMD", "4532BDB", "0320-AAA"];
+let separated2;
+let index = 0;
+
+for (index = 0; index < plates2.length; index++){
+    console.log('<---------- CAS0 2 ----------->');
+    separated2 = platePattern2.exec(plates2[index]);
+    console.log('MATRÍCULA: ' + plates2[index] + 'NÚMEROS: ' +  separated2[1]);
+    console.log('NÚMEROS: ' +  separated2[1]);
+    console.log('LETRAS: ' + separated2[3]);
     console.log('<----------------------------->');
 }
 
-/**
+/*
  * O P T I O N A L 
  */
+
 /*----- 3. EXTRAER IMAÁGENES DE UN FICHERO HTML: -----*/
+
+// Caso 1
 // Extraer imágenes de un fichero HTML
+
+const sourceContent = '<imgsrc="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"/>'
