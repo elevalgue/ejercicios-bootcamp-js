@@ -16,23 +16,27 @@ const ibanValidation = ibanPattern1.test(iban1);
 
 // Caso 2
 // Permitir que se incluyan espacios en ciertas áreas, daremos por valida estás dos cadenas
-const ibanPattern2 = /^([ES]{2}\d{2})(\s?d{4}){5}$/;
+const ibanPattern2 = /(([ES]{2})\d{22})|(([A-Z]{2})\d{2}(\s\d{4}){5})/;
 const iban2 = ['ES6600190020961234567890', 'ES66 0019 0020 9612 3456 7890'];
 
 iban2.forEach(value => {
     console.log('<---------- CAS0 2 ----------->');
-    console.log(`Regexp matches with ${value} ------>  , ${ibanPattern2.test(value)}`);
+    console.log(`Regexp matches with  ${value} ------>  , ${ibanPattern2.test(value)}`);
     console.log('<----------------------------->');
 });
 
 // Caso 3
+//
+// C O R R E G I R  
+//
 // Extraer el código de páis y el dígito de control
 const ibanPattern3 = /^(ES)\d{2}/;
 const iban3 = ['ES6600190020961234567890', 'ES66 0019 0020 9612 3456 7890'];
 
 iban3.forEach(value => {
     console.log('<---------- CAS0 3 ----------->');
-    console.log(`Regexp matches with ${value}? ------>   ${ibanPattern3.exec(value)}`);  
+    // console.log(`Regexp matches with ${value}? ------>   ${ibanPattern3.exec(value)}`);  
+    console.log(`${ibanPattern3.exec(value)} el canguro camina palante`);  
     console.log('<----------------------------->');
 });
 
@@ -40,7 +44,6 @@ iban3.forEach(value => {
 
 // Caso 1
 // Validar una matrícula de coche moderna. Compuesta por 4 digitos y tres letras
-// const platePattern = /^\d{4}\s?[A-Z]{3}$/;
 const platePattern = /^\d{4}(\s|-|_)?[A-Za-z]{3}$/;
 const plates = ['2021 GMD', '2345-GMD', '4532BDB', '0320-AAA'];
 
@@ -61,3 +64,6 @@ plates.forEach(value => {
     console.log(`${value} ------>  Números  ${numberPattern.exec(value)} ------>  Letras  ${charactPattern.exec(value)}`);
     console.log('<----------------------------->');
 });
+
+/*----- 2. VALIDAR MATRÍCULA COCHE: -----*/
+// Extraer imágenes de un fichero HTML
