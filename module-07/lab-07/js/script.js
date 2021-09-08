@@ -14,7 +14,7 @@ const ibanPattern1 = /^([A-Z]{2}\d{22})$/;
 const iban1 = ['ES6600190020961234567890'];
 
 const ibanValidation = ibanPattern1.test(iban1);
-    console.log('<---------- CAS0 1----------->');
+    console.log('<---------- CAS0 1 ----------->');
     console.log(`Regexp matches with ${iban1} // ${ibanValidation}`);
     console.log('<---------------------------->');
 
@@ -85,6 +85,23 @@ const imgLink = '<img src="https://github.githubassets.com/images/modules/logos_
 const imgLinkPattern = /src=["|'](.*?)["|']/;
 
 const execImg = imgLinkPattern.test(imgLink);
-    console.log('<---------- CAS0 1----------->');
+    console.log('<---------- CAS0 1 ----------->');
     console.log(`Regexp to exec ${imgLink}`);
+    console.log('<---------------------------->');
+
+// Caso 2
+// De un HTML extraer todos los src de todos los objetos img:
+const htmlPattern = /src=["|'](.*?)["|']/;
+const htmlCode = `
+<html>
+        <body>
+            <img src="https://image.freepik.com/iconos-gratis/github-circular_318-10610.jpg"/>
+            <h1>ejemplo</h1>
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"/>
+        </body>
+    </html>`
+
+const exeHtml = htmlPattern.exec(htmlCode);
+    console.log('<---------- CAS0 2 ----------->');
+    console.log(`Regexp to exec ${htmlCode}`);
     console.log('<---------------------------->');
