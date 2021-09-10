@@ -1,0 +1,12 @@
+{
+  "name": "practicarrrrrrr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elevalgue",
+  "license": "ISC"
+}
