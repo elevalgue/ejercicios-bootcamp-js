@@ -12,3 +12,4 @@
 - **Module 07:** Regular Expressions
 - **Module 08:** Working With Imports
 - **Module 09:** Asynchronous Programming
+- **Module 10:** Advanced Concepts - ES6
