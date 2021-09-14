@@ -19,15 +19,17 @@ const createAvatar = character => {
 };
 
 const createRowText = character => {
-const element = document.createElement("span");
-element.append(character.name);
+    const element = document.createElement("span");
+    element.append(character.name);
+    
     return element;
 };
 
 const createAvatarDetail = character => {
-const element = document.createElement("img");
-element.width = 350;
-element.src = character.img;
+    const element = document.createElement("img");
+    element.width = 350;
+    element.src = character.img;
+    
     return element;
 };
 
@@ -48,7 +50,7 @@ const showCharacter = character => {
 const createParagraph = text => {
     const element = document.createElement("p");
     element.append(text);
-    
+
     return element;
 };
 
