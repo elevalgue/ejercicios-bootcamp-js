@@ -1,9 +1,9 @@
 import * as UserBusiness from './user-business';
 import * as DataBusiness from './data-business';
 
-DataBusiness.getUsers().then(data => {
-    document.getElementById('root').innerHTML = ''; 
-    const users = data; 
+DataBusiness.getUsers().then(users => {
+    document.getElementById('root').innerHTML = '';
+    
     const nodes = [];
     
     for (let user of users) {
