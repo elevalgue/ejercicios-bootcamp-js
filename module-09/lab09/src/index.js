@@ -2,26 +2,19 @@ import "./styles.css";
 import * as DataBusiness from "./data-business";
 import * as Utils from "./utils"; 
 
-
-DataBusiness.getCharacters()
-.then((data) => {
+DataBusiness.getCharacters().then(data => {
+    document.querySelector('#root').innerHTML = '';
     const characters = data;
+    const nodes = [];
     
-    // const nodes = [];
-    
-   
-    renderCharacters(characters);
-    })
-    
-    const renderCharacters = (characters) => {
-        const appRoot = document.querySelector("#root");
- 
-    for (let character of characters) {
-            const node = Utils.createCharacterRow(character);
-            nodes.push(node);
-        
-            console.log(character.char_id[0]);
-        }
+    for (const character of characters) {
+        nodes.push(Utils.createCharacterRow(character))
+    }
 
-        
-}
+    for (const node of nodes) {
+        document.querySelector('#root').append(node);
+        node.addEventListener('click', () => {
+            Utils.showCharacter(characters[nodes.indexOf(node)]);
+        });
+    }
+});
