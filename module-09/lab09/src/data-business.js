@@ -1,8 +1,19 @@
-const apiUrl = "https://breakingbadapi.com/api/"; 
+const apiUrl =  "https://www.breakingbadapi.com/api";
 
 function getCharacters() {
   return fetch(`${apiUrl}/characters`)
-    .then(response => response.json());
+    .then(response => {
+      return response.json()
+    });
 }
 
-export { getCharacters };
+function getCharactersById(id) {
+  return fetch(`${apiUrl}/characters/${id}`)
+    .then(response => {
+      return response.json()
+    });
+}
+
+
+
+export { getCharacters, getCharactersById };

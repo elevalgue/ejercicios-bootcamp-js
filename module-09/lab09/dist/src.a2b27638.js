@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,22 +184,29 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/data-business.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/data-business.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getCharacters = getCharacters;
-var apiUrl = "https://breakingbadapi.com/api/";
+exports.getCharactersById = getCharactersById;
+var apiUrl = "https://www.breakingbadapi.com/api";
 
 function getCharacters() {
   return fetch("".concat(apiUrl, "/characters")).then(function (response) {
+    return response.json();
+  });
+}
+
+function getCharactersById(id) {
+  return fetch("".concat(apiUrl, "/characters/").concat(id)).then(function (response) {
     return response.json();
   });
 }
@@ -281,8 +288,13 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 DataBusiness.getCharacters().then(function (data) {
-  var characters = data;
-  var nodes = [];
+  var characters = data; // const nodes = [];
+
+  renderCharacters(characters);
+});
+
+var renderCharacters = function renderCharacters(characters) {
+  var appRoot = document.querySelector("#root");
 
   var _iterator = _createForOfIteratorHelper(characters),
       _step;
@@ -290,22 +302,17 @@ DataBusiness.getCharacters().then(function (data) {
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var character = _step.value;
-      var node = Utils.createCharacterRow(characterCount);
+      var node = Utils.createCharacterRow(character);
       nodes.push(node);
-      console.log(character.char_id);
+      console.log(character.char_id[0]);
     }
   } catch (err) {
     _iterator.e(err);
   } finally {
     _iterator.f();
   }
-
-  for (var _i = 0, _nodes = nodes; _i < _nodes.length; _i++) {
-    var x = _nodes[_i];
-    document.getAnimations('root').append(x);
-  }
-});
-},{"./styles.css":"src/styles.css","./data-business":"src/data-business.js","./utils":"src/utils.js"}],"../../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+};
+},{"./styles.css":"src/styles.css","./data-business":"src/data-business.js","./utils":"src/utils.js"}],"../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -333,7 +340,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51223" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56502" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -509,5 +516,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["../../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.js.map
