@@ -10,7 +10,5 @@ function getCharactersById(id) {
     .then(response => response.json());
 }
 
-
-
-
+// export { getCharacters };
 export { getCharacters, getCharactersById };
