@@ -7,6 +7,8 @@ console.log('Are you ready for a good time? :))');
  */
 
 /*----- 1. hasId -----*/
+console.log('/*----- 1. hasId -----*/');
+
 const object = {
     id: 1,
     name: 'Pepa',
@@ -20,6 +22,8 @@ const hasId = ({id}) => id ? true : false;
 console.log(hasId(object));
 
 /*----- 2. head -----*/
+console.log('/*----- 2. head -----*/');
+
 const items = ['item1', 'item2', 'item3']
 console.log(items);
 
@@ -27,9 +31,26 @@ const head = ([firstItem]) => firstItem;
 console.log(head(items));
 
 /*----- 3. tail -----*/
+console.log('/*----- 3. tail -----*/');
+
 const elements = ['elem1', 'elem2', 'elem3'];
 console.log(elements);
 
 const tail = ([ , ...restElem]) => restElem;
 console.log(tail(elements));
 
+/*----- 4. swapFirstToLast -----*/
+console.log('/*----- 4. swapFirstToLast -----*/');
+
+const elements2 = ['elem1', 'elem2', 'elem3'];
+console.log(elements2);
+
+const swapFirstToLast = (arr) => {
+    const [firstEl, ...restElem] = elements2;
+    console.log(elements2);
+    const swappedElements = [...restElem, firstEl];
+    
+    return swappedElements
+}
+
+console.log(swapFirstToLast());
