@@ -5,10 +5,4 @@ function getCharacters() {
     .then(response => response.json());
 }
 
-function getCharactersById(id) {
-  return fetch(`${apiUrl}/characters/${id}`)
-    .then(response => response.json());
-}
-
-// export { getCharacters };
-export { getCharacters, getCharactersById };
+export { getCharacters };

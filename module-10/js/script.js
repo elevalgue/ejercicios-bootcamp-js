@@ -3,7 +3,7 @@
 console.log('Are you ready for a good time? :))');
 
 /**
- * C O M P U L S O R Y 
+ * M A N D A T O R Y 
  */
 
 /*----- 1. hasId -----*/

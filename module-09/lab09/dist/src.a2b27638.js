@@ -196,7 +196,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getCharacters = getCharacters;
-exports.getCharactersById = getCharactersById;
 var apiUrl = "https://www.breakingbadapi.com/api";
 
 function getCharacters() {
@@ -204,12 +203,6 @@ function getCharacters() {
     return response.json();
   });
 }
-
-function getCharactersById(id) {
-  return fetch("".concat(apiUrl, "/characters/").concat(id)).then(function (response) {
-    return response.json();
-  });
-} // export { getCharacters };
 },{}],"src/utils.js":[function(require,module,exports) {
 "use strict";
 
@@ -346,7 +339,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50686" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61563" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
