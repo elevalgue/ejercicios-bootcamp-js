@@ -110,13 +110,17 @@ console.log(concat2(words));
 /*----- 8. multArray -----*/
 console.log('/*----- 8. multArray -----*/');
 
-const numbers = [14, 22, 57, 3, 19];
-console.log(numbers);
+const numberArray = [14, 22, 57, 3, 19];
+console.log(numberArray);
 
-// function multArray(arr, x) {
-    
-// }
+const multArray = (arr, x) => numberArray.map(number => number * x);
+console.log(multArray(numberArray, 2));
+console.log(multArray(numberArray, 10));
 
-const multArray = (arr, x) => numbers.map(number => number * x);
-console.log(multArray(numbers, 2));
-console.log(multArray(numbers, 10));
+
+/*----- 9. calcMult -----*/
+console.log('/*----- 9. calcMult -----*/');
+
+const calcMult = (...numbers) => numbers.reduce((acc, number) => acc * number, 1);
+console.log(calcMult(2, 10, 3, 4));
+console.log(calcMult(5, 2, 1, 3));
