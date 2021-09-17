@@ -21,6 +21,7 @@ console.log(object);
 const hasId = ({id}) => id ? true : false;
 console.log(hasId(object));
 
+
 /*----- 2. head -----*/
 console.log('/*----- 2. head -----*/');
 
@@ -30,6 +31,7 @@ console.log(items);
 const head = ([firstItem]) => firstItem;
 console.log(head(items));
 
+
 /*----- 3. tail -----*/
 console.log('/*----- 3. tail -----*/');
 
@@ -38,6 +40,7 @@ console.log(elements);
 
 const tail = ([ , ...restElem]) => restElem;
 console.log(tail(elements));
+
 
 /*----- 4. swapFirstToLast -----*/
 console.log('/*----- 4. swapFirstToLast -----*/');
@@ -54,6 +57,7 @@ const swapFirstToLast = (arr) => {
 }
 
 console.log(swapFirstToLast());
+
 
 /*----- 5. excludeId -----*/
 console.log('/*----- 5. excludeId -----*/');
@@ -77,6 +81,7 @@ console.log(excludeId(user));
 const excludeId2 = ({ id, ...rest }) => rest;
 console.log(excludeId2(user));
 
+
 /*----- 6. wordsStartingWithA -----*/
 console.log('/*----- 6. wordsStartingWithA -----*/');
 
@@ -87,15 +92,31 @@ const pattern = /^(a|A)/;
 const wordsStartingWithA = words => words.filter( word => pattern.test(word) === true );
 console.log(wordsStartingWithA(words));
 
+
 /*----- 7. concat -----*/
 console.log('/*----- 7. concat -----*/');
 
-function concat(...args) {
+function concat(...str) {
     words.join('|');
     return words.join('|');
 }
 
 console.log(concat(words));
 
-const concat2 = (...args) => words.join('|');
+const concat2 = (...str) => words.join('|');
 console.log(concat2(words));
+
+
+/*----- 8. multArray -----*/
+console.log('/*----- 8. multArray -----*/');
+
+const numbers = [14, 22, 57, 3, 19];
+console.log(numbers);
+
+// function multArray(arr, x) {
+    
+// }
+
+const multArray = (arr, x) => numbers.map(number => number * x);
+console.log(multArray(numbers, 2));
+console.log(multArray(numbers, 10));
