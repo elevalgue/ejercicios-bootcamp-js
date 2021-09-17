@@ -54,3 +54,28 @@ const swapFirstToLast = (arr) => {
 }
 
 console.log(swapFirstToLast());
+
+/*----- 5. excludeId -----*/
+console.log('/*----- 5. excludeId -----*/');
+
+const user = {
+    id: 1,
+    name: "Javi",
+    surname: "Calzado",
+    age: 36,
+};
+
+console.log(user);
+
+const excludeId = (obj) => {
+    const { id, ...rest } = user
+    const newUserObj = { ...rest };
+    return newUserObj; 
+}
+console.log(excludeId(user));
+
+const excludeId2 = ({ id, ...rest }) => rest;
+console.log(excludeId2(user));
+
+/*----- 6. wordsStartingWithA -----*/
+console.log('/*----- 6. wordsStartingWithA -----*/');
