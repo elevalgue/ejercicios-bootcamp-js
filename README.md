@@ -13,3 +13,4 @@
 - **Module 08:** Working With Imports
 - **Module 09:** Asynchronous Programming
 - **Module 10:** Advanced Concepts - ES6
+- **Module 11** Clases & This
