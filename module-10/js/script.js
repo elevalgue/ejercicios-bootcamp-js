@@ -80,10 +80,22 @@ console.log(excludeId2(user));
 /*----- 6. wordsStartingWithA -----*/
 console.log('/*----- 6. wordsStartingWithA -----*/');
 
-
 const words = ['ratón', 'alcancía', 'teclado', 'monitor', 'ordenador', 'acequia', 'almohada'];
 console.log(words);
 const pattern = /^(a|A)/;
 
 const wordsStartingWithA = words => words.filter( word => pattern.test(word) === true );
 console.log(wordsStartingWithA(words));
+
+/*----- 7. concat -----*/
+console.log('/*----- 7. concat -----*/');
+
+function concat(...args) {
+    words.join('|');
+    return words.join('|');
+}
+
+console.log(concat(words));
+
+const concat2 = (...args) => words.join('|');
+console.log(concat2(words));
