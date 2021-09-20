@@ -55,10 +55,13 @@ class CustomerBooking {
             acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
     }
 
-    calculateTotal() { }
+    calculateTotal() {
+        const vat = 1.21;
+        this._total = this._subtotal * vat; 
+
+    }
     
     get subtotal() {
-        console.log(this._subtotal, 'hola');
         return this._subtotal; 
     }
     
