@@ -18,18 +18,9 @@ const bookingList = [
     }
 ];
 
-
-/**
- * Queremos calcular: 
- * - El subtotal de compra (precio sin IVA).
- * - El total de reservas que ha hecho un cliente. 
- */
-
-
 class CustomerBooking {
     constructor() {
         this._booking = [];
-        this._vat = 1.21;
         this._subtotal = 0;
         this._total = 0;
     }
@@ -52,12 +43,12 @@ class CustomerBooking {
     calculateSubtotal() {
         this._subtotal = this._booking.reduce(
             (acc, { typeRoom, pax, nights }) =>
-            acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
+                acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
     }
 
     calculateTotal() {
         const vat = 1.21;
-        this._total = this._subtotal * vat; 
+        this._total = this._subtotal * vat;
 
     }
     
@@ -80,5 +71,6 @@ class CustomerBooking {
 const customerBooking = new CustomerBooking();
 customerBooking.booking = bookingList;
 
+console.log('--- RESERVA ---');
 console.log(`Subtotal: ${customerBooking.subtotal} €`);
 console.log(`Total: ${customerBooking.total} €`);
