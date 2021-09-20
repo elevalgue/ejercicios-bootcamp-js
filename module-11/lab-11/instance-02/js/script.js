@@ -65,7 +65,13 @@ class CustomerBooking {
     }
 };
 
-class TourOperator extends CustomerBooking {}
+class TourOperator extends CustomerBooking {
+    calculateSubtotal() {
+        this._subtotal = this._booking.reduce(
+            (acc, { typeRoom, pax, nights }) =>
+                acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
+    }
+}
 
 const customerBooking = new CustomerBooking();
 customerBooking.booking = bookingList;
