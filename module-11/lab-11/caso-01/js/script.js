@@ -26,7 +26,7 @@ const bookingList = [
  */
 
 
-class ClientBooking {
+class CustomerBooking {
     constructor() {
         this._booking = [];
         this._vat = 1.21;
@@ -74,8 +74,8 @@ class ClientBooking {
     }
 };
 
-const clientBooking = new ClientBooking();
-clientBooking.booking = bookingList;
+const customerBooking = new CustomerBooking();
+customerBooking.booking = bookingList;
 
-console.log(`Subtotal: ${clientBooking.subtotal} €`);
-console.log(`Total: ${clientBooking.total} €`);
+console.log(`Subtotal: ${customerBooking.subtotal} €`);
+console.log(`Total: ${customerBooking.total} €`);
