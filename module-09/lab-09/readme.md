@@ -1,4 +1,4 @@
-# **Laboratorio Módulo 9 - Llamadas Asíncronas**
+# **Laboratorio Módulo 09 - Llamadas Asíncronas**
 
 Acabamos de recibir un encargo de Netflix. Quieren promocionar una de sus conocidas series, Breaking Bad,
 y necesitan una pequeña aplicación creada con Javascript para mostrar información sobre sus personajes.
