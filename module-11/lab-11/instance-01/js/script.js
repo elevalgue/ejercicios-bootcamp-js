@@ -48,7 +48,6 @@ class CustomerBooking {
     calculateTotal() {
         const vat = 1.21;
         this._total = this._subtotal * vat;
-
     }
     
     get subtotal() {

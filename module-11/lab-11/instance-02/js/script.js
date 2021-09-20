@@ -48,7 +48,6 @@ class CustomerBooking {
     calculateTotal() {
         const vat = 1.21;
         this._total = this._subtotal * vat;
-
     }
     
     get subtotal() {
@@ -66,12 +65,16 @@ class CustomerBooking {
     }
 };
 
+class TourOperator extends CustomerBooking {}
+
 const customerBooking = new CustomerBooking();
 customerBooking.booking = bookingList;
 
 console.log('--- RESERVA: CASO 1 ---');
 console.log(`Subtotal: ${customerBooking.subtotal} €`);
 console.log(`Total: ${customerBooking.total} €`);
+console.log('-----------------------');
+
 
 console.log('--- RESERVA: CASO 2 ---');
 // console.log(`Subtotal: ${customerBooking.subtotal} €`);
