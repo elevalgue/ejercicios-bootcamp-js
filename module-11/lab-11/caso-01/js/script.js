@@ -45,14 +45,14 @@ class ClientBooking {
         }
     }
 
-    calculateExtraCharge() {
+    calculateExtraCharge(pax, nights) {
         return (pax > 1) ? (pax * 40 * nights) : 0; 
     }
 
-    // Aún no he añadido el 21% de IVA ni los gastos adicionales por persona extra
     calculateSubtotal() {
-        this._subtotal = this._booking.reduce((acc, { nights, roomType }) =>
-        acc + (nights * roomType), 0);
+        this._subtotal = this._booking.reduce(
+            (acc, { roomType, nights, pax }) =>
+             acc + nights * (this.getRoomType(roomType) + this.calculateExtraCharge(pax,  nights)), 0);
     };
 
     calculateTotal() { }
@@ -62,7 +62,6 @@ class ClientBooking {
     }
     
     get total() {
-
         return this._total; 
     }
 
