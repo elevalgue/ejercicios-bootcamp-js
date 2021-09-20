@@ -44,6 +44,15 @@ class HotelBooking {
 
     calculateTotal() { }
     
+    get subtotal() {
+        return this._subtotal; 
+    }
+    
+    get total() {
+        return this._total; 
+    }
+
+
     set booking(booking) {
         this._booking = booking;
         this.calculateSubtotal();
