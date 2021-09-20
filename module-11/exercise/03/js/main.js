@@ -1,7 +1,6 @@
 console.log('Are you ready for a good time? :))');
 
 // Carrito de la compra
-
 cesta = [
     {
         nombre: "Cerveza",
@@ -78,7 +77,6 @@ class CarritoDeLaCompra {
 }
 
 const carrito = new CarritoDeLaCompra();
-
 carrito.cesta = cesta; 
 
 carrito.subtotal
