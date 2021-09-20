@@ -51,13 +51,14 @@ class ClientBooking {
 
     calculateSubtotal() {
         this._subtotal = this._booking.reduce(
-            (acc, { roomType, nights, pax }) =>
-             acc + nights * (this.getRoomType(roomType) + this.calculateExtraCharge(pax,  nights)), 0);
-    };
+            (acc, { typeRoom, pax, nights }) =>
+            acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
+    }
 
     calculateTotal() { }
     
     get subtotal() {
+        console.log(this._subtotal, 'hola');
         return this._subtotal; 
     }
     
