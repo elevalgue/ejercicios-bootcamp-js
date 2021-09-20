@@ -1,5 +1,4 @@
-console.log('Are you ready for a good time? :))');
-
+// Data
 const bookingList = [
     {
         typeRoom: "standard",
@@ -59,7 +58,6 @@ class CustomerBooking {
     get total() {
         return this._total; 
     }
-
 
     set booking(bookingList) {
         this._booking = bookingList;
