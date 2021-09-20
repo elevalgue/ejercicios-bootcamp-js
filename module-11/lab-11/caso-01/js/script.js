@@ -29,7 +29,6 @@ class HotelBooking {
     constructor() {
         this._booking = [];
         this._vat = 1.21;
-        this._extraCharge = 40;
         this._subtotal = 0;
         this._total = 0;
     }
@@ -45,6 +44,9 @@ class HotelBooking {
         }
     }
 
+    calculateExtraCharge() {
+        return (pax > 1) ? (pax * 40 * nights) : 0; 
+    }
 
     // Aún no he añadido el 21% de IVA ni los gastos adicionales por persona extra
     calculateSubtotal() {
