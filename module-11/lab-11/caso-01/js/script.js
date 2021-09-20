@@ -28,14 +28,24 @@ const reservas = [
 class HotelBooking {
     constructor() {
         this._booking = [];
-        this._standard = 100;
-        this._suite = 150;
-        this._vat = 0.21;
+        this._vat = 1.21;
         this._extraCharge = 40;
         this._subtotal = 0;
         this._total = 0;
     }
     
+
+    getRoomType(type) {
+        switch (type) {
+            case 'standard':
+                return 100;
+            
+            case 'suite':
+                return 150;
+        }
+    }
+
+
     // Aún no he añadido el 21% de IVA ni los gastos adicionales por persona extra
     calculateSubtotal() {
         this._subtotal = this._booking.reduce((acc, { nights, roomType }) =>
