@@ -1,4 +1,4 @@
-# ** Práctica Module 11 - Classes & This**
+# **Práctica Module 11 - Classes & This**
 
 Vamos a manejarnos con un carrito de la compra.
 
