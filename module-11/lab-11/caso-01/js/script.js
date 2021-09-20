@@ -32,13 +32,22 @@ class HotelBooking {
         this._suite = 150;
         this._vat = 0.21;
         this._extraCharge = 40;
-        this._subtotal = 0; 
+        this._subtotal = 0;
+        this._total = 0;
     }
     
     // Aún no he añadido el 21% de IVA ni los gastos adicionales por persona extra
-    calculateSubtotal(){
+    calculateSubtotal() {
         this._subtotal = this._booking.reduce((acc, { nights, roomType }) =>
         acc + (nights * roomType), 0);
     };
+
+    calculateTotal() { }
+    
+    set booking(booking) {
+        this._booking = booking;
+        this.calculateSubtotal();
+        this.calculateTotal(); 
+    }
 };
 
