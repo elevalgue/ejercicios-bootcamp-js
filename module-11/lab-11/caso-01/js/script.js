@@ -1,20 +1,20 @@
 console.log('Are you ready for a good time? :))');
 
-const reservas = [
+const bookingList = [
     {
-        tipoHabitacion: "standard",
+        typeRoom: "standard",
         pax: 1,
-        noches: 3
+        nights: 3
     },
     {
-        tipoHabitacion: "standard",
+        typeRoom: "standard",
         pax: 1,
-        noches: 4
+        nights: 4
     },
     {
-        tipoHabitacion: "suite",
+        typeRoom: "suite",
         pax: 2,
-        noches: 1
+        nights: 1
     }
 ];
 
@@ -25,7 +25,8 @@ const reservas = [
  * - El total de reservas que ha hecho un cliente. 
  */
 
-class HotelBooking {
+
+class ClientBooking {
     constructor() {
         this._booking = [];
         this._vat = 1.21;
@@ -61,14 +62,20 @@ class HotelBooking {
     }
     
     get total() {
+
         return this._total; 
     }
 
 
-    set booking(booking) {
-        this._booking = booking;
+    set booking(bookingList) {
+        this._booking = bookingList;
         this.calculateSubtotal();
         this.calculateTotal(); 
     }
 };
 
+const clientBooking = new ClientBooking();
+clientBooking.booking = bookingList;
+
+console.log(`Subtotal: ${clientBooking.subtotal} €`);
+console.log(`Total: ${clientBooking.total} €`);
