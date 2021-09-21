@@ -72,40 +72,46 @@ class Booking {
     }
 };
 
-class TourOperator extends Booking {
-    getRoomType(type) {
-        return type = 100; 
-    }
-
-    calculateExtraCharge(pax, nights, breakfast, spa) {
-        const breakfastPrice = 15;
-        const spaPrice = 20;
-        let extraCharge = 0;
-        extraCharge += spa ? spaPrice * pax : 0;
-        extraCharge += breakfast ? (breakfastPrice * pax * nights) : 0;
-        
-        return extraCharge;
-    }
-
-    calculateSubtotal() {
-        this._subtotal = this._booking.reduce(
-            (acc, { typeRoom, pax, nights, breakfast, spa }) =>
-                acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights, breakfast, spa), 0)
-    }
-
-    calculateTotal() {
-        const vat = 1.21;
-        const discount = 0.85;
-        this._total = (this._subtotal * vat * discount).toFixed(2);
+class PrivateClient extends Booking {
+    constructor() {
+        super()
     }
 }
 
+class TourOperator extends Booking {
+    constructor() {
+        super()
+    }
+        
+        getRoomType(type) {
+            return type = 100; 
+        }
+        
+        calculateExtraCharge(pax, nights, breakfast, spa) {
+            const breakfastPrice = 15;
+            const spaPrice = 20;
+            let extraCharge = 0;
+            extraCharge += spa ? spaPrice * pax : 0;
+            extraCharge += breakfast ? (breakfastPrice * pax * nights) : 0;
+            
+            return extraCharge;
+        }
+        
+        calculateSubtotal() {
+            this._subtotal = this._booking.reduce(
+                (acc, { typeRoom, pax, nights, breakfast, spa }) =>
+                acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights, breakfast, spa), 0)
+            }
+            
+            calculateTotal() {
+                const vat = 1.21;
+                const discount = 0.85;
+                this._total = (this._subtotal * vat * discount).toFixed(2);
+            }
+}
 
-class PrivateClient extends Booking {}
-    
-    
-const booking = new Booking();
-booking.booking = bookingList;
+const privateClient = new PrivateClient();
+privateClient.booking = bookingList;
 
 const tourOperatorBooking = new TourOperator();
 tourOperatorBooking.booking = bookingList
@@ -113,8 +119,8 @@ tourOperatorBooking.booking = bookingList
 console.log('****   C H A L L E N G E   ****');
 console.log('-------------------------------');
 console.log('--- RESERVA: PRIVATE CLIENT ---');
-console.log(`----    Subtotal: ${booking.subtotal} €    ----`);
-console.log(`----    Total: ${booking.total} €   ----`);
+console.log(`----    Subtotal: ${privateClient.subtotal} €    ----`);
+console.log(`----    Total: ${privateClient.total} €   ----`);
 console.log('-------------------------------');
 
 
