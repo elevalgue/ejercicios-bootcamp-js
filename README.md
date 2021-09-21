@@ -1,5 +1,7 @@
 **Bootcamp JS Exercises** 🍋
 
+I'm on the way to improve my JS skills. Practice makes perfect! 💪
+
 ## Content
 
 - **Module 00:** Prior
