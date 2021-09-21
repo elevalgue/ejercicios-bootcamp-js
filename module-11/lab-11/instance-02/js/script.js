@@ -30,7 +30,6 @@ class Booking {
         this._total = 0;
     }
     
-
     getRoomType(type) {
         switch (type) {
             case 'standard':
@@ -77,12 +76,30 @@ class Booking {
 };
 
 
-// class TourOperator extends Booking {
-//     constructor()
-// }
+class TourOperator extends Booking {
+    calculateExtraCharge(pax, nights, breakfast, spa) {
+        const breakfastPrice = 15;
+        const spaPrice = 20;
+        let extraCharge = 0;
+
+        extraCharge += spa ? spaPrice * pax : 0;
+        extraCharge += breakfast ? (breakfastPrice * pax * nights) : 0;
+        
+        return extraCharge;
+    }
+
+    getRoomType(type) {
+        return type = 100; 
+    }
+
+
+}
 
 const booking = new Booking();
 booking.booking = bookingList;
+
+const tourOperatorBooking = new TourOperator();
+tourOperatorBooking.booking = bookingList
 
 console.log('--- RESERVA: CASO 1 ---');
 console.log(`Subtotal: ${booking.subtotal} €`);
@@ -91,5 +108,5 @@ console.log('-----------------------');
 
 
 console.log('--- RESERVA: CASO 2 ---');
-// console.log(`Subtotal: ${booking.subtotal} €`);
-// console.log(`Total: ${booking.total} €`);
+console.log(`Subtotal: ${tourOperatorBooking.subtotal} €`);
+console.log(`Total: ${tourOperatorBooking.total} €`);
