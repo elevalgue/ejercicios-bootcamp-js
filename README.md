@@ -14,3 +14,5 @@
 - **Module 09:** Asynchronous Programming
 - **Module 10:** Advanced Concepts - ES6
 - **Module 11:** Classes & This
+- **Module 12-01:** Case Study - Online Bank
+
