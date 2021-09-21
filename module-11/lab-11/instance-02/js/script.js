@@ -17,7 +17,7 @@ const bookingList = [
     }
 ];
 
-class CustomerBooking {
+class Booking {
     constructor() {
         this._booking = [];
         this._subtotal = 0;
@@ -65,7 +65,12 @@ class CustomerBooking {
     }
 };
 
-class TourOperator extends CustomerBooking {
+
+
+class Customer extends Booking {}
+
+
+class TourOperator extends Booking {
     calculateSubtotal() {
         this._subtotal = this._booking.reduce(
             (acc, { typeRoom, pax, nights }) =>
@@ -73,15 +78,15 @@ class TourOperator extends CustomerBooking {
     }
 }
 
-const customerBooking = new CustomerBooking();
-customerBooking.booking = bookingList;
+const booking = new Booking();
+booking.booking = bookingList;
 
 console.log('--- RESERVA: CASO 1 ---');
-console.log(`Subtotal: ${customerBooking.subtotal} €`);
-console.log(`Total: ${customerBooking.total} €`);
+console.log(`Subtotal: ${booking.subtotal} €`);
+console.log(`Total: ${booking.total} €`);
 console.log('-----------------------');
 
 
 console.log('--- RESERVA: CASO 2 ---');
-// console.log(`Subtotal: ${customerBooking.subtotal} €`);
-// console.log(`Total: ${customerBooking.total} €`);
+// console.log(`Subtotal: ${booking.subtotal} €`);
+// console.log(`Total: ${booking.total} €`);
