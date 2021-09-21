@@ -98,7 +98,6 @@ class TourOperator extends Booking {
         const discount = 0.85;
         this._total = (this._subtotal * vat * discount).toFixed(2);
     }
-
 }
 
 
