@@ -53,7 +53,12 @@ class Booking {
 
     calculateTotal() {
         const vat = 1.21;
-        this._total = this._subtotal * vat;
+        this._total = (this._subtotal * vat).toFixed(2);
+    }
+
+    calculateDiscount() {
+        const discount = 0.85;
+        this._total = this._total * discount; 
     }
     
     get subtotal() {
@@ -72,18 +77,8 @@ class Booking {
 };
 
 
-
-// class Customer extends Booking {
-//     super()
-// }
-
-
 // class TourOperator extends Booking {
-//     calculateSubtotal() {
-//         this._subtotal = this._booking.reduce(
-//             (acc, { typeRoom, pax, nights }) =>
-//                 acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
-//     }
+//     constructor()
 // }
 
 const booking = new Booking();
