@@ -77,6 +77,11 @@ class Booking {
 
 
 class TourOperator extends Booking {
+
+    getRoomType(type) {
+        return type = 100; 
+    }
+
     calculateExtraCharge(pax, nights, breakfast, spa) {
         const breakfastPrice = 15;
         const spaPrice = 20;
@@ -88,10 +93,11 @@ class TourOperator extends Booking {
         return extraCharge;
     }
 
-    getRoomType(type) {
-        return type = 100; 
+    calculateSubtotal() {
+        this._subtotal = this._booking.reduce(
+            (acc, { typeRoom, pax, nights, breakfast, spa }) =>
+                acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights, breakfast, spa), 0)
     }
-
 
 }
 
@@ -102,11 +108,12 @@ const tourOperatorBooking = new TourOperator();
 tourOperatorBooking.booking = bookingList
 
 console.log('--- RESERVA: CASO 1 ---');
-console.log(`Subtotal: ${booking.subtotal} €`);
-console.log(`Total: ${booking.total} €`);
+console.log(`-   Subtotal: ${booking.subtotal} €   -`);
+console.log(`-   Total: ${booking.total} €  -`);
 console.log('-----------------------');
 
 
 console.log('--- RESERVA: CASO 2 ---');
-console.log(`Subtotal: ${tourOperatorBooking.subtotal} €`);
-console.log(`Total: ${tourOperatorBooking.total} €`);
+console.log(`-   Subtotal: ${tourOperatorBooking.subtotal} €   -`);
+console.log(`-   Total: ${tourOperatorBooking.total} €   -`);
+console.log('-----------------------');
