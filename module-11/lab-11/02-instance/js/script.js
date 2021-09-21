@@ -54,11 +54,6 @@ class Booking {
         const vat = 1.21;
         this._total = (this._subtotal * vat).toFixed(2);
     }
-
-    // calculateDiscount() {
-    //     const discount = 0.85;
-    //     this._total = this._total * discount; 
-    // }
     
     get subtotal() {
         return this._subtotal; 
@@ -75,9 +70,7 @@ class Booking {
     }
 };
 
-
 class TourOperator extends Booking {
-
     getRoomType(type) {
         return type = 100; 
     }
@@ -86,7 +79,6 @@ class TourOperator extends Booking {
         const breakfastPrice = 15;
         const spaPrice = 20;
         let extraCharge = 0;
-
         extraCharge += spa ? spaPrice * pax : 0;
         extraCharge += breakfast ? (breakfastPrice * pax * nights) : 0;
         
