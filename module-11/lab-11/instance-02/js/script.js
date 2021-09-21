@@ -3,17 +3,23 @@ const bookingList = [
     {
         typeRoom: "standard",
         pax: 1,
-        nights: 3
+        nights: 3,
+        breakfast: true,
+        spa: false
     },
     {
         typeRoom: "standard",
         pax: 1,
-        nights: 4
+        nights: 4,
+        breakfast: true,
+        spa: false
     },
     {
         typeRoom: "suite",
         pax: 2,
-        nights: 1
+        nights: 1,
+        breakfast: false,
+        spa: true
     }
 ];
 
@@ -67,16 +73,18 @@ class Booking {
 
 
 
-class Customer extends Booking {}
+// class Customer extends Booking {
+//     super()
+// }
 
 
-class TourOperator extends Booking {
-    calculateSubtotal() {
-        this._subtotal = this._booking.reduce(
-            (acc, { typeRoom, pax, nights }) =>
-                acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
-    }
-}
+// class TourOperator extends Booking {
+//     calculateSubtotal() {
+//         this._subtotal = this._booking.reduce(
+//             (acc, { typeRoom, pax, nights }) =>
+//                 acc + (nights * this.getRoomType(typeRoom)) + this.calculateExtraCharge(pax, nights), 0)
+//     }
+// }
 
 const booking = new Booking();
 booking.booking = bookingList;
