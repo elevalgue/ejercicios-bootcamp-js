@@ -1,21 +1,21 @@
 // Data
 const bookingList = [
     {
-        typeRoom: "standard",
+        typeRoom: 'standard',
         pax: 1,
         nights: 3,
         breakfast: true,
         spa: false
     },
     {
-        typeRoom: "standard",
+        typeRoom: 'standard',
         pax: 1,
         nights: 4,
         breakfast: true,
         spa: false
     },
     {
-        typeRoom: "suite",
+        typeRoom: 'suite',
         pax: 2,
         nights: 1,
         breakfast: false,
@@ -28,6 +28,8 @@ class Booking {
         this._booking = [];
         this._subtotal = 0;
         this._total = 0;
+        this.standard = 'standard';
+        this.suite = 'suite';
     }
     
     getRoomType(type) {
@@ -99,19 +101,25 @@ class TourOperator extends Booking {
 
 }
 
+
+class PrivateClient extends Booking {}
+    
+    
 const booking = new Booking();
 booking.booking = bookingList;
 
 const tourOperatorBooking = new TourOperator();
 tourOperatorBooking.booking = bookingList
 
-console.log('--- RESERVA: CASO 1 ---');
-console.log(`-   Subtotal: ${booking.subtotal} €   -`);
-console.log(`-   Total: ${booking.total} €  -`);
-console.log('-----------------------');
+console.log('****   C H A L L E N G E   ****');
+console.log('-------------------------------');
+console.log('--- RESERVA: PRIVATE CLIENT ---');
+console.log(`----    Subtotal: ${booking.subtotal} €    ----`);
+console.log(`----    Total: ${booking.total} €   ----`);
+console.log('-------------------------------');
 
 
-console.log('--- RESERVA: CASO 2 ---');
-console.log(`-   Subtotal: ${tourOperatorBooking.subtotal} €   -`);
-console.log(`-   Total: ${tourOperatorBooking.total} €   -`);
-console.log('-----------------------');
+console.log('--- RESERVA: TOUR OPERATOR ---');
+console.log(`----    Subtotal: ${tourOperatorBooking.subtotal} €   ----`);
+console.log(`----   Total: ${tourOperatorBooking.total} €    ----`);
+console.log('------------------------------');
