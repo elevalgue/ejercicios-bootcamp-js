@@ -1,6 +1,6 @@
 # Laboratorio Módulo 05 - Arrays & Bucles
 
-**Ejercicios para el laboratorio:**
+## Ejercicios para el laboratorio:
 
 **Obligatorio**
 
