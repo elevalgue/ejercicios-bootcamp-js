@@ -10,7 +10,7 @@ Tendremos por tanto, una sección describiendo la lista de productos y selectore
 
 Un ejemplo de interfaz para que puedas orientarte podría ser el siguiente:
 
-![https://github.com/elevalgue/ejercicios-bootcamp-js/blob/master/module-06/lab-06-01/interface-lab-06-01.png]
+<!-- ![https://github.com/elevalgue/ejercicios-bootcamp-js/blob/master/module-06/lab-06-01/interface-lab-06-01.png] -->
 
 ![image](https://github.com/elevalgue/ejercicios-bootcamp-js/blob/master/module-06/lab-06-01/interface-lab-06-01.png)
 
@@ -81,3 +81,11 @@ Vamos a proporcionarte un ejemplo de lista de productos. Utilízala en tu ejerci
                 units: 0,
             },
         ];
+
+Fíjate que cada producto consta de:
+
+- Descripción
+- Precio unitario
+- IVA. Podrá ser normal (21%), reducido (4%) o exento
+- Stock disponible
+- Unidades. Inicialmente 0 para todos los productos
