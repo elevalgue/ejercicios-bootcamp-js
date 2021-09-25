@@ -32,6 +32,8 @@ Vamos a implementar un encriptador / desencriptador de mensajes utilizando esta 
 - Añade también 2 botones, uno para encriptar y otro para desencriptar
   Un ejemplo sencillo podría ser el siguiente:
 
+  ![imagen-ejemplo-de-interfaz](https://github.com/elevalgue/ejercicios-bootcamp-js/blob/master/module-06/lab-06-02/interface-lab-06-02-01.png)
+
 **Algoritmo**
 
 El algoritmo de encriptación es sencillo. La transformación que vamos a aplicar a cada letra va a venir dada por:
