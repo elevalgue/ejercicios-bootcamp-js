@@ -1,35 +1,33 @@
 'use strict'; 
 
-console.log('Are you ready for a good time? :)');
-
 const cart = [
     {
-    id: 198752,
-    name: "Tinta DJ27 Color",
-    price: 52.95,
-    count: 3,
-    premium: false,
+        id: 198752,
+        name: "Tinta DJ27 Color",
+        price: 52.95,
+        count: 3,
+        premium: false,
     },
     {
-    id: 75621,
-    name: "Impresora ticketera PRO-201",
-    price: 32.75,
-    count: 2,
-    premium: true,
+        id: 75621,
+        name: "Impresora ticketera PRO-201",
+        price: 32.75,
+        count: 2,
+        premium: true,
     },
     {
-    id: 54657,
-    name: "Caja de rollos de papel para ticketera",
-    price: 5.95,
-    count: 3,
-    premium: true,
+        id: 54657,
+        name: "Caja de rollos de papel para ticketera",
+        price: 5.95,
+        count: 3,
+        premium: true,
     },
     {
-    id: 3143,
-    name: "Caja de folios DIN-A4 80gr",
-    price: 9.95,
-    count: 2,
-    premium: true,
+        id: 3143,
+        name: "Caja de folios DIN-A4 80gr",
+        price: 9.95,
+        count: 2,
+        premium: true,
     }
 ]
 
@@ -75,32 +73,32 @@ console.log(cart, 'tras splice');
 
 const shoppingCart = [
     {
-    id: 198752,
-    name: "Tinta DJ27 Color",
-    price: 52.95,
-    count: 3,
-    premium: false,
+        id: 198752,
+        name: "Tinta DJ27 Color",
+        price: 52.95,
+        count: 3,
+        premium: false,
     },
     {
-    id: 75621,
-    name: "Impresora ticketera PRO-201",
-    price: 32.75,
-    count: 2,
-    premium: true,
+        id: 75621,
+        name: "Impresora ticketera PRO-201",
+        price: 32.75,
+        count: 2,
+        premium: true,
     },
     {
-    id: 54657,
-    name: "Caja de rollos de papel para ticketera",
-    price: 5.95,
-    count: 3,
-    premium: true,
+        id: 54657,
+        name: "Caja de rollos de papel para ticketera",
+        price: 5.95,
+        count: 3,
+        premium: true,
     },
     {
-    id: 3143,
-    name: "Caja de folios DIN-A4 80gr",
-    price: 9.95,
-    count: 2,
-    premium: true,
+        id: 3143,
+        name: "Caja de folios DIN-A4 80gr",
+        price: 9.95,
+        count: 2,
+        premium: true,
     }
 ]
 
