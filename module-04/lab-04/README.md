@@ -14,4 +14,4 @@ Vamos a crear una calculadora sencilla. Para ello:
 
 **Opcional:**
 
-- Si alguno de los operandos es vacío, muestra como resultado "Error".
+- Si alguno de los operandos es vacío, muestra como resultado **"Error"**.
