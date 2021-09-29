@@ -1,9 +1,6 @@
 'use strict';
 
-console.log('Are you ready for a good time? :)');
-
 // SELECTED HOTEL
-
 let hotels = {
     Terramar: {
         name: 'Terramar',
@@ -32,7 +29,6 @@ document.getElementById('location-hotel').innerHTML = 'Ubicado en ' + hotels[sel
 document.getElementById('img-hotel').src = hotels[selectedHotel].img
 
 // RATING
-
 let rating = prompt('Cúantas estrellas le das a este hotel: una, dos, tres, cuatro o cinco');
 
 const stars = {
@@ -51,7 +47,6 @@ const stars = {
 document.getElementById('rating').innerHTML = stars[rating];
 
 // REVIEW
-
 let anonymousUser = confirm('¿Quieres que la reseña sea anónima')
 document.getElementById('anonymous').checked = anonymousUser; 
 
