@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Are you ready for a good time? :))');
-
 // Constants
 const WORK_HOURS = [
     "08:00 - 09:00",
