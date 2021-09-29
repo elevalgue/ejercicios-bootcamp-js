@@ -1,8 +1,5 @@
 'use strict';
 
-console.log('Are you ready for a good time? :))');
-
-// 1. CALCULATE TOTAL PRICE
 
 const hotel = {
     count: 1,
@@ -10,6 +7,7 @@ const hotel = {
     type: "freeTime"
 };
 
+// 1. CALCULATE TOTAL PRICE
 function getTotal(product) {
    if (product.count <= 0) {
        return 0;
@@ -63,7 +61,6 @@ console.log(`${getVat(textBook)} euris`);
 
 
 // 3. CALCULATE TOTAL VAT
-
 function getTotalVat(product) {
     return product.count > 0 ? product.count * getVat(textBook) : 0;
   }
@@ -83,7 +80,6 @@ function printProductPrice(product) {
 printProductPrice(textBook);
 
 // 4. CALCULATE NET ANNUAL SALARY ON PAYROLL
-
 const employee = {
     grossSalary: 14500,
     children: 2,
