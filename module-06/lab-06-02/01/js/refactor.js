@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Maricarmen');
-
 /* REFACTOR EXERCISE WITH IndexOf */
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
