@@ -1,7 +1,5 @@
 'use strict'; 
 
-console.log('Are you ready for a good time? :))');
-
 /**
  * M A N D A T O R Y 
  */
