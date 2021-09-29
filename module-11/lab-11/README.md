@@ -1,4 +1,4 @@
-# **Lab Module 11**
+# Laboratorio Módulo 11 - Conceptos avanzados ES6
 
 Imaginemos que tenemos una web de reservas de hotel. Cuando un cliente realiza sus reservas indica los siguientes datos:
 
