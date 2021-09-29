@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Are you ready for a good time? :))');
-
 // Selectors
 const inputTotalAmount = document.querySelector('#js-total-amount'); 
 const inputTotalGiven = document.querySelector('#js-total-given');
