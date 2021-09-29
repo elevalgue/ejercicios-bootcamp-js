@@ -1,3 +1,3 @@
-# Laboratorio Módulo 01 - Variables y Tipos de Datos
+# Laboratorio Módulo 01 - Introducción
 
 Realizamos una página sencilla con un formulario.
