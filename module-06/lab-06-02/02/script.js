@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Maricarmen :)');
-
 let numbers = [];
 
 const randomPick = (n, min, max) => {
