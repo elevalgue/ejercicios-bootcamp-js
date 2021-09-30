@@ -13,6 +13,5 @@ getAccountList().then(accountList => {
             const route = event.target.value;
             history.push(route); 
         })
-        
     });
 });
