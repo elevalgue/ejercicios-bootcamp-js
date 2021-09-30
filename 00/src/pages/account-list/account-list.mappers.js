@@ -1,12 +1,12 @@
-// export const mapAccountListFromApiToViewModel = (accountList) => {
-//     return accountList.map(account =>
-//         mapAccountFromApiToViewModel(account))
-// };
+export const mapAccountListApiToVm = accountList => {
+    return accountList.map(account =>
+        mapAccountApiToVm(account))
+};
 
-export const mapAccountListApiToVm = accountList =>
-    Array.isArray(accountList)
-        ? accountList.map(account => mapAccountApiToVm(account))
-        : [];
+// export const mapAccountListApiToVm = accountList =>
+//     Array.isArray(accountList)
+//         ? accountList.map(account => mapAccountApiToVm(account))
+//         : [];
 
 const mapAccountApiToVm = account => ({
     id: account.id,

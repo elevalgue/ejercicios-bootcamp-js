@@ -4396,15 +4396,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.mapAccountListApiToVm = void 0;
 
-// export const mapAccountListFromApiToViewModel = (accountList) => {
-//     return accountList.map(account =>
-//         mapAccountFromApiToViewModel(account))
-// };
 var mapAccountListApiToVm = function mapAccountListApiToVm(accountList) {
-  return Array.isArray(accountList) ? accountList.map(function (account) {
+  return accountList.map(function (account) {
     return mapAccountApiToVm(account);
-  }) : [];
-};
+  });
+}; // export const mapAccountListApiToVm = accountList =>
+//     Array.isArray(accountList)
+//         ? accountList.map(account => mapAccountApiToVm(account))
+//         : [];
+
 
 exports.mapAccountListApiToVm = mapAccountListApiToVm;
 
@@ -4427,7 +4427,6 @@ var _accountList2 = require("./account-list.helpers");
 var _accountList3 = require("./account-list.mappers");
 
 (0, _accountList.getAccountList)().then(function (accountList) {
-  (0, _accountList2.addAccountRows)(accountList);
   var vmAccountList = (0, _accountList3.mapAccountListApiToVm)(accountList);
   (0, _accountList2.addAccountRows)(vmAccountList);
 });
@@ -4459,7 +4458,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64261" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51803" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
