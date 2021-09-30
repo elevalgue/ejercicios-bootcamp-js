@@ -1,4 +1,4 @@
-import { onUpdateField, onSubmitForm, onSetError } from '../../common/helpers';
+import { onUpdateField, onSubmitForm, onSetError, onSetFormErrors } from '../../common/helpers';
 import { formValidation } from './account.validations';
 
 let account = {
@@ -34,5 +34,10 @@ onUpdateField('alias', (event) => {
 })
 
 onSubmitForm('save-button', () => {
-    console.log(account);
+    formValidation.validateForm(account).then(result => {
+        onSetFormErrors(result);
+        if (result.succeeded) {
+            console.log(account);
+        }
+    })
 })

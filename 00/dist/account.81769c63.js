@@ -2178,7 +2178,13 @@ var account = {
   });
 });
 (0, _helpers.onSubmitForm)('save-button', function () {
-  console.log(account);
+  _account.formValidation.validateForm(account).then(function (result) {
+    (0, _helpers.onSetFormErrors)(result);
+
+    if (result.succeeded) {
+      console.log(account);
+    }
+  });
 });
 },{"../../common/helpers":"common/helpers/index.js","./account.validations":"pages/account/account.validations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -2208,7 +2214,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53806" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56874" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
