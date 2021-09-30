@@ -4,9 +4,3 @@
 
     export const getAccountList = () => Axios.get(url).then(({ data }) =>
         data);
-    
-
-// export const getAccountList = () => Axios.get(url).then(response => {
-//     return response.data; 
-// })
-
