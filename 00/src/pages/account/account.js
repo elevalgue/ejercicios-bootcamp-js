@@ -1,5 +1,18 @@
 import { onUpdateField, onSubmitForm, onSetError, onSetFormErrors } from '../../common/helpers';
 import { formValidation } from './account.validations';
+import { history } from './../../core/router'
+import { getAccount } from './account.api';
+import { mapAccountApiToVm } from './account.mappers';
+
+const params = history.getParams();
+const isEditMode = Boolean(params.id);
+
+if (isEditMode) {
+    getAccount(params.id).then(apiAccount => {
+        account = mapAccountApiToVm(apiAccount);
+        onSetValues(account);
+    });
+}
 
 let account = {
     id: '',
