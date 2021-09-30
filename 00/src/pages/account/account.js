@@ -1,4 +1,5 @@
-import { onUpdateField, onSubmitForm } from '../../common/helpers';
+import { onUpdateField, onSubmitForm, onSetError } from '../../common/helpers';
+import { formValidation } from './account.validations';
 
 let account = {
     id: '',
@@ -11,7 +12,12 @@ onUpdateField('type', (event) => {
     account = {
         ...account,
         type: value,
-    }; 
+    };
+
+    formValidation.validateField('type', account.type).then(result => {
+    onSetError('type', result);  
+    });
+
 });
 
 onUpdateField('alias', (event) => {
@@ -20,6 +26,11 @@ onUpdateField('alias', (event) => {
         ...account,
         alias: value, 
     }
+
+    formValidation.validateField('alias', account.alias).then(result => {
+    onSetError('alias', result);  
+    });
+
 })
 
 onSubmitForm('save-button', () => {
