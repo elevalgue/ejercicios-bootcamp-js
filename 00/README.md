@@ -31,9 +31,15 @@ Página con las cuentas disponibles del usuario logado.
 ![Imagen con botón para agregrar nueva cuenta](https://user-images.githubusercontent.com/65629207/135728587-65cb3876-970a-45ff-90c9-f3fdbeb8fa9f.png)
 
 En esta página implementaremos:
+
 - Recuperar las cuentas disponibles de servidor.
 - Navegar a la página de trasferencias o movimientos de una cuenta seleccionada
 - Navegar a creación de nueva cuenta
 
 
+### Cuenta
+
+Página para crear o editar cuenta
+
+![imagen página para crear o editar cuenta](https://user-images.githubusercontent.com/65629207/135728662-13073770-f4e2-4a8d-83b0-bacffb4e84ab.png)
 
