@@ -42,4 +42,30 @@ En esta página implementaremos:
 Página para crear o editar cuenta
 
 ![imagen página para crear o editar cuenta](https://user-images.githubusercontent.com/65629207/135728662-13073770-f4e2-4a8d-83b0-bacffb4e84ab.png)
+![imagen de la página para seleccionar tipo de cuenta bancaria](https://user-images.githubusercontent.com/65629207/135728726-9d2105bd-624b-4d2d-858e-f7391ec7da78.png)
 
+En esta página implementaremos:
+- Recoger los valores del formulario
+- Añadir validaciones a los campos
+- Mandar la información al servidor mediante un método de la API
+- Recoger parámetros de la url para ver si es modo crear o editar
+
+### Movimientos
+
+Página para consultar los movimientos de una cuenta.
+
+![imagen de la página para consultar los movimientos de una cuenta](https://user-images.githubusercontent.com/65629207/135728775-b589d892-33ce-4f70-addc-40555f7a32ac.png)
+
+- Recoger parámetros de la url para ver el id de cuenta
+- Recuperar los movimientos disponibles de esa cuenta
+
+### Transferencia
+
+Página para enviar una transferencia.
+
+![imagen de la página para enviar una transferencia](https://user-images.githubusercontent.com/65629207/135728804-2575bfec-3185-48ab-a70b-8badfae08e7f.png)
+
+- Recoger parámetros de la url para ver el id de cuenta
+- Recoger los valores del formulario
+- Añadir validaciones a los campos
+- Mandar la información al servidor mediante un método de la API
