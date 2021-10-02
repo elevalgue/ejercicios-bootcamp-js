@@ -6422,11 +6422,15 @@ var account = {
   });
 });
 (0, _helpers.onSubmitForm)('save-button', function () {
+  console.log({
+    account: account
+  });
+
   _account.formValidation.validateForm(account).then(function (result) {
     (0, _helpers.onSetFormErrors)(result);
 
     if (result.succeeded) {
-      console.log(account);
+      _router.history.back();
     }
   });
 });
@@ -6458,7 +6462,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53592" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58149" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
