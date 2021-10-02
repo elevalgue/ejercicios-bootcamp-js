@@ -2,9 +2,19 @@ import { Validators, createFormValidation } from '@lemoncode/fonk';
 
 const validationSchema = {
     field: {
-        type: [Validators.required],
-        alias: [Validators.required],
-    }
+        type: [
+            {
+            validator: Validators.required,
+            message: 'Campo requerido',
+            },
+        ],
+        alias: [
+            {
+            validator: Validators.required,
+            message: 'Campo requerido',
+            },
+        ],
+    },
 };
 
 export const formValidation = createFormValidation(validationSchema); 
