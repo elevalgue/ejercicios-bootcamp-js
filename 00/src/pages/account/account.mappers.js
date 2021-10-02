@@ -1,7 +1,25 @@
-const mapAccountFromApiToViewModel = account => {
+const mapAccountFromApiToVm = account => {
     return {
         id: account.id,
         type: account.type,
-        alias: account.alias,
+        name: account.alias,
     };
-}; 
+};
+
+const mapAccountFromVmToApi = account => {
+    return {
+        id: account.id,
+        type: account.type,
+        alias: account.name,
+    };
+};
+
+// export const mapAccountVmToApi = account => ({
+//     ...account,
+//     name: account.alias,
+// });
+
+// export const mapAccountApiToVm = account => ({
+//     ...account,
+//     alias: account.name,
+// }); 

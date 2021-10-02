@@ -1,15 +1,15 @@
-import { onUpdateField, onSubmitForm, onSetError, onSetFormErrors } from '../../common/helpers';
+import { onUpdateField, onSubmitForm, onSetError, onSetFormErrors, onSetValues } from '../../common/helpers';
 import { formValidation } from './account.validations';
 import { history } from './../../core/router'
-import { getAccount } from './account.api';
-import { mapAccountApiToVm } from './account.mappers';
+import { insertAccount, getAccount, updateAccount } from './account.api';
+import { mapAccountApiToVm as mapAccountFromApiToVm } from './account.mappers';
 
 const params = history.getParams();
 const isEditMode = Boolean(params.id);
 
 if (isEditMode) {
     getAccount(params.id).then(apiAccount => {
-        account = mapAccountApiToVm(apiAccount);
+        account = mapAccountFromApiToVm(apiAccount);
         onSetValues(account);
     });
 }
@@ -46,13 +46,20 @@ onUpdateField('alias', (event) => {
 
 });
 
+const onSave = () => {
+    const apiAccount = mapAccountVmToApi(account);
+    return isEditMode ? updateAccount(apiAccount) :
+insertAccount(apiAccount);
+};
 
 onSubmitForm('save-button', () => {
-console.log({ account });
+    console.log({ account });
         formValidation.validateForm(account).then(result => {
         onSetFormErrors(result);
-        if (result.succeeded) {
-        history.back();
-        }
-    });
+            if (result.succeeded) {
+                onSave().then(() => {
+                    history.back();
+                    });
+            }
+        });
 });

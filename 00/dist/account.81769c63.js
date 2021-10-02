@@ -6334,38 +6334,67 @@ module.exports = require('./lib/axios');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getAccount = exports.insertAccount = void 0;
+exports.onUpdateAccount = exports.getAccount = exports.insertAccount = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var url = "".concat("http://localhost:3000/api", "/account");
+var url = "".concat("http://localhost:3000/api", "/account"); //without spread operator
+// export const insertAccount = account =>
+//     Axios.post(`${url}/${account.id}`, account).then(response => {
+//     return response.data; 
+//     })
 
 var insertAccount = function insertAccount(account) {
-  return _axios.default.post("".concat(url, "/").concat(account.id), account).then(function (response) {
-    return response.data;
+  return _axios.default.post("".concat(url, "/").concat(account.id), account).then(function (_ref) {
+    var data = _ref.data;
+    return data;
   });
 };
 
 exports.insertAccount = insertAccount;
 
 var getAccount = function getAccount(id) {
-  return _axios.default.get("".concat(url, "/").concat(id)).then(function (_ref) {
-    var data = _ref.data;
+  return _axios.default.get("".concat(url, "/").concat(id)).then(function (_ref2) {
+    var data = _ref2.data;
     return data;
   });
 };
 
 exports.getAccount = getAccount;
+
+var onUpdateAccount = function onUpdateAccount(account) {
+  return _axios.default.put("".concat(url, "/").concat(id), account).then(function (_ref3) {
+    var data = _ref3.data;
+    return data;
+  });
+};
+
+exports.onUpdateAccount = onUpdateAccount;
 },{"axios":"../node_modules/axios/index.js"}],"pages/account/account.mappers.js":[function(require,module,exports) {
-var mapAccountFromApiToViewModel = function mapAccountFromApiToViewModel(account) {
+var mapAccountFromApiToVm = function mapAccountFromApiToVm(account) {
   return {
     id: account.id,
     type: account.type,
-    alias: account.alias
+    name: account.alias
   };
 };
+
+var mapAccountFromVmToApi = function mapAccountFromVmToApi(account) {
+  return {
+    id: account.id,
+    type: account.type,
+    alias: account.name
+  };
+}; // export const mapAccountVmToApi = account => ({
+//     ...account,
+//     name: account.alias,
+// });
+// export const mapAccountApiToVm = account => ({
+//     ...account,
+//     alias: account.name,
+// });
 },{}],"pages/account/account.js":[function(require,module,exports) {
 "use strict";
 
@@ -6392,7 +6421,7 @@ var isEditMode = Boolean(params.id);
 if (isEditMode) {
   (0, _account2.getAccount)(params.id).then(function (apiAccount) {
     account = (0, _account3.mapAccountApiToVm)(apiAccount);
-    onSetValues(account);
+    (0, _helpers.onSetValues)(account);
   });
 }
 
@@ -6421,6 +6450,12 @@ var account = {
     (0, _helpers.onSetError)('alias', result);
   });
 });
+
+var onSave = function onSave() {
+  var apiAccount = mapAccountVmToApi(account);
+  return isEditMode ? (0, _account2.updateAccount)(apiAccount) : (0, _account2.insertAccount)(apiAccount);
+};
+
 (0, _helpers.onSubmitForm)('save-button', function () {
   console.log({
     account: account
@@ -6430,7 +6465,9 @@ var account = {
     (0, _helpers.onSetFormErrors)(result);
 
     if (result.succeeded) {
-      _router.history.back();
+      onSave().then(function () {
+        _router.history.back();
+      });
     }
   });
 });
@@ -6462,7 +6499,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58149" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61405" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
