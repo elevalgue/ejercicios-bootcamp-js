@@ -6334,7 +6334,7 @@ module.exports = require('./lib/axios');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.onUpdateAccount = exports.getAccount = exports.insertAccount = void 0;
+exports.updateAccount = exports.getAccount = exports.insertAccount = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -6364,37 +6364,57 @@ var getAccount = function getAccount(id) {
 
 exports.getAccount = getAccount;
 
-var onUpdateAccount = function onUpdateAccount(account) {
-  return _axios.default.put("".concat(url, "/").concat(id), account).then(function (_ref3) {
+var updateAccount = function updateAccount(account) {
+  return _axios.default.put("".concat(url, "/").concat(account.id), account).then(function (_ref3) {
     var data = _ref3.data;
     return data;
   });
 };
 
-exports.onUpdateAccount = onUpdateAccount;
+exports.updateAccount = updateAccount;
 },{"axios":"../node_modules/axios/index.js"}],"pages/account/account.mappers.js":[function(require,module,exports) {
-var mapAccountFromApiToVm = function mapAccountFromApiToVm(account) {
-  return {
-    id: account.id,
-    type: account.type,
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mapAccountApiToVm = exports.mapAccountVmToApi = void 0;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// export const mapAccountFromApiToVm = account => {
+//     return {
+//         id: account.id,
+//         type: account.type,
+//         name: account.alias,
+//     };
+// };
+// export const mapAccountFromVmToApi = account => {
+//     return {
+//         id: account.id,
+//         type: account.type,
+//         alias: account.name,
+//     };
+// };
+var mapAccountVmToApi = function mapAccountVmToApi(account) {
+  return _objectSpread(_objectSpread({}, account), {}, {
     name: account.alias
-  };
+  });
 };
 
-var mapAccountFromVmToApi = function mapAccountFromVmToApi(account) {
-  return {
-    id: account.id,
-    type: account.type,
+exports.mapAccountVmToApi = mapAccountVmToApi;
+
+var mapAccountApiToVm = function mapAccountApiToVm(account) {
+  return _objectSpread(_objectSpread({}, account), {}, {
     alias: account.name
-  };
-}; // export const mapAccountVmToApi = account => ({
-//     ...account,
-//     name: account.alias,
-// });
-// export const mapAccountApiToVm = account => ({
-//     ...account,
-//     alias: account.name,
-// });
+  });
+};
+
+exports.mapAccountApiToVm = mapAccountApiToVm;
 },{}],"pages/account/account.js":[function(require,module,exports) {
 "use strict";
 
@@ -6452,7 +6472,7 @@ var account = {
 });
 
 var onSave = function onSave() {
-  var apiAccount = mapAccountVmToApi(account);
+  var apiAccount = (0, _account3.mapAccountVmToApi)(account);
   return isEditMode ? (0, _account2.updateAccount)(apiAccount) : (0, _account2.insertAccount)(apiAccount);
 };
 
@@ -6499,7 +6519,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61405" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49643" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

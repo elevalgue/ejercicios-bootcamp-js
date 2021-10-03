@@ -2,14 +2,14 @@ import { onUpdateField, onSubmitForm, onSetError, onSetFormErrors, onSetValues }
 import { formValidation } from './account.validations';
 import { history } from './../../core/router'
 import { insertAccount, getAccount, updateAccount } from './account.api';
-import { mapAccountApiToVm as mapAccountFromApiToVm } from './account.mappers';
+import { mapAccountVmToApi,  mapAccountApiToVm } from './account.mappers';
 
 const params = history.getParams();
 const isEditMode = Boolean(params.id);
 
 if (isEditMode) {
     getAccount(params.id).then(apiAccount => {
-        account = mapAccountFromApiToVm(apiAccount);
+        account = mapAccountApiToVm(apiAccount);
         onSetValues(account);
     });
 }
@@ -28,7 +28,7 @@ onUpdateField('type', (event) => {
     };
 
     formValidation.validateField('type', account.type).then(result => {
-    onSetError('type', result);  
+        onSetError('type', result);
     });
 
 });
@@ -47,19 +47,19 @@ onUpdateField('alias', (event) => {
 });
 
 const onSave = () => {
-    const apiAccount = mapAccountFromVmToApi(account);
+    const apiAccount = mapAccountVmToApi(account);
     return isEditMode ? updateAccount(apiAccount) :
-insertAccount(apiAccount);
+    insertAccount(apiAccount);
 };
 
 onSubmitForm('save-button', () => {
     console.log({ account });
-        formValidation.validateForm(account).then(result => {
+    formValidation.validateForm(account).then(result => {
         onSetFormErrors(result);
             if (result.succeeded) {
                 onSave().then(() => {
                     history.back();
-                    });
-            }
-        });
+            });
+        }
+    });
 });

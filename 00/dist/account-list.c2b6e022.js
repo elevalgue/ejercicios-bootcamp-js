@@ -4398,7 +4398,7 @@ var mapAccountListApiToVm = function mapAccountListApiToVm(accountList) {
   });
 }; // export const mapAccountListApiToVm = accountList =>
 //     Array.isArray(accountList)
-//         ? accountList.map(account => mapAccountApiToVm(account))
+//         ? accountList.map(account => mapAccountFromApiToVm(account))
 //         : [];
 
 
@@ -4573,16 +4573,20 @@ var _helpers = require("../../common/helpers");
 
 var _router = require("../../core/router");
 
-(0, _accountList.getAccountList)().then(function (accountList) {
-  var vmAccountList = (0, _accountList3.mapAccountListApiToVm)(accountList);
-  (0, _accountList2.addAccountRows)(vmAccountList);
-  vmAccountList.forEach(function (account) {
+var setEvents = function setEvents(accountList) {
+  accountList.forEach(function (account) {
     (0, _helpers.onUpdateField)("select-".concat(account.id), function (event) {
       var route = event.target.value;
 
       _router.history.push(route);
     });
   });
+};
+
+(0, _accountList.getAccountList)().then(function (accountList) {
+  var vmAccountList = (0, _accountList3.mapAccountListApiToVm)(accountList);
+  (0, _accountList2.addAccountRows)(vmAccountList);
+  setEvents(vmAccountList);
 });
 },{"./account-list.api":"pages/account-list/account-list.api.js","./account-list.helpers":"pages/account-list/account-list.helpers.js","./account-list.mappers":"pages/account-list/account-list.mappers.js","../../common/helpers":"common/helpers/index.js","../../core/router":"core/router/index.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -4612,7 +4616,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61405" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49643" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

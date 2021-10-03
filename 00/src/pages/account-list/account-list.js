@@ -4,14 +4,17 @@ import { mapAccountListApiToVm } from './account-list.mappers';
 import { onUpdateField } from '../../common/helpers';
 import { history } from '../../core/router';
 
+const setEvents = accountList => {
+    accountList.forEach(account => {
+        onUpdateField(`select-${account.id}`, event => {
+            const route = event.target.value;
+            history.push(route);
+        });
+    });
+};
+
 getAccountList().then(accountList => {
     const vmAccountList = mapAccountListApiToVm(accountList);
     addAccountRows(vmAccountList);
-
-    vmAccountList.forEach(account => {
-        onUpdateField(`select-${account.id}`, (event) => {
-            const route = event.target.value;
-            history.push(route); 
-        })
-    });
+    setEvents(vmAccountList);
 });

@@ -5,7 +5,7 @@ export const mapAccountListApiToVm = accountList => {
 
 // export const mapAccountListApiToVm = accountList =>
 //     Array.isArray(accountList)
-//         ? accountList.map(account => mapAccountApiToVm(account))
+//         ? accountList.map(account => mapAccountFromApiToVm(account))
 //         : [];
 
 const mapAccountApiToVm = account => ({
