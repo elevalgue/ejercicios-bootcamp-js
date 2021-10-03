@@ -14,11 +14,11 @@ Aquí tendremos la página principal de acceso a nuestra aplicación o página d
 ![imagen de la página de login](https://user-images.githubusercontent.com/65629207/135728463-d0d0cf96-8dc0-4392-b958-68107e3046b4.png)
 
 En esta página implementaremos:
+
 - Recoger los valores del formulario.
 - Añadir validaciones a los campos.
 - Mandar la información al servidor mediante un método de la API.
 - Según si el login es válido mostraremos un mensaje de error (si ha fallado) o navegaremos a la siguiente página (listado de cuentas).
-
 
 ### Listado de Cuentas
 
@@ -36,15 +36,16 @@ En esta página implementaremos:
 - Navegar a la página de trasferencias o movimientos de una cuenta seleccionada
 - Navegar a creación de nueva cuenta
 
-
 ### Cuenta
 
 Página para crear o editar cuenta
 
 ![imagen página para crear o editar cuenta](https://user-images.githubusercontent.com/65629207/135728662-13073770-f4e2-4a8d-83b0-bacffb4e84ab.png)
+
 ![imagen de la página para seleccionar tipo de cuenta bancaria](https://user-images.githubusercontent.com/65629207/135728726-9d2105bd-624b-4d2d-858e-f7391ec7da78.png)
 
 En esta página implementaremos:
+
 - Recoger los valores del formulario
 - Añadir validaciones a los campos
 - Mandar la información al servidor mediante un método de la API

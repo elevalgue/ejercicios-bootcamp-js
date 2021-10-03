@@ -47,7 +47,7 @@ onUpdateField('alias', (event) => {
 });
 
 const onSave = () => {
-    const apiAccount = mapAccountVmToApi(account);
+    const apiAccount = mapAccountFromVmToApi(account);
     return isEditMode ? updateAccount(apiAccount) :
 insertAccount(apiAccount);
 };
