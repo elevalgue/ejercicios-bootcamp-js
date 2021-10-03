@@ -4,6 +4,12 @@ import { history } from './../../core/router'
 import { insertAccount, getAccount, updateAccount } from './account.api';
 import { mapAccountVmToApi,  mapAccountApiToVm } from './account.mappers';
 
+let account = {
+    id: '',
+    type: '',
+    alias: '',
+};
+
 const params = history.getParams();
 const isEditMode = Boolean(params.id);
 
@@ -13,12 +19,6 @@ if (isEditMode) {
         onSetValues(account);
     });
 }
-
-let account = {
-    id: '',
-    type: '',
-    alias: '',
-};
 
 onUpdateField('type', (event) => {
     const value = event.target.value;
@@ -48,17 +48,16 @@ onUpdateField('alias', (event) => {
 
 const onSave = () => {
     const apiAccount = mapAccountVmToApi(account);
-    return isEditMode ? updateAccount(apiAccount) :
-    insertAccount(apiAccount);
+    console.log({ apiAccount });
+    return isEditMode ? updateAccount(apiAccount) : insertAccount(apiAccount);
 };
 
 onSubmitForm('save-button', () => {
-    console.log({ account });
     formValidation.validateForm(account).then(result => {
         onSetFormErrors(result);
-            if (result.succeeded) {
-                onSave().then(() => {
-                    history.back();
+        if (result.succeeded) {
+            onSave().then(() => {
+                history.back();
             });
         }
     });

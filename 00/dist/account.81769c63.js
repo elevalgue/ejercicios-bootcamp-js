@@ -6434,6 +6434,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var account = {
+  id: '',
+  type: '',
+  alias: ''
+};
+
 var params = _router.history.getParams();
 
 var isEditMode = Boolean(params.id);
@@ -6445,11 +6451,6 @@ if (isEditMode) {
   });
 }
 
-var account = {
-  id: '',
-  type: '',
-  alias: ''
-};
 (0, _helpers.onUpdateField)('type', function (event) {
   var value = event.target.value;
   account = _objectSpread(_objectSpread({}, account), {}, {
@@ -6473,14 +6474,13 @@ var account = {
 
 var onSave = function onSave() {
   var apiAccount = (0, _account3.mapAccountVmToApi)(account);
+  console.log({
+    apiAccount: apiAccount
+  });
   return isEditMode ? (0, _account2.updateAccount)(apiAccount) : (0, _account2.insertAccount)(apiAccount);
 };
 
 (0, _helpers.onSubmitForm)('save-button', function () {
-  console.log({
-    account: account
-  });
-
   _account.formValidation.validateForm(account).then(function (result) {
     (0, _helpers.onSetFormErrors)(result);
 
@@ -6519,7 +6519,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49643" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56503" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
