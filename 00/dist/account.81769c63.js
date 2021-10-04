@@ -6485,7 +6485,8 @@ var onSave = function onSave() {
     (0, _helpers.onSetFormErrors)(result);
 
     if (result.succeeded) {
-      onSave().then(function () {
+      onSave().then(function (apiAccount) {
+        // onSave().then(() => {
         _router.history.back();
       });
     }
@@ -6519,7 +6520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56503" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50065" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
