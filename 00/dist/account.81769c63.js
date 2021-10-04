@@ -6334,7 +6334,7 @@ module.exports = require('./lib/axios');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getMovements = exports.updateAccount = exports.getAccount = exports.insertAccount = void 0;
+exports.updateAccount = exports.getAccount = exports.insertAccount = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -6372,15 +6372,6 @@ var updateAccount = function updateAccount(account) {
 };
 
 exports.updateAccount = updateAccount;
-
-var getMovements = function getMovements(id) {
-  return _axios.default.get("".concat(url, "/").concat(id)).then(function (_ref4) {
-    var data = _ref4.data;
-    return data;
-  });
-};
-
-exports.getMovements = getMovements;
 },{"axios":"../node_modules/axios/index.js"}],"pages/account/account.mappers.js":[function(require,module,exports) {
 "use strict";
 
@@ -6495,7 +6486,6 @@ var onSave = function onSave() {
 
     if (result.succeeded) {
       onSave().then(function (apiAccount) {
-        // onSave().then(() => {
         _router.history.back();
       });
     }
@@ -6529,7 +6519,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60054" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50832" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

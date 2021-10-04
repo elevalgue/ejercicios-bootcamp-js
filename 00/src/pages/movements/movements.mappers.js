@@ -10,5 +10,4 @@ const mapMovementsApiToVm = movements => ({
     balance: `${movements.balance} €`,
     transaction: new Date(movements.transaction).toLocaleDateString(),
     realTransaction: new Date(movements.realTransaction).toLocaleDateString(),
-
 })

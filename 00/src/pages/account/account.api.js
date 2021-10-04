@@ -17,5 +17,3 @@ export const getAccount = id =>
 export const updateAccount = account =>
     Axios.put(`${url}/${account.id}`, account).then(({ data }) => data);
 
-export const getMovements = id =>
-    Axios.get(`${url}/${id}`).then(({ data }) => data);

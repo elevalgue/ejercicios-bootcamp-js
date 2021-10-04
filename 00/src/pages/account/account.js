@@ -57,7 +57,6 @@ onSubmitForm('save-button', () => {
         onSetFormErrors(result);
         if (result.succeeded) {
             onSave().then(apiAccount => {
-            // onSave().then(() => {
                 history.back();
             });
         }
