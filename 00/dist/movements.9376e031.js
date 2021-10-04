@@ -4497,24 +4497,24 @@ Object.keys(_element).forEach(function (key) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mapMovementsVmToApi = void 0;
+exports.mapMovementsListApiToVm = void 0;
 
-var mapMovementsVmToApi = function mapMovementsVmToApi(movements) {
-  return movements.map(function (account) {
-    return mapMovementsApiToVm(account);
+var mapMovementsListApiToVm = function mapMovementsListApiToVm(movementList) {
+  return movementList.map(function (movement) {
+    return mapMovementsApiToVm(movement);
   });
 };
 
-exports.mapMovementsVmToApi = mapMovementsVmToApi;
+exports.mapMovementsListApiToVm = mapMovementsListApiToVm;
 
-var mapMovementsApiToVm = function mapMovementsApiToVm(movements) {
+var mapMovementsApiToVm = function mapMovementsApiToVm(movement) {
   return {
-    id: movements.id,
-    description: movements.description,
-    amount: "".concat(movements.amount, " \u20AC"),
-    balance: "".concat(movements.balance, " \u20AC"),
-    transaction: new Date(movements.transaction).toLocaleDateString(),
-    realTransaction: new Date(movements.realTransaction).toLocaleDateString()
+    id: movement.id,
+    description: movement.description,
+    amount: "".concat(movement.amount, " \u20AC"),
+    balance: "".concat(movement.balance, " \u20AC"),
+    transaction: new Date(movement.transaction).toLocaleDateString(),
+    realTransaction: new Date(movement.realTransaction).toLocaleDateString()
   };
 };
 },{}],"pages/movements/movements.js":[function(require,module,exports) {
@@ -4569,7 +4569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50832" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52835" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

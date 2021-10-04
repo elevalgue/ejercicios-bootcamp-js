@@ -6386,20 +6386,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// export const mapAccountFromApiToVm = account => {
-//     return {
-//         id: account.id,
-//         type: account.type,
-//         name: account.alias,
-//     };
-// };
-// export const mapAccountFromVmToApi = account => {
-//     return {
-//         id: account.id,
-//         type: account.type,
-//         alias: account.name,
-//     };
-// };
 var mapAccountVmToApi = function mapAccountVmToApi(account) {
   return _objectSpread(_objectSpread({}, account), {}, {
     name: account.alias
@@ -6519,7 +6505,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50832" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52835" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,7 +1,7 @@
 import { getAccount, getAllMovements } from '../account/account.api';
 import { history } from './../../core/router';
 import { onSetValues } from "../../common/helpers";
-import { mapMovementsApiToVm, mapMovementsVmToApi } from './movements.mappers';
+import { mapMovementsApiToVm, mapMovementsListApiToVm } from './movements.mappers';
 
 const params = history.getParams();
 const isAccountId = Boolean(params.id);
