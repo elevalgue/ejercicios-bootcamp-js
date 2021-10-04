@@ -1,1 +1,3 @@
-console.log('movements');
+
+const params = history.getParams();
+const isEditMode = Boolean(params.id);
