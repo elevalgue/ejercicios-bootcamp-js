@@ -1,9 +1,9 @@
 export const mapMovementsVmToApi = movements => {
     return movements.map(account =>
-        mapMovementsVmToApi(account))
+        mapMovementsApiToVm(account))
 };
 
-const mapMovementsVmToApi = movements => ({
+const mapMovementsApiToVm = movements => ({
     id: movements.id,
     description: movements.description,
     amount: `${movements.amount} €`,
@@ -12,16 +12,3 @@ const mapMovementsVmToApi = movements => ({
     realTransaction: new Date(movements.realTransaction).toLocaleDateString(),
 
 })
-
-/*
-  "movements": [
-    {
-      "id": "1",
-      "description": "Nómina noviembre",
-      "amount": 900,
-      "balance": 1490,
-      "transaction": "2019-12-09T21:30:00",
-      "realTransaction": "2019-12-09T21:30:00",
-      "accountId": "1"
-    },
-*/
