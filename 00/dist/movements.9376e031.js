@@ -2297,17 +2297,11 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var url = "".concat("http://localhost:3000/api", "/movements"); // export const getMovementsList = accountId =>
-//     Axios.get(`${url}/${accountId}`).then(({ data }) => data);
+var url = "".concat("http://localhost:3000/api", "/movements"); // export const getMovementsList = id => Axios.get(url, { params: { accountId: id } }).then(({ data }) => data);
 
-var getMovementsList = function getMovementsList(id) {
-  return _axios.default.get(url, {
-    params: {
-      accountId: id
-    }
-  }).then(function (_ref) {
-    var data = _ref.data;
-    return data;
+var getMovementsList = function getMovementsList() {
+  return _axios.default.get(url).then(function (response) {
+    return response.data;
   });
 };
 
@@ -4603,7 +4597,7 @@ Object.keys(_history).forEach(function (key) {
 
 var _account = require("../account/account.api");
 
-var _movements = require("../movements/movements.api");
+var _movements = require("./movements.api");
 
 var _helpers = require("../../common/helpers");
 
@@ -4613,23 +4607,30 @@ var _movements3 = require("./movements.mappers");
 
 var _router = require("./../../core/router");
 
-// import { mapAccountApiToVm} from '..account/account.mappers';
 var params = _router.history.getParams();
 
-(0, _account.getAccount)(params.id).then(function (apiAccount) {
-  (0, _helpers.onSetValues)(apiAccount);
-});
+(0, _account.getAccount)(params.id).then(function (account) {
+  (0, _helpers.onSetValues)(account);
+}); // getMovementsList().then(movement => {
+//         if (movement.accountId === params.id) {
+//                 const vmMovementsList = mapMovementsApiToVm(movement);
+//                 addMovementRows(vmMovementsList)
+//         } else {
+//                 const vmMovementsList = mapMovementsApiToVm(movement.accountId === params.id);
+//                 addMovementRows(vmMovementsList)       
+//         }
+// });
+
 (0, _movements.getMovementsList)().then(function (movement) {
   if (movement.accountId === params.id) {
-    var vmMovementsList = (0, _movements3.mapMovementsListApiToVm)(movement);
-    (0, _movements2.addMovementRows)(vmMovementsList);
+    //     const vmMovements = mapMovementsApiToVm(movement);
+    (0, _movements2.addMovementRows)(vmMovements);
   } else {
-    var _vmMovementsList = (0, _movements3.mapMovementsListApiToVm)(movement).filter(movement.accountId === params.id);
-
-    (0, _movements2.addMovementRows)(_vmMovementsList);
+    //     const vmMovements = mapMovementsApiToVm(movement).filter(movement => movement.accountId === params.id );
+    (0, _movements2.addMovementRows)(vmMovements);
   }
 });
-},{"../account/account.api":"pages/account/account.api.js","../movements/movements.api":"pages/movements/movements.api.js","../../common/helpers":"common/helpers/index.js","./movements.helpers":"pages/movements/movements.helpers.js","./movements.mappers":"pages/movements/movements.mappers.js","./../../core/router":"core/router/index.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../account/account.api":"pages/account/account.api.js","./movements.api":"pages/movements/movements.api.js","../../common/helpers":"common/helpers/index.js","./movements.helpers":"pages/movements/movements.helpers.js","./movements.mappers":"pages/movements/movements.mappers.js","./../../core/router":"core/router/index.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -4657,7 +4658,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52619" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
