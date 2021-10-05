@@ -1,14 +1,18 @@
-export const mapMovementsListApiToVm = movementList => {
-    return movementList.map(movement => mapMovementsApiToVm(movement))
-};
+// export const mapMovementsListApiToVm = movementList => {
+//     return movementList.map(movement => mapMovementsApiToVm(movement))
+// };
 
-const mapMovementsApiToVm = movementList => ({
-    id: movementList.id,
-    description: movementList.description,
-    amount: `${movementList.amount} €`,
-    balance: `${movementList.balance} €`,
-    transaction: new Date(movementList.transaction).toLocaleDateString(),
-    realTransaction: new Date(movementList.realTransaction).toLocaleDateString(),
+export const mapMovementsListApiToVm = movementList =>
+    Array.isArray(movementList)
+        ? movementList.map(movement => mapMovementsApiToVm(movement)) : []; 
+
+const mapMovementsApiToVm = movement => ({
+    id: movement.id,
+    description: movement.description,
+    amount: `${movement.amount} €`,
+    balance: `${movement.balance} €`,
+    transaction: new Date(movement.transaction).toLocaleDateString(),
+    realTransaction: new Date(movement.realTransaction).toLocaleDateString(),
 })
 
 export const mapAccounApiToVm = account => {

@@ -2518,22 +2518,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.mapAccounApiToVm = exports.mapMovementsListApiToVm = void 0;
 
+// export const mapMovementsListApiToVm = movementList => {
+//     return movementList.map(movement => mapMovementsApiToVm(movement))
+// };
 var mapMovementsListApiToVm = function mapMovementsListApiToVm(movementList) {
-  return movementList.map(function (movement) {
+  return Array.isArray(movementList) ? movementList.map(function (movement) {
     return mapMovementsApiToVm(movement);
-  });
+  }) : [];
 };
 
 exports.mapMovementsListApiToVm = mapMovementsListApiToVm;
 
-var mapMovementsApiToVm = function mapMovementsApiToVm(movementList) {
+var mapMovementsApiToVm = function mapMovementsApiToVm(movement) {
   return {
-    id: movementList.id,
-    description: movementList.description,
-    amount: "".concat(movementList.amount, " \u20AC"),
-    balance: "".concat(movementList.balance, " \u20AC"),
-    transaction: new Date(movementList.transaction).toLocaleDateString(),
-    realTransaction: new Date(movementList.realTransaction).toLocaleDateString()
+    id: movement.id,
+    description: movement.description,
+    amount: "".concat(movement.amount, " \u20AC"),
+    balance: "".concat(movement.balance, " \u20AC"),
+    transaction: new Date(movement.transaction).toLocaleDateString(),
+    realTransaction: new Date(movement.realTransaction).toLocaleDateString()
   };
 };
 
@@ -4670,7 +4673,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51611" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57617" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
