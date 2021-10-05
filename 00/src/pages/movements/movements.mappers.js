@@ -7,7 +7,7 @@ export const mapMovementsListApiToVm = movementList =>
         ? movementList.map(movement => mapMovementsApiToVm(movement)) : []; 
 
 const mapMovementsApiToVm = movement => ({
-    id: movement.id,
+    accountId: movement. accountId,
     description: movement.description,
     amount: `${movement.amount} €`,
     balance: `${movement.balance} €`,

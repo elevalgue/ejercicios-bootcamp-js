@@ -2516,7 +2516,7 @@ exports.addMovementRows = addMovementRows;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mapAccounApiToVm = exports.mapMovementsListApiToVm = void 0;
+exports.mapMovementsListApiToVm = void 0;
 
 // export const mapMovementsListApiToVm = movementList => {
 //     return movementList.map(movement => mapMovementsApiToVm(movement))
@@ -2531,7 +2531,7 @@ exports.mapMovementsListApiToVm = mapMovementsListApiToVm;
 
 var mapMovementsApiToVm = function mapMovementsApiToVm(movement) {
   return {
-    id: movement.id,
+    accountId: movement.accountId,
     description: movement.description,
     amount: "".concat(movement.amount, " \u20AC"),
     balance: "".concat(movement.balance, " \u20AC"),
@@ -2539,16 +2539,6 @@ var mapMovementsApiToVm = function mapMovementsApiToVm(movement) {
     realTransaction: new Date(movement.realTransaction).toLocaleDateString()
   };
 };
-
-var mapAccounApiToVm = function mapAccounApiToVm(account) {
-  return {
-    balance: "".concat(account.balance, " \u20AC"),
-    alias: account.name,
-    iban: account.iban
-  };
-};
-
-exports.mapAccounApiToVm = mapAccounApiToVm;
 },{}],"core/router/routes.js":[function(require,module,exports) {
 "use strict";
 
@@ -4624,27 +4614,21 @@ var _movements3 = require("./movements.mappers");
 var _router = require("./../../core/router");
 
 // import { mapAccountApiToVm} from '..account/account.mappers';
-var account = {
-  id: '',
-  type: '',
-  alias: ''
-};
-
 var params = _router.history.getParams();
 
 (0, _account.getAccount)(params.id).then(function (apiAccount) {
-  // const account = mapAccountApiToVm(apiAccount);
   (0, _helpers.onSetValues)(apiAccount);
 });
-(0, _movements.getMovementsList)(params.id).then(function (account) {
-  var apiAccount = (0, _movements3.mapMovementsListApiToVm)(account);
-  (0, _helpers.onSetValues)(apiAccount);
-}); // }
-// getAccountList().then(accountList => {
-//     const vmAccountList = mapAccountListApiToVm(accountList);
-//     addMovementRows(vmAccountList);
-//     setEvents(vmAccountList);
-// });
+(0, _movements.getMovementsList)().then(function (movement) {
+  if (movement.accountId === params.id) {
+    var vmMovementsList = (0, _movements3.mapMovementsListApiToVm)(movement);
+    (0, _movements2.addMovementRows)(vmMovementsList);
+  } else {
+    var _vmMovementsList = (0, _movements3.mapMovementsListApiToVm)(movement).filter(movement.accountId === params.id);
+
+    (0, _movements2.addMovementRows)(_vmMovementsList);
+  }
+});
 },{"../account/account.api":"pages/account/account.api.js","../movements/movements.api":"pages/movements/movements.api.js","../../common/helpers":"common/helpers/index.js","./movements.helpers":"pages/movements/movements.helpers.js","./movements.mappers":"pages/movements/movements.mappers.js","./../../core/router":"core/router/index.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -4673,7 +4657,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57617" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63677" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
