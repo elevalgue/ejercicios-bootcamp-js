@@ -1,18 +1,33 @@
-import { getAccount, getAllMovements } from '../account/account.api';
-import { history } from './../../core/router';
+import { getAccount} from '../account/account.api';
+import { getMovementsList } from '../movements/movements.api';
 import { onSetValues } from "../../common/helpers";
-import { mapMovementsApiToVm, mapMovementsListApiToVm } from './movements.mappers';
+import { addMovementRows } from './movements.helpers';
+import { mapMovementsListApiToVm} from './movements.mappers';
+// import { mapAccountApiToVm} from '..account/account.mappers';
+import { history } from './../../core/router';
 
 const params = history.getParams();
-const isAccountId = Boolean(params.id);
-console.log(isAccountId);
 
-if (isAccountId) {
-    getAccount(params.id).then(apiAccount => {
-        console.log(apiAccount, 'apiAccount');
-        console.log(params.id);
-        account = mapMovementsApiToVm(apiAccount);
-        onSetValues(account);
-        // return getMovements(account.id);
-    });
-}
+// if (params.id) {
+getAccount(params.id).then(apiAccount => {
+        // const account = mapAccountApiToVm(apiAccount);
+        onSetValues(apiAccount);
+});
+
+getMovementsList().then(account => {
+const apiAccount = mapMovementsListApiToVm(account);
+onSetValues(apiAccount)
+});
+// }
+
+// getMovementsList().then(movement => {
+// getMovementsList().then(movement => {
+//         const vmMovement = mapMovementsListApiToVm(movement, params.id);
+//         addMovementRows(vmMovement);
+// });
+
+getAccountList().then(accountList => {
+    const vmAccountList = mapAccountListApiToVm(accountList);
+    addMovementRows(vmAccountList);
+    setEvents(vmAccountList);
+});

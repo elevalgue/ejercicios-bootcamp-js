@@ -2285,7 +2285,258 @@ var updateAccount = function updateAccount(account) {
 };
 
 exports.updateAccount = updateAccount;
-},{"axios":"../node_modules/axios/index.js"}],"core/router/routes.js":[function(require,module,exports) {
+},{"axios":"../node_modules/axios/index.js"}],"pages/movements/movements.api.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getMovementsList = void 0;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var url = "".concat("http://localhost:3000/api", "/movements"); // export const getMovementsList = accountId =>
+//     Axios.get(`${url}/${accountId}`).then(({ data }) => data);
+
+var getMovementsList = function getMovementsList(id) {
+  return _axios.default.get(url, {
+    params: {
+      accountId: id
+    }
+  }).then(function (_ref) {
+    var data = _ref.data;
+    return data;
+  });
+};
+
+exports.getMovementsList = getMovementsList;
+},{"axios":"../node_modules/axios/index.js"}],"common/helpers/element.helpers.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onSetValues = exports.onSetFormErrors = exports.onSetError = exports.onSubmitForm = exports.onUpdateField = void 0;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var onUpdateField = function onUpdateField(id, callback) {
+  var element = document.getElementById(id);
+
+  element.oninput = function (event) {
+    return callback(event);
+  };
+
+  if (element.type !== 'checkbox') {
+    element.onblur = function (event) {
+      return callback(event);
+    };
+  }
+};
+
+exports.onUpdateField = onUpdateField;
+
+var onSubmitForm = function onSubmitForm(id, callback) {
+  var element = document.getElementById(id);
+
+  element.onclick = function (e) {
+    e.preventDefault();
+    callback();
+  };
+};
+
+exports.onSubmitForm = onSubmitForm;
+
+var onSetError = function onSetError(id, error) {
+  if (error.succeeded) {
+    removeElementClass(id);
+    setErrorMessage(id, '');
+  } else {
+    setElementClass(id);
+    setErrorMessage(id, error.message);
+  }
+};
+
+exports.onSetError = onSetError;
+
+var setElementClass = function setElementClass(id) {
+  var element = document.getElementById(id);
+
+  if (element) {
+    element.classList.add('error');
+  }
+};
+
+var removeElementClass = function removeElementClass(id) {
+  var element = document.getElementById(id);
+
+  if (element) {
+    element.classList.remove('error');
+  }
+};
+
+var setErrorMessage = function setErrorMessage(id, message) {
+  var messageElement = document.getElementById("".concat(id, "-error"));
+
+  if (messageElement) {
+    messageElement.textContent = message;
+  }
+};
+
+var onSetFormErrors = function onSetFormErrors(_ref) {
+  var fieldErrors = _ref.fieldErrors;
+  Object.entries(fieldErrors).forEach(function (_ref2) {
+    var _ref3 = _slicedToArray(_ref2, 2),
+        key = _ref3[0],
+        value = _ref3[1];
+
+    onSetError(key, value);
+  });
+};
+
+exports.onSetFormErrors = onSetFormErrors;
+
+var setValue = function setValue(element, value) {
+  var elementType = element.tagName.toLowerCase();
+
+  if (elementType === 'select' || elementType === 'input') {
+    element.value = value;
+  } else {
+    element.textContent = value;
+  }
+};
+
+var onSetValue = function onSetValue(id, value) {
+  var element = document.getElementById(id);
+  console.log({
+    element: element
+  });
+
+  if (element) {
+    setValue(element, value);
+  }
+};
+
+var onSetValues = function onSetValues(values) {
+  Object.entries(values).forEach(function (_ref4) {
+    var _ref5 = _slicedToArray(_ref4, 2),
+        key = _ref5[0],
+        value = _ref5[1];
+
+    return onSetValue(key, value);
+  });
+};
+
+exports.onSetValues = onSetValues;
+},{}],"common/helpers/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _element = require("./element.helpers");
+
+Object.keys(_element).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _element[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _element[key];
+    }
+  });
+});
+},{"./element.helpers":"common/helpers/element.helpers.js"}],"pages/movements/movements.helpers.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addMovementRows = void 0;
+
+var getMovementRow = function getMovementRow(movement) {
+  var transactionCell = document.createElement('td');
+  transactionCell.textContent = movement.transaction;
+  var realTransactionCell = document.createElement('td');
+  realTransactionCell.textContent = movement.realTransaction;
+  var descriptionCell = document.createElement('td');
+  descriptionCell.textContent = movement.description;
+  var amountCell = document.createElement('td');
+  amountCell.classList.add('align-right');
+  var amount = parseInt(movement.amount);
+
+  if (amount < 0) {
+    amountCell.classList.add('gasto');
+  }
+
+  amountCell.textContent = movement.amount;
+  var balanceCell = document.createElement('td');
+  balanceCell.classList.add('align-right');
+  var balance = parseInt(movement.balance);
+
+  if (balance < 0) {
+    balanceCell.classList.add('gasto');
+  }
+
+  balanceCell.textContent = movement.balance;
+  var row = document.createElement('tr');
+  row.appendChild(transactionCell);
+  row.appendChild(realTransactionCell);
+  row.appendChild(descriptionCell);
+  row.appendChild(amountCell);
+  row.appendChild(balanceCell);
+  return row;
+};
+
+var addMovementRows = function addMovementRows(movementList) {
+  movementList.forEach(function (movement) {
+    var row = getMovementRow(movement);
+    var listElement = document.getElementById('movement-list');
+    listElement.appendChild(row);
+  });
+};
+
+exports.addMovementRows = addMovementRows;
+},{}],"pages/movements/movements.mappers.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mapMovementsListApiToVm = void 0;
+
+var mapMovementsListApiToVm = function mapMovementsListApiToVm(movementList) {
+  return movementList.map(function (movement) {
+    return mapMovementsApiToVm(movement);
+  });
+};
+
+exports.mapMovementsListApiToVm = mapMovementsListApiToVm;
+
+var mapMovementsApiToVm = function mapMovementsApiToVm(movementList) {
+  return {
+    id: movementList.id,
+    description: movementList.description,
+    amount: "".concat(movementList.amount, " \u20AC"),
+    balance: "".concat(movementList.balance, " \u20AC"),
+    transaction: new Date(movementList.transaction).toLocaleDateString(),
+    realTransaction: new Date(movementList.realTransaction).toLocaleDateString()
+  };
+};
+},{}],"core/router/routes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4344,204 +4595,45 @@ Object.keys(_history).forEach(function (key) {
     }
   });
 });
-},{"./routes":"core/router/routes.js","./history":"core/router/history.js"}],"common/helpers/element.helpers.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.onSetValues = exports.onSetFormErrors = exports.onSetError = exports.onSubmitForm = exports.onUpdateField = void 0;
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var onUpdateField = function onUpdateField(id, callback) {
-  var element = document.getElementById(id);
-
-  element.oninput = function (event) {
-    return callback(event);
-  };
-
-  if (element.type !== 'checkbox') {
-    element.onblur = function (event) {
-      return callback(event);
-    };
-  }
-};
-
-exports.onUpdateField = onUpdateField;
-
-var onSubmitForm = function onSubmitForm(id, callback) {
-  var element = document.getElementById(id);
-
-  element.onclick = function (e) {
-    e.preventDefault();
-    callback();
-  };
-};
-
-exports.onSubmitForm = onSubmitForm;
-
-var onSetError = function onSetError(id, error) {
-  if (error.succeeded) {
-    removeElementClass(id);
-    setErrorMessage(id, '');
-  } else {
-    setElementClass(id);
-    setErrorMessage(id, error.message);
-  }
-};
-
-exports.onSetError = onSetError;
-
-var setElementClass = function setElementClass(id) {
-  var element = document.getElementById(id);
-
-  if (element) {
-    element.classList.add('error');
-  }
-};
-
-var removeElementClass = function removeElementClass(id) {
-  var element = document.getElementById(id);
-
-  if (element) {
-    element.classList.remove('error');
-  }
-};
-
-var setErrorMessage = function setErrorMessage(id, message) {
-  var messageElement = document.getElementById("".concat(id, "-error"));
-
-  if (messageElement) {
-    messageElement.textContent = message;
-  }
-};
-
-var onSetFormErrors = function onSetFormErrors(_ref) {
-  var fieldErrors = _ref.fieldErrors;
-  Object.entries(fieldErrors).forEach(function (_ref2) {
-    var _ref3 = _slicedToArray(_ref2, 2),
-        key = _ref3[0],
-        value = _ref3[1];
-
-    onSetError(key, value);
-  });
-};
-
-exports.onSetFormErrors = onSetFormErrors;
-
-var setValue = function setValue(element, value) {
-  var elementType = element.tagName.toLowerCase();
-
-  if (elementType === 'select' || elementType === 'input') {
-    element.value = value;
-  } else {
-    element.textContent = value;
-  }
-};
-
-var onSetValue = function onSetValue(id, value) {
-  var element = document.getElementById(id);
-  console.log({
-    element: element
-  });
-
-  if (element) {
-    setValue(element, value);
-  }
-};
-
-var onSetValues = function onSetValues(values) {
-  Object.entries(values).forEach(function (_ref4) {
-    var _ref5 = _slicedToArray(_ref4, 2),
-        key = _ref5[0],
-        value = _ref5[1];
-
-    return onSetValue(key, value);
-  });
-};
-
-exports.onSetValues = onSetValues;
-},{}],"common/helpers/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _element = require("./element.helpers");
-
-Object.keys(_element).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _element[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _element[key];
-    }
-  });
-});
-},{"./element.helpers":"common/helpers/element.helpers.js"}],"pages/movements/movements.mappers.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.mapMovementsListApiToVm = void 0;
-
-var mapMovementsListApiToVm = function mapMovementsListApiToVm(movementList) {
-  return movementList.map(function (movement) {
-    return mapMovementsApiToVm(movement);
-  });
-};
-
-exports.mapMovementsListApiToVm = mapMovementsListApiToVm;
-
-var mapMovementsApiToVm = function mapMovementsApiToVm(movement) {
-  return {
-    id: movement.id,
-    description: movement.description,
-    amount: "".concat(movement.amount, " \u20AC"),
-    balance: "".concat(movement.balance, " \u20AC"),
-    transaction: new Date(movement.transaction).toLocaleDateString(),
-    realTransaction: new Date(movement.realTransaction).toLocaleDateString()
-  };
-};
-},{}],"pages/movements/movements.js":[function(require,module,exports) {
+},{"./routes":"core/router/routes.js","./history":"core/router/history.js"}],"pages/movements/movements.js":[function(require,module,exports) {
 "use strict";
 
 var _account = require("../account/account.api");
 
-var _router = require("./../../core/router");
+var _movements = require("../movements/movements.api");
 
 var _helpers = require("../../common/helpers");
 
-var _movements = require("./movements.mappers");
+var _movements2 = require("./movements.helpers");
 
-var params = _router.history.getParams();
+var _movements3 = require("./movements.mappers");
 
-var isAccountId = Boolean(params.id);
-console.log(isAccountId);
+var _router = require("./../../core/router");
 
-if (isAccountId) {
-  (0, _account.getAccount)(params.id).then(function (apiAccount) {
-    console.log(apiAccount, 'apiAccount');
-    console.log(params.id);
-    account = (0, _movements.mapMovementsApiToVm)(apiAccount);
-    (0, _helpers.onSetValues)(account); // return getMovements(account.id);
-  });
-}
-},{"../account/account.api":"pages/account/account.api.js","./../../core/router":"core/router/index.js","../../common/helpers":"common/helpers/index.js","./movements.mappers":"pages/movements/movements.mappers.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+// import { mapAccountApiToVm} from '..account/account.mappers';
+var params = _router.history.getParams(); // if (params.id) {
+
+
+(0, _account.getAccount)(params.id).then(function (apiAccount) {
+  // const account = mapAccountApiToVm(apiAccount);
+  (0, _helpers.onSetValues)(apiAccount);
+});
+(0, _movements.getMovementsList)().then(function (account) {
+  var apiAccount = (0, _movements3.mapMovementsListApiToVm)(account);
+  (0, _helpers.onSetValues)(apiAccount);
+}); // }
+// getMovementsList().then(movement => {
+// getMovementsList().then(movement => {
+//         const vmMovement = mapMovementsListApiToVm(movement, params.id);
+//         addMovementRows(vmMovement);
+// });
+
+getAccountList().then(function (accountList) {
+  var vmAccountList = mapAccountListApiToVm(accountList);
+  (0, _movements2.addMovementRows)(vmAccountList);
+  setEvents(vmAccountList);
+});
+},{"../account/account.api":"pages/account/account.api.js","../movements/movements.api":"pages/movements/movements.api.js","../../common/helpers":"common/helpers/index.js","./movements.helpers":"pages/movements/movements.helpers.js","./movements.mappers":"pages/movements/movements.mappers.js","./../../core/router":"core/router/index.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -4569,7 +4661,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52835" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49940" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
