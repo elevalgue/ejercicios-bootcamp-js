@@ -14,11 +14,3 @@ const mapMovementsApiToVm = movement => ({
     transaction: new Date(movement.transaction).toLocaleDateString(),
     realTransaction: new Date(movement.realTransaction).toLocaleDateString(),
 })
-
-export const mapAccounApiToVm = account => {
-    return {
-        balance: `${account.balance} €`,
-        alias: account.name,
-        iban: account.iban,
-    };
-};
