@@ -6,28 +6,27 @@ import { mapMovementsListApiToVm} from './movements.mappers';
 // import { mapAccountApiToVm} from '..account/account.mappers';
 import { history } from './../../core/router';
 
+let account = {
+  id: '',
+  type: '',
+  alias: '',
+};
 const params = history.getParams();
 
-// if (params.id) {
 getAccount(params.id).then(apiAccount => {
         // const account = mapAccountApiToVm(apiAccount);
         onSetValues(apiAccount);
 });
 
-getMovementsList().then(account => {
+getMovementsList(params.id).then(account => {
 const apiAccount = mapMovementsListApiToVm(account);
 onSetValues(apiAccount)
 });
 // }
 
-// getMovementsList().then(movement => {
-// getMovementsList().then(movement => {
-//         const vmMovement = mapMovementsListApiToVm(movement, params.id);
-//         addMovementRows(vmMovement);
-// });
 
-getAccountList().then(accountList => {
-    const vmAccountList = mapAccountListApiToVm(accountList);
-    addMovementRows(vmAccountList);
-    setEvents(vmAccountList);
-});
+// getAccountList().then(accountList => {
+//     const vmAccountList = mapAccountListApiToVm(accountList);
+//     addMovementRows(vmAccountList);
+//     setEvents(vmAccountList);
+// });
