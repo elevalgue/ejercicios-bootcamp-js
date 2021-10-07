@@ -98,3 +98,15 @@ onUpdateField('concept', event => {
     });
 });
 
+onUpdateField('notes', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    notes: value
+    };
+
+    formValidation.validateField('notes', transfer.notes).then(result => {
+        onSetError('notes', result);
+    });
+});
+
