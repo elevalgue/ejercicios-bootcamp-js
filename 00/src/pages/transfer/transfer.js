@@ -3,7 +3,8 @@ import { getAccountList } from '../account-list/account-list.api'
 import { sendTransfer } from './transfer.api';
 import { onUpdateField, onSetError, onSubmitForm, onSetFormErrors } from '../../common/helpers';
 import { setAccountOptions } from './transfer.helpers/'
-import { formValidation } from '../account/account.validations';
+// import { formValidation } from '../account/account.validations';
+import { formValidation } from './transfer.validations';
 
 let transfer = {
     id: '',

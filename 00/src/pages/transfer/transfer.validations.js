@@ -3,6 +3,7 @@ import { Validators, createFormValidation } from '@lemoncode/fonk';
 
 // const patternIBAN = /^(([A-Z]{2}\d{2})(\d{20}))|((([A-Z]{2}\d{2})(\s\d{4}){4})\s{1}\d{4})$/i;
 // const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+// import { Validators, createFormValidation } from '@lemoncode/fonk';
 
 const validationsSchema = {
     field: {

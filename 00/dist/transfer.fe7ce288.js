@@ -6378,7 +6378,7 @@ var index = {
   array: array
 };
 exports.Validators = index;
-},{}],"pages/account/account.validations.js":[function(require,module,exports) {
+},{}],"pages/transfer/transfer.validations.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6388,19 +6388,54 @@ exports.formValidation = void 0;
 
 var _fonk = require("@lemoncode/fonk");
 
-var validationSchema = {
+// const patternIBAN = /^(([A-Z]{2}\d{2})(\d{20}))|((([A-Z]{2}\d{2})(\s\d{4}){4})\s{1}\d{4})$/i;
+// const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+// import { Validators, createFormValidation } from '@lemoncode/fonk';
+var validationsSchema = {
   field: {
-    type: [{
+    account: [{
       validator: _fonk.Validators.required,
       message: 'Campo requerido'
     }],
-    alias: [{
+    iban: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    name: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    amount: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    concept: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    notes: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    day: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    month: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    year: [{
+      validator: _fonk.Validators.required,
+      message: 'Campo requerido'
+    }],
+    email: [{
       validator: _fonk.Validators.required,
       message: 'Campo requerido'
     }]
   }
 };
-var formValidation = (0, _fonk.createFormValidation)(validationSchema);
+var formValidation = (0, _fonk.createFormValidation)(validationsSchema);
 exports.formValidation = formValidation;
 },{"@lemoncode/fonk":"../node_modules/@lemoncode/fonk/dist/@lemoncode/fonk.esm.js"}],"pages/transfer/transfer.js":[function(require,module,exports) {
 "use strict";
@@ -6415,7 +6450,7 @@ var _helpers = require("../../common/helpers");
 
 var _transfer2 = require("./transfer.helpers/");
 
-var _account = require("../account/account.validations");
+var _transfer3 = require("./transfer.validations");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -6458,7 +6493,7 @@ var params = _router.history.getParams();
     account: value
   });
 
-  _account.formValidation.validateField('select-account', transfer.account).then(function (result) {
+  _transfer3.formValidation.validateField('select-account', transfer.account).then(function (result) {
     (0, _helpers.onSetError)('select-account', result);
   });
 });
@@ -6468,7 +6503,7 @@ var params = _router.history.getParams();
     iban: value
   });
 
-  _account.formValidation.validateField('iban', transfer.iban).then(function (result) {
+  _transfer3.formValidation.validateField('iban', transfer.iban).then(function (result) {
     (0, _helpers.onSetError)('iban', result);
   });
 });
@@ -6478,7 +6513,7 @@ var params = _router.history.getParams();
     name: value
   });
 
-  _account.formValidation.validateField('name', transfer.name).then(function (result) {
+  _transfer3.formValidation.validateField('name', transfer.name).then(function (result) {
     (0, _helpers.onSetError)('name', result);
   });
 });
@@ -6488,7 +6523,7 @@ var params = _router.history.getParams();
     amount: value
   });
 
-  _account.formValidation.validateField('amount', transfer.amount).then(function (result) {
+  _transfer3.formValidation.validateField('amount', transfer.amount).then(function (result) {
     (0, _helpers.onSetError)('amount', result);
   });
 });
@@ -6498,7 +6533,7 @@ var params = _router.history.getParams();
     concept: value
   });
 
-  _account.formValidation.validateField('concept', transfer.concept).then(function (result) {
+  _transfer3.formValidation.validateField('concept', transfer.concept).then(function (result) {
     (0, _helpers.onSetError)('concept', result);
   });
 });
@@ -6508,7 +6543,7 @@ var params = _router.history.getParams();
     notes: value
   });
 
-  _account.formValidation.validateField('notes', transfer.notes).then(function (result) {
+  _transfer3.formValidation.validateField('notes', transfer.notes).then(function (result) {
     (0, _helpers.onSetError)('notes', result);
   });
 });
@@ -6518,7 +6553,7 @@ var params = _router.history.getParams();
     day: value
   });
 
-  _account.formValidation.validateField('day', transfer.day).then(function (result) {
+  _transfer3.formValidation.validateField('day', transfer.day).then(function (result) {
     (0, _helpers.onSetError)('day', result);
   });
 });
@@ -6528,7 +6563,7 @@ var params = _router.history.getParams();
     month: value
   });
 
-  _account.formValidation.validateField('month', transfer.month).then(function (result) {
+  _transfer3.formValidation.validateField('month', transfer.month).then(function (result) {
     (0, _helpers.onSetError)('month', result);
   });
 });
@@ -6538,7 +6573,7 @@ var params = _router.history.getParams();
     year: value
   });
 
-  _account.formValidation.validateField('year', transfer.year).then(function (result) {
+  _transfer3.formValidation.validateField('year', transfer.year).then(function (result) {
     (0, _helpers.onSetError)('year', result);
   });
 });
@@ -6548,14 +6583,14 @@ var params = _router.history.getParams();
     email: value
   });
 
-  _account.formValidation.validateField('email', transfer.email).then(function (result) {
+  _transfer3.formValidation.validateField('email', transfer.email).then(function (result) {
     (0, _helpers.onSetError)('email', result);
   });
 });
 (0, _helpers.onSubmitForm)('transfer-button', function () {
   console.log(transfer);
 
-  _account.formValidation.validateForm(transfer).then(function (result) {
+  _transfer3.formValidation.validateForm(transfer).then(function (result) {
     (0, _helpers.onSetFormErrors)(result);
 
     if (result.succeeded) {
@@ -6565,7 +6600,7 @@ var params = _router.history.getParams();
     }
   });
 });
-},{"../../core/router":"core/router/index.js","../account-list/account-list.api":"pages/account-list/account-list.api.js","./transfer.api":"pages/transfer/transfer.api.js","../../common/helpers":"common/helpers/index.js","./transfer.helpers/":"pages/transfer/transfer.helpers.js","../account/account.validations":"pages/account/account.validations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../../core/router":"core/router/index.js","../account-list/account-list.api":"pages/account-list/account-list.api.js","./transfer.api":"pages/transfer/transfer.api.js","../../common/helpers":"common/helpers/index.js","./transfer.helpers/":"pages/transfer/transfer.helpers.js","./transfer.validations":"pages/transfer/transfer.validations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -6593,7 +6628,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60330" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50414" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
