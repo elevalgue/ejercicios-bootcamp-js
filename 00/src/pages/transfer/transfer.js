@@ -46,3 +46,15 @@ onUpdateField('select-account', event => {
         onSetError('select-account', result);
     });
 });
+
+onUpdateField('iban', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    iban: value
+    };
+
+    formValidation.validateField('iban', transfer.iban).then(result => {
+        onSetError('iban', result);
+    });
+});
