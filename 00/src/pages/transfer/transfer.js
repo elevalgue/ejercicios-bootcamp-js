@@ -1,5 +1,6 @@
 import { history, routes } from '../../core/router';
 import { getAccountList } from '../account-list/account-list.api'
+import { onUpdateField } from '../../common/helpers';
 
 
 let transfer = {
@@ -33,3 +34,15 @@ getAccountList(params.id).then(accountList => {
     };
     }
 })
+
+onUpdateField('select-account', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    account: value
+    };
+
+    formValidation.validateField('select-account', transfer.account).then(result => {
+        onSetError('select-account', result);
+    });
+});
