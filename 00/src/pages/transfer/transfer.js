@@ -70,7 +70,7 @@ onUpdateField('name', event => {
     };
 
     formValidation.validateField('name', transfer.name).then(result => {
-        onSetError('iban', result);
+        onSetError('name', result);
     });
 });
 
