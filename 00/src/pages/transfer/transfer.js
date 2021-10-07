@@ -145,3 +145,15 @@ onUpdateField('year', event => {
         onSetError('year', result);
     });
 });
+
+onUpdateField('email', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    email: value
+    };
+
+    formValidation.validateField('email', transfer.email).then(result => {
+        onSetError('email', result);
+    });
+});
