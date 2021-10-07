@@ -1,7 +1,3 @@
-// export const mapMovementsListApiToVm = movementList => {
-//     return movementList.map(movement => mapMovementsApiToVm(movement))
-// };
-
 export const mapMovementsListApiToVm = movementList =>
     Array.isArray(movementList)
         ? movementList.map(movement => mapMovementsApiToVm(movement)) : []; 
