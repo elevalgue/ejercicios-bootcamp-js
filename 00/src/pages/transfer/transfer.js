@@ -1,6 +1,7 @@
 import { history, routes } from '../../core/router';
 import { getAccountList } from '../account-list/account-list.api'
 import { onUpdateField, onSetError, onSubmitForm, onSetFormErrors } from '../../common/helpers';
+import { setAccountOptions } from './transfer.helpers/'
 import { mapTransferFromViewModelToApi as mapTransferVmToApi } from './transfer.mappers';
 import { formValidation } from '../account/account.validations';
 
@@ -49,7 +50,7 @@ onUpdateField('select-account', event => {
     });
 
 });
-console.log(value, 'select');
+// console.log(value, 'select');
 
 onUpdateField('iban', event => {
     const value = event.target.value;
