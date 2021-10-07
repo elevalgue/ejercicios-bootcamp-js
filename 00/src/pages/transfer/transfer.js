@@ -74,3 +74,15 @@ onUpdateField('name', event => {
     });
 });
 
+onUpdateField('amount', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    amount: value
+    };
+
+    formValidation.validateField('amount', transfer.amount).then(result => {
+        onSetError('amount', result);
+    });
+});
+
