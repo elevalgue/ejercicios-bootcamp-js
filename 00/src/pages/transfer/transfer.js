@@ -1,3 +1,5 @@
+import { history, routes } from '../../core/router';
+
 let transfer = {
     id: '',
     account: '',
@@ -9,3 +11,5 @@ let transfer = {
     date: "",
     email: ''
 }
+
+const params = history.getParams();
