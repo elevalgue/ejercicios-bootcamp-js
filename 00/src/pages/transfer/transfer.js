@@ -1,6 +1,6 @@
 import { history, routes } from '../../core/router';
 import { getAccountList } from '../account-list/account-list.api'
-import { onUpdateField } from '../../common/helpers';
+import { onUpdateField, onSetError } from '../../common/helpers';
 
 
 let transfer = {
