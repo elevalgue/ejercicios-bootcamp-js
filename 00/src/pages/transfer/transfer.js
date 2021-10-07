@@ -2,7 +2,6 @@ import { history, routes } from '../../core/router';
 import { getAccountList } from '../account-list/account-list.api'
 import { onUpdateField, onSetError, onSubmitForm, onSetFormErrors } from '../../common/helpers';
 import { setAccountOptions } from './transfer.helpers/'
-import { mapTransferFromViewModelToApi as mapTransferVmToApi } from './transfer.mappers';
 import { formValidation } from '../account/account.validations';
 
 let transfer = {
@@ -50,7 +49,6 @@ onUpdateField('select-account', event => {
     });
 
 });
-// console.log(value, 'select');
 
 onUpdateField('iban', event => {
     const value = event.target.value;
@@ -159,23 +157,6 @@ onUpdateField('email', event => {
         onSetError('email', result);
     });
 });
-
-// const onSave = () => {
-//     const apiTransfer = mapTransferVmToApi(transfer);
-//         return sendTransfer(apiTransfer); 
-// }
-
-// onSubmitForm('transfer-button', () => {
-//     formValidation.validateForm(transfer).then(result => {
-//         onSetFormErrors(result);
-
-//         if (result.succeeded) {
-//             onSave().then(apiTransfer => {
-//                 history.back()
-//             })
-//         }
-//     })
-// })
 
 onSubmitForm('transfer-button', () => {
     console.log(transfer);
