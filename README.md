@@ -17,5 +17,5 @@ I'm on the way to improve my JS skills. Practice makes perfect! 💪
 - **Module 10:** Advanced Concepts - ES6
 - **Module 11:** Classes & This
 - **Module 12-01:** Case Study - Online Bank
-- **Module 12-02:** Case Study - Real State Agency
+- **Module 12-02:** Case Study - Real State Agency Site
 
