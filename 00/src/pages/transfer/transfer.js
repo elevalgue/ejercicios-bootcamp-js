@@ -86,3 +86,15 @@ onUpdateField('amount', event => {
     });
 });
 
+onUpdateField('concept', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    concept: value
+    };
+
+    formValidation.validateField('concept', transfer.concept).then(result => {
+        onSetError('concept', result);
+    });
+});
+
