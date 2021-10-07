@@ -1,8 +1,8 @@
-export const mapMovementsListApiToVm = movementList =>
+export const mapMovementListApiToVm = movementList =>
     Array.isArray(movementList)
-        ? movementList.map(movement => mapMovementsApiToVm(movement)) : []; 
+        ? movementList.map(movement => mapMovementApiToVm(movement)) : []; 
 
-const mapMovementsApiToVm = movement => ({
+const mapMovementApiToVm = movement => ({
     accountId: movement. accountId,
     description: movement.description,
     amount: `${movement.amount} €`,

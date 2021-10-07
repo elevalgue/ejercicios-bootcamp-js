@@ -2510,17 +2510,17 @@ exports.addMovementRows = addMovementRows;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mapMovementsListApiToVm = void 0;
+exports.mapMovementListApiToVm = void 0;
 
-var mapMovementsListApiToVm = function mapMovementsListApiToVm(movementList) {
+var mapMovementListApiToVm = function mapMovementListApiToVm(movementList) {
   return Array.isArray(movementList) ? movementList.map(function (movement) {
-    return mapMovementsApiToVm(movement);
+    return mapMovementApiToVm(movement);
   }) : [];
 };
 
-exports.mapMovementsListApiToVm = mapMovementsListApiToVm;
+exports.mapMovementListApiToVm = mapMovementListApiToVm;
 
-var mapMovementsApiToVm = function mapMovementsApiToVm(movement) {
+var mapMovementApiToVm = function mapMovementApiToVm(movement) {
   return {
     accountId: movement.accountId,
     description: movement.description,
@@ -4611,10 +4611,10 @@ var params = _router.history.getParams();
 });
 (0, _movements.getMovementsList)().then(function (movement) {
   if (movement.accountId === params.id) {
-    var vmMovements = (0, _movements3.mapMovementApiToVm)(movement);
+    var vmMovements = (0, _movements3.mapMovementListApiToVm)(movement);
     (0, _movements2.addMovementRows)(vmMovements);
   } else {
-    var _vmMovements = (0, _movements3.mapMovementApiToVm)(movement).filter(function (movement) {
+    var _vmMovements = (0, _movements3.mapMovementListApiToVm)(movement).filter(function (movement) {
       return movement.accountId === params.id;
     });
 
@@ -4649,7 +4649,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50414" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58021" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
