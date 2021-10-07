@@ -110,3 +110,38 @@ onUpdateField('notes', event => {
     });
 });
 
+onUpdateField('day', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    day: value
+    };
+
+    formValidation.validateField('day', transfer.day).then(result => {
+        onSetError('day', result);
+    });
+});
+
+onUpdateField('month', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    month: value
+    };
+
+    formValidation.validateField('month', transfer.month).then(result => {
+        onSetError('month', result);
+    });
+});
+
+onUpdateField('year', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    year: value
+    };
+
+    formValidation.validateField('year', transfer.year).then(result => {
+        onSetError('year', result);
+    });
+});
