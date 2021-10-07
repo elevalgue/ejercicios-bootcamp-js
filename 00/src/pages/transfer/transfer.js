@@ -15,6 +15,7 @@ let transfer = {
     email: ''
 }
 
+console.log(transfer, 'transfer');
 const params = history.getParams();
 
 getAccountList(params.id).then(accountList => {
@@ -45,7 +46,9 @@ onUpdateField('select-account', event => {
     formValidation.validateField('select-account', transfer.account).then(result => {
         onSetError('select-account', result);
     });
+
 });
+console.log(value, 'select');
 
 onUpdateField('iban', event => {
     const value = event.target.value;
@@ -58,3 +61,16 @@ onUpdateField('iban', event => {
         onSetError('iban', result);
     });
 });
+
+onUpdateField('name', event => {
+    const value = event.target.value;
+    transfer = {
+    ...transfer,
+    name: value
+    };
+
+    formValidation.validateField('name', transfer.name).then(result => {
+        onSetError('iban', result);
+    });
+});
+
