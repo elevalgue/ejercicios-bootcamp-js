@@ -4499,20 +4499,6 @@ var setAccountOptions = function setAccountOptions(accounts, selectedId) {
 };
 
 exports.setAccountOptions = setAccountOptions;
-},{}],"pages/transfer/transfer.mappers.js":[function(require,module,exports) {
-// export const mapTransferFromViewModelToApi = transfer => {
-//     return {
-//     id: transfer.id,
-//     account: transfer.account,
-//     iban: transfer.iban,
-//     name: transfer.name,
-//     amount: transfer.amount,
-//     concept: transfer.concept,
-//     notes: transfer.notes,
-//     date: transfer.day + '-' + transfer.month + '-' + transfer.year,
-//     email: transfer.email,
-//     }
-// }
 },{}],"../node_modules/@lemoncode/fonk/dist/@lemoncode/fonk.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
@@ -6405,8 +6391,6 @@ var _helpers = require("../../common/helpers");
 
 var _transfer = require("./transfer.helpers/");
 
-var _transfer2 = require("./transfer.mappers");
-
 var _account = require("../account/account.validations");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -6453,8 +6437,7 @@ var params = _router.history.getParams();
   _account.formValidation.validateField('select-account', transfer.account).then(function (result) {
     (0, _helpers.onSetError)('select-account', result);
   });
-}); // console.log(value, 'select');
-
+});
 (0, _helpers.onUpdateField)('iban', function (event) {
   var value = event.target.value;
   transfer = _objectSpread(_objectSpread({}, transfer), {}, {
@@ -6545,23 +6528,9 @@ var params = _router.history.getParams();
     (0, _helpers.onSetError)('email', result);
   });
 });
-
-var onSave = function onSave() {
-  var apiTransfer = (0, _transfer2.mapTransferFromViewModelToApi)(transfer);
-  return sendTransfer(apiTransfer);
-}; // onSubmitForm('transfer-button', () => {
-//     formValidation.validateForm(transfer).then(result => {
-//         onSetFormErrors(result);
-//         if (result.succeeded) {
-//             onSave().then(apiTransfer => {
-//                 history.back()
-//             })
-//         }
-//     })
-// })
-
-
 (0, _helpers.onSubmitForm)('transfer-button', function () {
+  console.log(transfer);
+
   _account.formValidation.validateForm(transfer).then(function (result) {
     (0, _helpers.onSetFormErrors)(result);
 
@@ -6572,7 +6541,7 @@ var onSave = function onSave() {
     }
   });
 });
-},{"../../core/router":"core/router/index.js","../account-list/account-list.api":"pages/account-list/account-list.api.js","../../common/helpers":"common/helpers/index.js","./transfer.helpers/":"pages/transfer/transfer.helpers.js","./transfer.mappers":"pages/transfer/transfer.mappers.js","../account/account.validations":"pages/account/account.validations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../../core/router":"core/router/index.js","../account-list/account-list.api":"pages/account-list/account-list.api.js","../../common/helpers":"common/helpers/index.js","./transfer.helpers/":"pages/transfer/transfer.helpers.js","../account/account.validations":"pages/account/account.validations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -6600,7 +6569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60379" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63284" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
