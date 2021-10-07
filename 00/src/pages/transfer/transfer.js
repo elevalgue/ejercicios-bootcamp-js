@@ -4,7 +4,6 @@ import { onUpdateField, onSetError, onSubmitForm, onSetFormErrors } from '../../
 import { mapTransferFromViewModelToApi as mapTransferVmToApi } from './transfer.mappers';
 import { formValidation } from '../account/account.validations';
 
-
 let transfer = {
     id: '',
     account: '',
