@@ -4500,28 +4500,19 @@ var setAccountOptions = function setAccountOptions(accounts, selectedId) {
 
 exports.setAccountOptions = setAccountOptions;
 },{}],"pages/transfer/transfer.mappers.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.mapTransferFromViewModelToApi = void 0;
-
-var mapTransferFromViewModelToApi = function mapTransferFromViewModelToApi(transfer) {
-  return {
-    id: transfer.id,
-    account: transfer.account,
-    iban: transfer.iban,
-    name: transfer.name,
-    amount: transfer.amount,
-    concept: transfer.concept,
-    notes: transfer.notes,
-    date: transfer.day + '-' + transfer.month + '-' + transfer.year,
-    email: transfer.email
-  };
-};
-
-exports.mapTransferFromViewModelToApi = mapTransferFromViewModelToApi;
+// export const mapTransferFromViewModelToApi = transfer => {
+//     return {
+//     id: transfer.id,
+//     account: transfer.account,
+//     iban: transfer.iban,
+//     name: transfer.name,
+//     amount: transfer.amount,
+//     concept: transfer.concept,
+//     notes: transfer.notes,
+//     date: transfer.day + '-' + transfer.month + '-' + transfer.year,
+//     email: transfer.email,
+//     }
+// }
 },{}],"../node_modules/@lemoncode/fonk/dist/@lemoncode/fonk.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
@@ -6558,15 +6549,25 @@ var params = _router.history.getParams();
 var onSave = function onSave() {
   var apiTransfer = (0, _transfer2.mapTransferFromViewModelToApi)(transfer);
   return sendTransfer(apiTransfer);
-};
+}; // onSubmitForm('transfer-button', () => {
+//     formValidation.validateForm(transfer).then(result => {
+//         onSetFormErrors(result);
+//         if (result.succeeded) {
+//             onSave().then(apiTransfer => {
+//                 history.back()
+//             })
+//         }
+//     })
+// })
+
 
 (0, _helpers.onSubmitForm)('transfer-button', function () {
   _account.formValidation.validateForm(transfer).then(function (result) {
     (0, _helpers.onSetFormErrors)(result);
 
     if (result.succeeded) {
-      onSave().then(function (apiTransfer) {
-        _router.history.back();
+      sendTransfer(transfer).then(function () {
+        _router.history.push(_router.routes.accountList);
       });
     }
   });
@@ -6599,7 +6600,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58358" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60379" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

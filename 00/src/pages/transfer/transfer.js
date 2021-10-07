@@ -160,18 +160,32 @@ onUpdateField('email', event => {
     });
 });
 
-const onSave = () => {
-    const apiTransfer = mapTransferVmToApi(transfer);
-        return sendTransfer(apiTransfer); 
-}
+// const onSave = () => {
+//     const apiTransfer = mapTransferVmToApi(transfer);
+//         return sendTransfer(apiTransfer); 
+// }
+
+// onSubmitForm('transfer-button', () => {
+//     formValidation.validateForm(transfer).then(result => {
+//         onSetFormErrors(result);
+
+//         if (result.succeeded) {
+//             onSave().then(apiTransfer => {
+//                 history.back()
+//             })
+//         }
+//     })
+// })
 
 onSubmitForm('transfer-button', () => {
-    formValidation.validateForm(transfer).then(result => {
+    console.log(transfer);
+
+    formValidation.validateForm(transfer).then((result) => {
         onSetFormErrors(result);
 
         if (result.succeeded) {
-            onSave().then(apiTransfer => {
-                history.back()
+            sendTransfer(transfer).then(() => {
+                history.push(routes.accountList)
             })
         }
     })
