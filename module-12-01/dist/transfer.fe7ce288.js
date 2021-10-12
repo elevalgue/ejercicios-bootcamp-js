@@ -6749,7 +6749,67 @@ var validator$1 = /*#__PURE__*/Object.freeze({
   validator: validator
 });
 exports.iban = validator$1;
-},{}],"pages/transfer/transfer.custom.validator.js":[function(require,module,exports) {
+},{}],"../node_modules/@lemoncode/fonk-positive-number-validator/dist/@lemoncode/fonk-positive-number-validator.esm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.positiveNumber = void 0;
+
+var _fonk = require("@lemoncode/fonk");
+
+var VALIDATOR_TYPE = 'POSITIVE_NUMBER';
+var defaultMessage = 'The value must be a positive number';
+
+var setErrorMessage = function setErrorMessage(message) {
+  return defaultMessage = message;
+};
+
+var defaultCustomArgs = {
+  strictTypes: false,
+  allowZero: true
+};
+
+var setCustomArgs = function setCustomArgs(customArgs) {
+  return defaultCustomArgs = Object.assign(Object.assign({}, defaultCustomArgs), customArgs);
+};
+
+var validateType = function validateType(value, args) {
+  return !args.strictTypes || typeof value === 'number';
+};
+
+var validate = function validate(value, args) {
+  return !isNaN(Number(value)) && (args.allowZero ? value >= 0 : value > 0);
+};
+
+var isDefined = function isDefined(value) {
+  return value !== void 0 && value !== null && value !== '';
+};
+
+var validator = function validator(fieldValidatorArgs) {
+  var value = fieldValidatorArgs.value,
+      _fieldValidatorArgs$m = fieldValidatorArgs.message,
+      message = _fieldValidatorArgs$m === void 0 ? defaultMessage : _fieldValidatorArgs$m,
+      _fieldValidatorArgs$c = fieldValidatorArgs.customArgs,
+      customArgs = _fieldValidatorArgs$c === void 0 ? defaultCustomArgs : _fieldValidatorArgs$c;
+  var args = Object.assign(Object.assign({}, defaultCustomArgs), customArgs);
+  var succeeded = !isDefined(value) || validateType(value, args) && validate(value, args);
+  return {
+    succeeded: succeeded,
+    message: succeeded ? '' : (0, _fonk.parseMessageWithCustomArgs)(message, args),
+    type: VALIDATOR_TYPE
+  };
+};
+
+var validator$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  setErrorMessage: setErrorMessage,
+  setCustomArgs: setCustomArgs,
+  validator: validator
+});
+exports.positiveNumber = validator$1;
+},{"@lemoncode/fonk":"../node_modules/@lemoncode/fonk/dist/@lemoncode/fonk.esm.js"}],"pages/transfer/transfer.custom.validator.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6802,9 +6862,10 @@ var _fonk = require("@lemoncode/fonk");
 
 var _fonkIbanValidator = require("@lemoncode/fonk-iban-validator");
 
+var _fonkPositiveNumberValidator = require("@lemoncode/fonk-positive-number-validator");
+
 var _transferCustom = require("./transfer.custom.validator");
 
-// const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 var validationsSchema = {
   field: {
     account: [{
@@ -6825,6 +6886,9 @@ var validationsSchema = {
     amount: [{
       validator: _fonk.Validators.required,
       message: 'Campo requerido'
+    }, {
+      validator: _fonkPositiveNumberValidator.positiveNumber.validator,
+      message: 'Cantidad introducida no válida'
     }],
     concept: [{
       validator: _fonk.Validators.required,
@@ -6852,7 +6916,6 @@ var validationsSchema = {
     }, {
       validator: _transferCustom.yearValidator
     }],
-    // email: [Validators.email]
     email: [{
       validator: _fonk.Validators.email,
       message: 'Email no válido'
@@ -6861,7 +6924,7 @@ var validationsSchema = {
 };
 var formValidation = (0, _fonk.createFormValidation)(validationsSchema);
 exports.formValidation = formValidation;
-},{"@lemoncode/fonk":"../node_modules/@lemoncode/fonk/dist/@lemoncode/fonk.esm.js","@lemoncode/fonk-iban-validator":"../node_modules/@lemoncode/fonk-iban-validator/dist/@lemoncode/fonk-iban-validator.esm.js","./transfer.custom.validator":"pages/transfer/transfer.custom.validator.js"}],"pages/transfer/transfer.js":[function(require,module,exports) {
+},{"@lemoncode/fonk":"../node_modules/@lemoncode/fonk/dist/@lemoncode/fonk.esm.js","@lemoncode/fonk-iban-validator":"../node_modules/@lemoncode/fonk-iban-validator/dist/@lemoncode/fonk-iban-validator.esm.js","@lemoncode/fonk-positive-number-validator":"../node_modules/@lemoncode/fonk-positive-number-validator/dist/@lemoncode/fonk-positive-number-validator.esm.js","./transfer.custom.validator":"pages/transfer/transfer.custom.validator.js"}],"pages/transfer/transfer.js":[function(require,module,exports) {
 "use strict";
 
 var _router = require("../../core/router");
@@ -7052,7 +7115,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62480" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49734" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
