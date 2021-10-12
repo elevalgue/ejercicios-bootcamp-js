@@ -1,4 +1,5 @@
 import { Validators, createFormValidation } from '@lemoncode/fonk';
+import { iban } from '@lemoncode/fonk';
 
 
 // const patternIBAN = /^(([A-Z]{2}\d{2})(\d{20}))|((([A-Z]{2}\d{2})(\s\d{4}){4})\s{1}\d{4})$/i;

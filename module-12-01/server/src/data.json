@@ -23,6 +23,14 @@
       "name": "Ahorro",
       "balance": 8500,
       "lastTransaction": "2019-11-15T08:29:04"
+    },
+    {
+      "iban": "CY71 0020 0109 5255 E8RB G7I4 2R35",
+      "name": "sdf",
+      "type": "1",
+      "balance": 0,
+      "lastTransaction": "2021-10-12T09:11:22.856Z",
+      "id": "GQJ3-9C"
     }
   ],
   "movements": [
