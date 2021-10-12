@@ -6852,7 +6852,11 @@ var validationsSchema = {
     }, {
       validator: _transferCustom.yearValidator
     }],
-    email: [_fonk.Validators.email]
+    // email: [Validators.email]
+    email: [{
+      validator: _fonk.Validators.email,
+      message: 'Email no válido'
+    }]
   }
 };
 var formValidation = (0, _fonk.createFormValidation)(validationsSchema);
@@ -7048,7 +7052,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52326" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62480" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -70,7 +70,13 @@ const validationsSchema = {
             }
         ],
 
-        email: [Validators.email],
+        // email: [Validators.email]
+        email:[
+                {
+                    validator: Validators.email,
+                    message: 'Email no válido',
+                },
+            ]
     },
 };
 
