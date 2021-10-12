@@ -1,9 +1,9 @@
-import { history, routes } from '../../core/router';
 import { getAccountList } from '../account-list/account-list.api'
 import { sendTransfer } from './transfer.api';
 import { onUpdateField, onSetError, onSubmitForm, onSetFormErrors } from '../../common/helpers';
 import { setAccountOptions } from './transfer.helpers/'
 import { formValidation } from './transfer.validations';
+import { history, routes } from '../../core/router';
 
 let transfer = {
     id: '',

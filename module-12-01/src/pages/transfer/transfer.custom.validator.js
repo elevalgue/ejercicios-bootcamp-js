@@ -1,12 +1,12 @@
 export const dayValidator = ({ value }) => {
-    const succeeded = parseInt(value) < 1 && parseInt(value) <= 31;
+    const succeeded = parseInt(value) > 0 && parseInt(value) <= 31;
     return {
         succeeded,
     }
 };
 
 export const monthValidator = ({ value }) => {
-    const succeeded = parseInt(value) < 1 && parseInt(value) <= 12;
+    const succeeded = parseInt(value) > 0 && parseInt(value) <= 12;
     return {
         succeeded,
         type: '',
