@@ -16,9 +16,9 @@ export const monthValidator = ({ value }) => {
 
 export const yearValidator = ({ value }) => {
     const succeeded = parseInt(value) >= 2020;
-        return {
+    return {
         succeeded,
         type: '',
-        message: succeeded ? '' : 'Error en el año',
+        message: succeeded ? '' : 'Año inválido',
     }
 };

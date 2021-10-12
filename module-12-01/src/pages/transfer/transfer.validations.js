@@ -1,6 +1,6 @@
 import { Validators, createFormValidation } from '@lemoncode/fonk';
 import { iban } from '@lemoncode/fonk-iban-validator';
-import { } from './transfer.custom.validator';
+import { dayValidator, monthValidator, yearValidator } from './transfer.custom.validator';
 
 
 // const patternIBAN = /^(([A-Z]{2}\d{2})(\d{20}))|((([A-Z]{2}\d{2})(\s\d{4}){4})\s{1}\d{4})$/i;
@@ -41,18 +41,28 @@ const validationsSchema = {
         day: [{
             validator: Validators.required,
             message: 'Campo requerido',
-        }],
-
+            },
+            {
+                validator: dayValidator,
+            }
+        ],
         month: [{
             validator: Validators.required,
             message: 'Campo requerido',
-        }],
+            },
+            {
+                validator: monthValidator,
+            }
+        ],
 
         year: [{
-            validator: Validators.required,
-            message: 'Campo requerido',
-        }],
-
+                validator: Validators.required,
+                message: 'Campo requerido',
+            },
+            {
+                validator: yearValidator,
+            }
+        ],
         email: [{
             validator: Validators.required,
             message: 'Campo requerido',
