@@ -6804,7 +6804,6 @@ var _fonkIbanValidator = require("@lemoncode/fonk-iban-validator");
 
 var _transferCustom = require("./transfer.custom.validator");
 
-// const patternIBAN = /^(([A-Z]{2}\d{2})(\d{20}))|((([A-Z]{2}\d{2})(\s\d{4}){4})\s{1}\d{4})$/i;
 // const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 var validationsSchema = {
   field: {
@@ -6853,10 +6852,7 @@ var validationsSchema = {
     }, {
       validator: _transferCustom.yearValidator
     }],
-    email: [{
-      validator: _fonk.Validators.required,
-      message: 'Campo requerido'
-    }]
+    email: [_fonk.Validators.email]
   }
 };
 var formValidation = (0, _fonk.createFormValidation)(validationsSchema);
@@ -7052,7 +7048,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49752" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52326" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
