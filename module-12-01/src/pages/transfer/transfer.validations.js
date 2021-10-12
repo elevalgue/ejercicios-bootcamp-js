@@ -2,7 +2,6 @@ import { Validators, createFormValidation } from '@lemoncode/fonk';
 import { iban } from '@lemoncode/fonk-iban-validator';
 import { dayValidator, monthValidator, yearValidator } from './transfer.custom.validator';
 
-
 // const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 const validationsSchema = {
@@ -70,7 +69,6 @@ const validationsSchema = {
             }
         ],
 
-        // email: [Validators.email]
         email:[
                 {
                     validator: Validators.email,
