@@ -33,11 +33,11 @@ onUpdateField('type', (event) => {
 
 });
 
-onUpdateField('alias', (event) => {
+onUpdateField('alias', event => {
     const value = event.target.value;
     account = {
         ...account,
-        alias: value,
+        alias: value
     }
 
     formValidation.validateField('alias', account.alias).then(result => {
@@ -48,7 +48,7 @@ onUpdateField('alias', (event) => {
 
 const onSave = () => {
     const apiAccount = mapAccountVmToApi(account);
-    console.log({ apiAccount });
+    // console.log({ apiAccount });
     return isEditMode ? updateAccount(apiAccount) : insertAccount(apiAccount);
 };
 

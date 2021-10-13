@@ -6340,11 +6340,7 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var url = "".concat("http://localhost:3000/api", "/account"); //without spread operator
-// export const insertAccount = account =>
-//     Axios.post(`${url}/${account.id}`, account).then(response => {
-//     return response.data; 
-//     })
+var url = "".concat("http://localhost:3000/api", "/account");
 
 var insertAccount = function insertAccount(account) {
   return _axios.default.post("".concat(url, "/").concat(account.id), account).then(function (_ref) {
@@ -6459,10 +6455,8 @@ if (isEditMode) {
 });
 
 var onSave = function onSave() {
-  var apiAccount = (0, _account3.mapAccountVmToApi)(account);
-  console.log({
-    apiAccount: apiAccount
-  });
+  var apiAccount = (0, _account3.mapAccountVmToApi)(account); // console.log({ apiAccount });
+
   return isEditMode ? (0, _account2.updateAccount)(apiAccount) : (0, _account2.insertAccount)(apiAccount);
 };
 
@@ -6505,7 +6499,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54633" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57581" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
