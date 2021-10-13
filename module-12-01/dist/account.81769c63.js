@@ -6378,21 +6378,13 @@ exports.updateAccount = updateAccount;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mapAccountApiToVm = exports.mapAccountVmToApi = void 0;
+exports.mapAccountVmToApi = exports.mapAccountApiToVm = void 0;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var mapAccountVmToApi = function mapAccountVmToApi(account) {
-  return _objectSpread(_objectSpread({}, account), {}, {
-    name: account.alias
-  });
-};
-
-exports.mapAccountVmToApi = mapAccountVmToApi;
 
 var mapAccountApiToVm = function mapAccountApiToVm(account) {
   return _objectSpread(_objectSpread({}, account), {}, {
@@ -6401,6 +6393,14 @@ var mapAccountApiToVm = function mapAccountApiToVm(account) {
 };
 
 exports.mapAccountApiToVm = mapAccountApiToVm;
+
+var mapAccountVmToApi = function mapAccountVmToApi(account) {
+  return _objectSpread(_objectSpread({}, account), {}, {
+    name: account.alias
+  });
+};
+
+exports.mapAccountVmToApi = mapAccountVmToApi;
 },{}],"pages/account/account.js":[function(require,module,exports) {
 "use strict";
 
@@ -6471,7 +6471,7 @@ var onSave = function onSave() {
     (0, _helpers.onSetFormErrors)(result);
 
     if (result.succeeded) {
-      onSave().then(function (apiAccount) {
+      onSave().then(function () {
         _router.history.back();
       });
     }
@@ -6505,7 +6505,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51089" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54633" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -23,6 +23,14 @@
       "name": "Ahorro",
       "balance": 8500,
       "lastTransaction": "2019-11-15T08:29:04"
+    },
+    {
+      "iban": "LI85 0915 01U1 1C01 237Z D",
+      "name": "Karnita",
+      "type": "2",
+      "balance": 0,
+      "lastTransaction": "2021-10-13T16:38:04.803Z",
+      "id": "i9L2Egy"
     }
   ],
   "movements": [

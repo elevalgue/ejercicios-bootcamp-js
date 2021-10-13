@@ -4392,18 +4392,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.mapAccountListApiToVm = void 0;
 
-var mapAccountListApiToVm = function mapAccountListApiToVm(accountList) {
-  return accountList.map(function (account) {
-    return mapAccountApiToVm(account);
-  });
-}; // export const mapAccountListApiToVm = accountList =>
+// export const mapAccountListApiToVm = accountList =>
 //     Array.isArray(accountList)
 //         ? accountList.map(account => mapAccountFromApiToVm(account))
 //         : [];
-
-
-exports.mapAccountListApiToVm = mapAccountListApiToVm;
-
 var mapAccountApiToVm = function mapAccountApiToVm(account) {
   return {
     id: account.id,
@@ -4413,6 +4405,14 @@ var mapAccountApiToVm = function mapAccountApiToVm(account) {
     lastTransaction: new Date(account.lastTransaction).toLocaleDateString()
   };
 };
+
+var mapAccountListApiToVm = function mapAccountListApiToVm(accountList) {
+  return accountList.map(function (account) {
+    return mapAccountApiToVm(account);
+  });
+};
+
+exports.mapAccountListApiToVm = mapAccountListApiToVm;
 },{}],"common/helpers/element.helpers.js":[function(require,module,exports) {
 "use strict";
 
@@ -4616,7 +4616,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51089" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54633" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

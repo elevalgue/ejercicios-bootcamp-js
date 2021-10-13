@@ -7,6 +7,7 @@ import { history } from './../../core/router';
 
 const params = history.getParams();
 
+
 getAccount(params.id).then(account => {
   onSetValues(account);
 });
