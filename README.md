@@ -19,3 +19,6 @@ I'm on the way to improve my JS skills. Practice makes perfect! 💪
 - **Module 12-01:** Case Study - Online Bank
 - **Module 12-02:** Case Study - Real State Agency Site
 
+##
+
+Made with ⭐ by @elevalgue
