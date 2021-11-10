@@ -1,6 +1,6 @@
 # Laboratorio Módulo 04 - Funciones y Eventos
 
-## Calculadora:
+## Calculadora: 🧮
 
 Vamos a crear una calculadora sencilla. Para ello:
 
