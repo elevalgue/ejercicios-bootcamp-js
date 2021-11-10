@@ -1,4 +1,4 @@
-# Laboratorio Módulo 05 - Arrays & Bucles
+# Laboratorio Módulo 05 - Arrays & Bucles ♾️
 
 ## Ejercicios para el laboratorio:
 
