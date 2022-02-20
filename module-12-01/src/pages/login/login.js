@@ -37,7 +37,6 @@ const onNavigate = (isValid) => {
     if (isValid) {
         history.push(routes.accountList);
     } else {
-        // alert('Usuario y/o contraseña no válidos');
         alert('Invalid user name and/or password');
     }
 };
